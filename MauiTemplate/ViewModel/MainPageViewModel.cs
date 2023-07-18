@@ -18,7 +18,7 @@ public partial class MainPageViewModel : BaseViewModel
 	private BtnTypes _heldBtnType;
 
 	private bool _btnPressed;
-	private string _heldBTnId;
+	private string _heldBtnId;
 
 	[ObservableProperty]
 	private int setsCount;
@@ -54,44 +54,40 @@ public partial class MainPageViewModel : BaseViewModel
 
 	private void HoldTick(object state)
 	{
-		if (_heldBtnType == BtnTypes.Plus) PlusBtnAction(_heldBTnId);
-		else MinusBtnAction(_heldBTnId);
+		BtnAction(_heldBtnId);
 	}
 
 	public void OnPlusBtnPressed(object sender, EventArgs e)
 	{
 		if (_btnPressed) return;
-
-		_btnPressed = true;
-		var btn = (Button)sender;
-		_heldBTnId = btn.ClassId;
 		_heldBtnType = BtnTypes.Plus;
-
-		_timeToHoldTimer = new System.Threading.Timer(StartHold, null, _timeToStartHold, Infinite);
-		PlusBtnAction(btn.ClassId);
+		
+		OnBtnPressed(sender, e);
 	}
-
 	public void OnMinusBtnPressed(object sender, EventArgs e)
 	{
 		if (_btnPressed) return;
-
-		_btnPressed = true;
-		var btn = (Button)sender;
-		_heldBTnId = btn.ClassId;
 		_heldBtnType = BtnTypes.Minus;
 
-		_timeToHoldTimer = new System.Threading.Timer(StartHold, null, _timeToStartHold, Infinite);
-		MinusBtnAction(btn.ClassId);
+		OnBtnPressed(sender, e);
 	}
+	private void OnBtnPressed(object sender, EventArgs e)
+	{
+		_btnPressed = true;
+		var btn = (Button)sender;
+		_heldBtnId = btn.ClassId;
 
+		_timeToHoldTimer = new System.Threading.Timer(StartHold, null, _timeToStartHold, Infinite);
+		BtnAction(_heldBtnId);
+	}
 	public void OnBtnReleased(object sender, EventArgs e)
 	{
 		var btn = (Button)sender;
 		// Released btn is different from button that is currently held
-		if (btn.ClassId != _heldBTnId) return;
+		if (btn.ClassId != _heldBtnId) return;
 		
 		_btnPressed = false;
-		_heldBTnId = null;
+		_heldBtnId = null;
 
 		_timeToHoldTimer?.Dispose();
 		_timeToHoldTimer = null;
@@ -99,37 +95,19 @@ public partial class MainPageViewModel : BaseViewModel
 		_holdTimer = null;
 	}
 
-	public void PlusBtnAction(string btnName)
+	private void BtnAction(string btnName)
 	{
-		if (btnName == "sets")
+		switch(btnName)
 		{
-			_intervalTimer.IncrementSetsCount();
-		}
-		if (btnName == "workTime")
-		{
-			_intervalTimer.IncrementWorkTime();
-		}
-		if (btnName == "restTime")
-		{
-			_intervalTimer.IncrementRestTime();
-		}
-
-		UpdateProperties();
-	}
-
-	public void MinusBtnAction(string btnName)
-	{
-		if (btnName == "sets")
-		{
-			_intervalTimer.DecrementSetsCount();
-		}
-		if (btnName == "workTime")
-		{
-			_intervalTimer.DecrementWorkTime();
-		}
-		if (btnName == "restTime")
-		{
-			_intervalTimer.DecrementRestTime();
+			case "sets":
+				(_heldBtnType == BtnTypes.Plus ? (Action)_intervalTimer.IncrementSetsCount : _intervalTimer.DecrementSetsCount)();
+				break;
+			case "workTime":
+				(_heldBtnType == BtnTypes.Plus ? (Action)_intervalTimer.IncrementWorkTime : _intervalTimer.DecrementWorkTime)();
+				break;
+			case "restTime":
+				(_heldBtnType == BtnTypes.Plus ? (Action)_intervalTimer.IncrementRestTime : _intervalTimer.DecrementRestTime)();
+				break;
 		}
 
 		UpdateProperties();
