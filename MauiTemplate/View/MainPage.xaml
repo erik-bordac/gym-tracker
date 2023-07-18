@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="GymTracker.View.MainPage"
+    xmlns:model="clr-namespace:GymTracker.Model"
+    xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
+	x:DataType="viewmodel:MainPageViewModel">
+	
+	<!--Main Grid-->
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="20" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="20" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="20" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="20" />
+		</Grid.ColumnDefinitions>
+
+		<StackLayout HorizontalOptions="Center"
+				 VerticalOptions="Center"
+				 Grid.Row="1" Grid.Column="1">
+			<!--Circle-->
+			<Grid>
+				<Ellipse
+					Aspect="UniformToFill"
+					Fill="Gray"
+					MaximumWidthRequest="500"/>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+				</Grid>
+				<StackLayout HorizontalOptions="Center" VerticalOptions="Center" IsVisible="True">
+					<Label Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="52" Text="{Binding SetsCount}"/>
+					<Label Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" FontSize="76" Text="{Binding WorkTimeLeft}"/>
+					<Label Grid.Row="2" FontSize="52"></Label>
+				</StackLayout>
+			</Grid>
+			
+			<!--Settings-->
+			<StackLayout IsVisible="True">
+				<Label HorizontalOptions="Center" FontSize="24" Margin="10, 0, 0, 0">Sets</Label>
+				<HorizontalStackLayout HorizontalOptions="Center">
+					<Button ClassId="sets" 
+							Text="-" 
+							Pressed="OnMinusBtnPressed"
+							Released="OnBtnReleased"/>
+					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding SetsCount}"/>
+					<Button ClassId="sets" 
+							Text="+" 
+							Pressed="OnPlusBtnPressed"
+							Released="OnBtnReleased"/>
+				</HorizontalStackLayout>
+
+				<Label HorizontalOptions="Center" FontSize="24" Margin="10, 0, 0, 0">Work Time</Label>
+				<HorizontalStackLayout HorizontalOptions="Center">
+					<Button ClassId="workTime" 
+							Text="-" 
+							Pressed="OnMinusBtnPressed"
+							Released="OnBtnReleased"/>
+					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding WorkTime}"/>
+					<Button ClassId="workTime" 
+							Text="+" 
+							Pressed="OnPlusBtnPressed"
+							Released="OnBtnReleased"/>
+				</HorizontalStackLayout>
+
+				<Label HorizontalOptions="Center" FontSize="24" Margin="10, 0, 0, 0">Rest Time</Label>
+				<HorizontalStackLayout HorizontalOptions="Center">
+					<Button ClassId="restTime" 
+							Text="-" 
+							Pressed="OnMinusBtnPressed"
+							Released="OnBtnReleased"/>
+					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding RestTime}"/>
+					<Button ClassId="restTime" 
+							Text="+" 
+							Pressed="OnPlusBtnPressed"
+							Released="OnBtnReleased"/>
+				</HorizontalStackLayout>
+			</StackLayout>
+
+			<Button Text="Start" Margin="0, 24, 0, 0"/>
+		</StackLayout>
+	</Grid>
+	
+</ContentPage>
