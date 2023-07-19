@@ -37,10 +37,15 @@ public partial class MainPageViewModel : BaseViewModel
 	private int restTime;
 
 	[ObservableProperty]
-	[NotifyPropertyChangedFor(nameof(IsNotRunning))]
+	[NotifyPropertyChangedFor(nameof(IsNotRunningAndIsStarted))]
 	private bool isRunning;
+	public bool IsNotRunningAndIsStarted => (!IsRunning && IsStarted);
 
-	public bool IsNotRunning => !IsRunning;
+	[ObservableProperty]
+	[NotifyPropertyChangedFor(nameof(IsNotStarted))]
+	[NotifyPropertyChangedFor(nameof(IsNotRunningAndIsStarted))]
+	private bool isStarted;
+	public bool IsNotStarted=> !IsStarted;
 
 	public MainPageViewModel(IntervalTimerService intervalTimer)
 	{
@@ -126,6 +131,7 @@ public partial class MainPageViewModel : BaseViewModel
 	private void StartInterval()
 	{
 		_intervalRunningTimer = new Timer(OnTick, null, Second, Second);
+		IsStarted = true;
 		IsRunning = true;
 	}
 
@@ -141,8 +147,27 @@ public partial class MainPageViewModel : BaseViewModel
 	[RelayCommand]	
 	private void StopInterval()
 	{
+		IsStarted = false;
 		IsRunning = false;
+
+		_intervalTimer.resetTimer();
+		UpdateProperties();
+
 		_intervalRunningTimer?.Dispose();
 		_intervalRunningTimer = null;
+	}
+
+	[RelayCommand]	
+	private void PauseInterval()
+	{
+		IsRunning = false;
+		_intervalRunningTimer.Change(Infinite, Infinite);
+	}
+
+	[RelayCommand]	
+	private void ResumeInterval()
+	{
+		IsRunning = true;
+		_intervalRunningTimer.Change(Infinite, Infinite);
 	}
 }

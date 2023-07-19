@@ -28,7 +28,8 @@
 				<Ellipse
 					Aspect="UniformToFill"
 					Fill="Gray"
-					MaximumWidthRequest="500"/>
+					MaximumWidthRequest="300"
+					MaximumHeightRequest="300"/>
 				<Grid>
 					<Grid.RowDefinitions>
 						<RowDefinition Height="*"/>
@@ -52,13 +53,13 @@
 				<HorizontalStackLayout HorizontalOptions="Center">
 					<Button ClassId="sets" 
 							Text="-" 
-							IsVisible="{Binding IsNotRunning}"
+							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnMinusBtnPressed"
 							Released="OnBtnReleased"/>
 					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding SetsCount}"/>
 					<Button ClassId="sets" 
 							Text="+" 
-							IsVisible="{Binding IsNotRunning}"
+							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnPlusBtnPressed"
 							Released="OnBtnReleased"/>
 				</HorizontalStackLayout>
@@ -67,13 +68,13 @@
 				<HorizontalStackLayout HorizontalOptions="Center">
 					<Button ClassId="workTime" 
 							Text="-" 
-							IsVisible="{Binding IsNotRunning}"
+							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnMinusBtnPressed"
 							Released="OnBtnReleased"/>
 					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding WorkTime}"/>
 					<Button ClassId="workTime" 
 							Text="+" 
-							IsVisible="{Binding IsNotRunning}"
+							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnPlusBtnPressed"
 							Released="OnBtnReleased"/>
 				</HorizontalStackLayout>
@@ -82,21 +83,22 @@
 				<HorizontalStackLayout HorizontalOptions="Center">
 					<Button ClassId="restTime" 
 							Text="-" 
-							IsVisible="{Binding IsNotRunning}"
+							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnMinusBtnPressed"
 							Released="OnBtnReleased"/>
 					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding RestTime}"/>
 					<Button ClassId="restTime" 
 							Text="+" 
-							IsVisible="{Binding IsNotRunning}"
+							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnPlusBtnPressed"
 							Released="OnBtnReleased"/>
 				</HorizontalStackLayout>
 			</StackLayout>
 
-			<Button Text="Start" Margin="0, 24, 0, 0" Command="{Binding StartIntervalCommand}" IsVisible="{Binding IsNotRunning}"/>
-			<Button Text="Pause" Margin="0, 24, 0, 0" Command="{Binding StopIntervalCommand}" IsVisible="{Binding IsRunning}"/>
-			<Button Text="Stop" Margin="0, 24, 0, 0" Command="{Binding StopIntervalCommand}" IsVisible="{Binding IsRunning}"/>
+			<Button Text="Start" Margin="0, 24, 0, 0" Command="{Binding StartIntervalCommand}" IsVisible="{Binding IsNotStarted}"/>
+			<Button Text="Pause" Margin="0, 24, 0, 0" Command="{Binding PauseIntervalCommand}" IsVisible="{Binding IsRunning}"/>
+			<Button Text="Resume" Margin="0, 24, 0, 0" Command="{Binding ResumeIntervalCommand}" IsVisible="{Binding IsNotRunningAndIsStarted}"/>
+			<Button Text="Stop" Margin="0, 24, 0, 0" Command="{Binding StopIntervalCommand}" IsVisible="{Binding IsStarted}"/>
 		</StackLayout>
 	</Grid>
 	

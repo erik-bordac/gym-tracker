@@ -71,13 +71,13 @@ public class IntervalTimerService
 
 	public bool PassSecond()
 	{
-		if (workTimeLeft > 0)
+		if (workTimeLeft > 1)
 		{
 			workTimeLeft--;
 			return false;
 		}
 		
-		if (restTimeLeft > 0)
+		if (restTimeLeft > 1)
 		{
 			restTimeLeft--;
 			return false;
@@ -95,6 +95,13 @@ public class IntervalTimerService
 		workTimeLeft = workTime;
 		restTimeLeft = restTime;
 		return true;
+	}
+	
+	public void resetTimer()
+	{
+		setsCountLeft = setsCount;
+		workTimeLeft = workTime;
+		restTimeLeft = restTime;
 	}
 }
 
