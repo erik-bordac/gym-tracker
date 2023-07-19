@@ -4,12 +4,15 @@ namespace GymTracker.ViewModel;
 public partial class MainPageViewModel : BaseViewModel
 {
 	private const int Infinite = -1;
+	private const int Second = 1000;
 
 	private IntervalTimerService _intervalTimer;
 	private System.Threading.Timer _timeToHoldTimer;
 	private int _timeToStartHold = 1000;
 	private System.Threading.Timer _holdTimer;
 	private int _holdTickTime = 50;
+	private System.Threading.Timer _intervalRunningTimer;
+
 	private enum BtnTypes 
 	{
 		Plus,
@@ -32,6 +35,12 @@ public partial class MainPageViewModel : BaseViewModel
 
 	[ObservableProperty]
 	private int restTime;
+
+	[ObservableProperty]
+	[NotifyPropertyChangedFor(nameof(IsNotRunning))]
+	private bool isRunning;
+
+	public bool IsNotRunning => !IsRunning;
 
 	public MainPageViewModel(IntervalTimerService intervalTimer)
 	{
@@ -111,5 +120,29 @@ public partial class MainPageViewModel : BaseViewModel
 		}
 
 		UpdateProperties();
+	}
+
+	[RelayCommand]	
+	private void StartInterval()
+	{
+		_intervalRunningTimer = new Timer(OnTick, null, Second, Second);
+		IsRunning = true;
+	}
+
+	private void OnTick(object state)
+	{
+		if (_intervalTimer.PassSecond())
+		{
+			StopInterval();
+		}
+		UpdateProperties();
+	}
+
+	[RelayCommand]	
+	private void StopInterval()
+	{
+		IsRunning = false;
+		_intervalRunningTimer?.Dispose();
+		_intervalRunningTimer = null;
 	}
 }
