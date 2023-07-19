@@ -3,5 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:GymTracker"
              x:Class="GymTracker.App">
-	
+
+	<Application.Resources>
+		<Style TargetType="Label">
+			<Setter Property="TextColor" Value="#f2e9e4"/>
+		</Style>
+		<Style TargetType="Button">
+			<Setter Property="TextColor" Value="#f2e9e4"/>
+			<Setter Property="BackgroundColor" Value="#2D4356"/>
+		</Style>
+		
+	</Application.Resources>
 </Application>

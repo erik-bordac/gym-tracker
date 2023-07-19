@@ -5,7 +5,8 @@
     x:Class="GymTracker.View.MainPage"
     xmlns:model="clr-namespace:GymTracker.Model"
     xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
-	x:DataType="viewmodel:MainPageViewModel">
+	x:DataType="viewmodel:MainPageViewModel"
+	BackgroundColor="#435B66">
 	
 	<!--Main Grid-->
 	<Grid>
@@ -25,9 +26,15 @@
 				 Grid.Row="1" Grid.Column="1">
 			<!--Circle-->
 			<Grid MaximumWidthRequest="300">
+				<!--
+				Fill="#60a56c"
+				Fill="#e07435"
+				-->
 				<Ellipse
 					Aspect="Uniform"
-					Fill="Gray"
+					Fill="#435B66"
+					Stroke="#2D4356"
+					StrokeThickness="5"
 					MaximumWidthRequest="300"
 					MaximumHeightRequest="300"/>
 				<Grid>
