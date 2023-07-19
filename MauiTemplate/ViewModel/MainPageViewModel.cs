@@ -168,6 +168,6 @@ public partial class MainPageViewModel : BaseViewModel
 	private void ResumeInterval()
 	{
 		IsRunning = true;
-		_intervalRunningTimer.Change(Infinite, Infinite);
+		_intervalRunningTimer.Change(Second, Second);
 	}
 }

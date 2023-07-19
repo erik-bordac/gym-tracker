@@ -16,7 +16,7 @@
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="20" />
-			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" x:Name="col"/>
 			<ColumnDefinition Width="20" />
 		</Grid.ColumnDefinitions>
 
@@ -24,9 +24,9 @@
 				 VerticalOptions="Center"
 				 Grid.Row="1" Grid.Column="1">
 			<!--Circle-->
-			<Grid>
+			<Grid MaximumWidthRequest="300">
 				<Ellipse
-					Aspect="UniformToFill"
+					Aspect="Uniform"
 					Fill="Gray"
 					MaximumWidthRequest="300"
 					MaximumHeightRequest="300"/>
