@@ -4,9 +4,10 @@
 		 x:Class="GymTracker.AppShell"
 		 xmlns:view="clr-namespace:GymTracker.View"
 		 FlyoutBehavior="Flyout"
-		 BackgroundColor="#2D4356"
+	   FlyoutBackground="#677888"
+		 BackgroundColor="#567189"
 		 ForegroundColor="#f2e9e4"
-		 TitleColor="#f2e9e4">
+		 TitleColor="#EDEDED">
 	<Shell.Resources>
     </Shell.Resources>
 

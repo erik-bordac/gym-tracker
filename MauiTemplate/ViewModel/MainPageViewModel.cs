@@ -8,10 +8,11 @@ public partial class MainPageViewModel : BaseViewModel
 
 	private IntervalTimerService _intervalTimer;
 	private System.Threading.Timer _timeToHoldTimer;
-	private int _timeToStartHold = 1000;
+	private int _timeToStartHold = 600;
 	private System.Threading.Timer _holdTimer;
 	private int _holdTickTime = 50;
 	private System.Threading.Timer _intervalRunningTimer;
+
 
 	private enum BtnTypes 
 	{
@@ -37,9 +38,17 @@ public partial class MainPageViewModel : BaseViewModel
 	private int restTime;
 
 	[ObservableProperty]
+	private int restTimeLeft;
+
+	[ObservableProperty]
 	[NotifyPropertyChangedFor(nameof(IsNotRunningAndIsStarted))]
 	private bool isRunning;
 	public bool IsNotRunningAndIsStarted => (!IsRunning && IsStarted);
+
+	[ObservableProperty]
+	[NotifyPropertyChangedFor(nameof(IsNotRestTime))]
+	private bool isRestTime;
+	public bool IsNotRestTime => (!IsRestTime);
 
 	[ObservableProperty]
 	[NotifyPropertyChangedFor(nameof(IsNotStarted))]
@@ -47,9 +56,17 @@ public partial class MainPageViewModel : BaseViewModel
 	private bool isStarted;
 	public bool IsNotStarted=> !IsStarted;
 
+	[ObservableProperty]
+	private Color backgroundColor;
+
+	[ObservableProperty]
+	private Color ellipseColor;
+
 	public MainPageViewModel(IntervalTimerService intervalTimer)
 	{
 		_intervalTimer = intervalTimer;
+		backgroundColor = Color.FromRgba("#7B8FA1");
+		ellipseColor= Color.FromRgba("#7B8FA1");
 		UpdateProperties();
 	}
 
@@ -59,6 +76,8 @@ public partial class MainPageViewModel : BaseViewModel
 		WorkTime = _intervalTimer.workTime;
 		WorkTimeLeft = _intervalTimer.workTimeLeft;
 		RestTime = _intervalTimer.restTime;
+		RestTimeLeft = _intervalTimer.restTimeLeft;
+		IsRestTime = _intervalTimer.IsRestTime;
 	}
 
 	private void StartHold(object state)
@@ -131,15 +150,27 @@ public partial class MainPageViewModel : BaseViewModel
 	private void StartInterval()
 	{
 		_intervalRunningTimer = new Timer(OnTick, null, Second, Second);
+		BackgroundColor = Color.FromRgba("#75BAAE");
+		EllipseColor = Color.FromRgba("#9FD9BA");
 		IsStarted = true;
 		IsRunning = true;
 	}
-
 	private void OnTick(object state)
 	{
 		if (_intervalTimer.PassSecond())
 		{
 			StopInterval();
+			return;
+		}
+
+		if (_intervalTimer.IsRestTime)
+		{
+			BackgroundColor = Color.FromRgba("#84BCDC");
+			EllipseColor = Color.FromRgba("#ADD5EB");
+		} else
+		{
+			BackgroundColor = Color.FromRgba("#75BAAE");
+			EllipseColor = Color.FromRgba("#9FD9BA");
 		}
 		UpdateProperties();
 	}
@@ -147,6 +178,9 @@ public partial class MainPageViewModel : BaseViewModel
 	[RelayCommand]	
 	private void StopInterval()
 	{
+		BackgroundColor = Color.FromRgba("#7B8FA1");
+		EllipseColor= Color.FromRgba("#7B8FA1");
+
 		IsStarted = false;
 		IsRunning = false;
 

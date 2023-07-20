@@ -6,7 +6,7 @@
     xmlns:model="clr-namespace:GymTracker.Model"
     xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
 	x:DataType="viewmodel:MainPageViewModel"
-	BackgroundColor="#435B66">
+	BackgroundColor="{Binding BackgroundColor}">
 	
 	<!--Main Grid-->
 	<Grid>
@@ -27,13 +27,12 @@
 			<!--Circle-->
 			<Grid MaximumWidthRequest="300">
 				<!--
-				Fill="#60a56c"
-				Fill="#e07435"
+				Fill="#141414"
 				-->
 				<Ellipse
 					Aspect="Uniform"
-					Fill="#435B66"
-					Stroke="#2D4356"
+					Fill="{Binding EllipseColor}"
+					Stroke="#EDEDED"
 					StrokeThickness="5"
 					MaximumWidthRequest="300"
 					MaximumHeightRequest="300"/>
@@ -49,7 +48,8 @@
 				</Grid>
 				<StackLayout HorizontalOptions="Center" VerticalOptions="Center" IsVisible="True">
 					<Label Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="52" Text="{Binding SetsCountLeft}"/>
-					<Label Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" FontSize="76" Text="{Binding WorkTimeLeft}"/>
+					<Label Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" FontSize="76" Text="{Binding WorkTimeLeft}" IsVisible="{Binding IsNotRestTime}"/>
+					<Label Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" FontSize="76" Text="{Binding RestTimeLeft}" IsVisible="{Binding IsRestTime}"/>
 					<Label Grid.Row="2" FontSize="52"></Label>
 				</StackLayout>
 			</Grid>
