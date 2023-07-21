@@ -212,6 +212,16 @@ public partial class MainPageViewModel : BaseViewModel
 	{
 		IsRunning = false;
 		_intervalRunningTimer.Change(Infinite, Infinite);
+
+		if (IsRestTime)
+		{
+			BackgroundColor = Color.FromRgba("#658DA4");
+			EllipseColor = Color.FromRgba("#81A4B8");
+		} else
+		{
+			BackgroundColor = Color.FromRgba("#6A948C");
+			EllipseColor = Color.FromRgba("#7BAD92");
+		}
 	}
 
 	[RelayCommand]	
@@ -219,5 +229,16 @@ public partial class MainPageViewModel : BaseViewModel
 	{
 		IsRunning = true;
 		_intervalRunningTimer.Change(Second, Second);
+
+		if (_intervalTimer.IsRestTime)
+		{
+			BackgroundColor = Color.FromRgba("#84BCDC");
+			EllipseColor = Color.FromRgba("#ADD5EB");
+		} else
+		{
+			BackgroundColor = Color.FromRgba("#75BAAE");
+			EllipseColor = Color.FromRgba("#9FD9BA");
+		}
+
 	}
 }

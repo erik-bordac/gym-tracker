@@ -48,9 +48,10 @@
 				</Grid>
 				<StackLayout HorizontalOptions="Center" VerticalOptions="Center" IsVisible="True">
 					<Label Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="52" Text="{Binding SetsCountLeft}"/>
-					<Label Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" FontSize="76" Text="{Binding WorkTimeLeft}" IsVisible="{Binding IsNotRestTime}"/>
-					<Label Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" FontSize="76" Text="{Binding RestTimeLeft}" IsVisible="{Binding IsRestTime}"/>
-					<Label Grid.Row="2" FontSize="52"></Label>
+					<Label Grid.Row="1" FontSize="76" Text="WORK" IsVisible="{Binding IsNotRestTime}"></Label>
+					<Label Grid.Row="1" FontSize="76" Text="REST" IsVisible="{Binding IsRestTime}"></Label>
+					<Label Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="52" Text="{Binding WorkTimeLeft}" IsVisible="{Binding IsNotRestTime}"/>
+					<Label Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="52" Text="{Binding RestTimeLeft}" IsVisible="{Binding IsRestTime}"/>
 				</StackLayout>
 			</Grid>
 			
