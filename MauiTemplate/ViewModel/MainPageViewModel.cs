@@ -1,4 +1,5 @@
 ﻿using GymTracker.Services;
+using Plugin.Maui.Audio;
 
 namespace GymTracker.ViewModel;
 public partial class MainPageViewModel : BaseViewModel
@@ -68,6 +69,13 @@ public partial class MainPageViewModel : BaseViewModel
 		backgroundColor = Color.FromRgba("#7B8FA1");
 		ellipseColor= Color.FromRgba("#7B8FA1");
 		UpdateProperties();
+	}
+	
+	private async void PlayWhistleSound()
+	{
+		var audioPlayer = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("whistle_sound.mp3"));
+
+		audioPlayer.Play();
 	}
 
 	private void UpdateProperties() { 
@@ -149,6 +157,8 @@ public partial class MainPageViewModel : BaseViewModel
 	[RelayCommand]	
 	private void StartInterval()
 	{
+		PlayWhistleSound();
+
 		_intervalRunningTimer = new Timer(OnTick, null, Second, Second);
 		BackgroundColor = Color.FromRgba("#75BAAE");
 		EllipseColor = Color.FromRgba("#9FD9BA");
@@ -160,7 +170,13 @@ public partial class MainPageViewModel : BaseViewModel
 		if (_intervalTimer.PassSecond())
 		{
 			StopInterval();
+			PlayWhistleSound();
 			return;
+		}
+
+		if(_intervalTimer.WorkTimeStateChanged)
+		{
+			PlayWhistleSound();
 		}
 
 		if (_intervalTimer.IsRestTime)

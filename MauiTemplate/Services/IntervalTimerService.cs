@@ -15,6 +15,7 @@ public class IntervalTimerService
 	public int restTime;
 	public int restTimeLeft;
 
+	public bool WorkTimeStateChanged;
 	public bool IsRestTime;
 
 	public IntervalTimerService()
@@ -75,10 +76,20 @@ public class IntervalTimerService
 
 	public bool PassSecond()
 	{
+		WorkTimeStateChanged = false;
+
 		if (workTimeLeft > 1)
 		{
 			workTimeLeft--;
 			return false;
+		}
+		
+		if(workTimeLeft == 1 && restTimeLeft == restTime + 1)
+		{
+			WorkTimeStateChanged = true;
+		} else
+		{
+			WorkTimeStateChanged = false;
 		}
 		
 		if(setsCountLeft == 1)
@@ -94,6 +105,7 @@ public class IntervalTimerService
 			return false;
 		}
 
+		WorkTimeStateChanged = true;
 		
 		if (setsCountLeft > 1)
 		{
@@ -111,6 +123,7 @@ public class IntervalTimerService
 	public void resetTimer()
 	{
 		IsRestTime = false;
+		WorkTimeStateChanged = false;
 		setsCountLeft = setsCount;
 		workTimeLeft = workTime;
 		restTimeLeft = restTime + 1;

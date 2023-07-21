@@ -9,17 +9,14 @@ public static class MauiProgram
 	private static void RegisterViewModels(MauiAppBuilder builder)
 	{
 		builder.Services.AddSingleton<MainPageViewModel>();
-		return;
 	}
 	private static void RegisterViews(MauiAppBuilder builder)
 	{
 		builder.Services.AddSingleton<MainPage>();
-		return;
 	}
 	private static void RegisterServices(MauiAppBuilder builder)
 	{
 		builder.Services.AddSingleton<IntervalTimerService>();
-		return;
 	}
 
 	public static MauiApp CreateMauiApp()
