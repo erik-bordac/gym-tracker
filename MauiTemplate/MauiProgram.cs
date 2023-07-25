@@ -13,6 +13,8 @@ public static class MauiProgram
 	private static void RegisterViews(MauiAppBuilder builder)
 	{
 		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddSingleton<RoutinesPage>();
+		builder.Services.AddSingleton<ExercisesPage>();
 	}
 	private static void RegisterServices(MauiAppBuilder builder)
 	{

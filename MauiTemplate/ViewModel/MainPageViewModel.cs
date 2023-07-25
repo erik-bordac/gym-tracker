@@ -13,7 +13,6 @@ public partial class MainPageViewModel : BaseViewModel
 	private readonly Color runningLight = Color.FromRgba("#9FD9BA");
 	private readonly Color restDark = Color.FromRgba("#84BCDC");
 	private readonly Color restLight = Color.FromRgba("#ADD5EB");
-
 	private readonly Color pausedRunningDark = Color.FromRgba("#6A948C");
 	private readonly Color pausedRunningLight= Color.FromRgba("#7BAD92");
 	private readonly Color pausedRestDark = Color.FromRgba("#658DA4");
@@ -78,13 +77,14 @@ public partial class MainPageViewModel : BaseViewModel
 	public MainPageViewModel(IntervalTimerService intervalTimer)
 	{
 		_intervalTimer = intervalTimer;
-		backgroundColor = Color.FromRgba("#7B8FA1");
-		ellipseColor= Color.FromRgba("#7B8FA1");
+		backgroundColor = this.defaultDark;
+		ellipseColor = this.defaultLight;
 		UpdateProperties();
 	}
 	
 	private async void PlayWhistleSound()
 	{
+		// add dependency injection ?
 		var audioPlayer = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("whistle_sound.mp3"));
 
 		audioPlayer.Play();
@@ -166,7 +166,7 @@ public partial class MainPageViewModel : BaseViewModel
 		UpdateProperties();
 	}
 
-	[RelayCommand]	
+	[RelayCommand]
 	private void StartInterval()
 	{
 		PlayWhistleSound();
@@ -203,7 +203,7 @@ public partial class MainPageViewModel : BaseViewModel
 		UpdateProperties();
 	}
 
-	[RelayCommand]	
+	[RelayCommand]
 	private void StopInterval()
 	{
 		BackgroundColor = this.defaultDark;
@@ -219,9 +219,10 @@ public partial class MainPageViewModel : BaseViewModel
 		_intervalRunningTimer = null;
 	}
 
-	[RelayCommand]	
+	[RelayCommand]
 	private void PauseInterval()
 	{
+		// TODO: remember milliseconds till next tick
 		IsRunning = false;
 		_intervalRunningTimer.Change(Infinite, Infinite);
 
@@ -236,7 +237,7 @@ public partial class MainPageViewModel : BaseViewModel
 		}
 	}
 
-	[RelayCommand]	
+	[RelayCommand]
 	private void ResumeInterval()
 	{
 		IsRunning = true;

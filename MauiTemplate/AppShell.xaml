@@ -23,5 +23,11 @@
 			ContentTemplate="{DataTemplate view:RoutinesPage}"
 			Route="RoutinesPage" />
 	</FlyoutItem>
+	<FlyoutItem Title="Exercises">
+		<ShellContent
+			Title="GymTracker"
+			ContentTemplate="{DataTemplate view:ExercisesPage}"
+			Route="ExercisesPage" />
+	</FlyoutItem>
 
 </Shell>
