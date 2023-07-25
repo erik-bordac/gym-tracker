@@ -7,6 +7,18 @@ public partial class MainPageViewModel : BaseViewModel
 	private const int Infinite = -1;
 	private const int Second = 1000;
 
+	private readonly Color defaultDark = Color.FromRgba("#7B8FA1");
+	private readonly Color defaultLight = Color.FromRgba("#7B8FA1");
+	private readonly Color runningDark = Color.FromRgba("#75BAAE");
+	private readonly Color runningLight = Color.FromRgba("#9FD9BA");
+	private readonly Color restDark = Color.FromRgba("#84BCDC");
+	private readonly Color restLight = Color.FromRgba("#ADD5EB");
+
+	private readonly Color pausedRunningDark = Color.FromRgba("#6A948C");
+	private readonly Color pausedRunningLight= Color.FromRgba("#7BAD92");
+	private readonly Color pausedRestDark = Color.FromRgba("#658DA4");
+	private readonly Color pausedRestLight = Color.FromRgba("#81A4B8");
+
 	private IntervalTimerService _intervalTimer;
 	private System.Threading.Timer _timeToHoldTimer;
 	private int _timeToStartHold = 600;
@@ -160,8 +172,8 @@ public partial class MainPageViewModel : BaseViewModel
 		PlayWhistleSound();
 
 		_intervalRunningTimer = new Timer(OnTick, null, Second, Second);
-		BackgroundColor = Color.FromRgba("#75BAAE");
-		EllipseColor = Color.FromRgba("#9FD9BA");
+		BackgroundColor = this.runningDark;
+		EllipseColor = this.runningLight;
 		IsStarted = true;
 		IsRunning = true;
 	}
@@ -181,12 +193,12 @@ public partial class MainPageViewModel : BaseViewModel
 
 		if (_intervalTimer.IsRestTime)
 		{
-			BackgroundColor = Color.FromRgba("#84BCDC");
-			EllipseColor = Color.FromRgba("#ADD5EB");
+			BackgroundColor = this.restDark;
+			EllipseColor = this.restLight;
 		} else
 		{
-			BackgroundColor = Color.FromRgba("#75BAAE");
-			EllipseColor = Color.FromRgba("#9FD9BA");
+			BackgroundColor = this.runningDark;
+			EllipseColor = this.runningLight;
 		}
 		UpdateProperties();
 	}
@@ -194,8 +206,8 @@ public partial class MainPageViewModel : BaseViewModel
 	[RelayCommand]	
 	private void StopInterval()
 	{
-		BackgroundColor = Color.FromRgba("#7B8FA1");
-		EllipseColor= Color.FromRgba("#7B8FA1");
+		BackgroundColor = this.defaultDark;
+		EllipseColor = this.defaultLight;
 
 		IsStarted = false;
 		IsRunning = false;
@@ -215,12 +227,12 @@ public partial class MainPageViewModel : BaseViewModel
 
 		if (IsRestTime)
 		{
-			BackgroundColor = Color.FromRgba("#658DA4");
-			EllipseColor = Color.FromRgba("#81A4B8");
+			BackgroundColor = this.pausedRestDark;
+			EllipseColor = this.pausedRestLight;
 		} else
 		{
-			BackgroundColor = Color.FromRgba("#6A948C");
-			EllipseColor = Color.FromRgba("#7BAD92");
+			BackgroundColor = this.pausedRunningDark;
+			EllipseColor = this.pausedRunningLight;
 		}
 	}
 
@@ -232,12 +244,12 @@ public partial class MainPageViewModel : BaseViewModel
 
 		if (_intervalTimer.IsRestTime)
 		{
-			BackgroundColor = Color.FromRgba("#84BCDC");
-			EllipseColor = Color.FromRgba("#ADD5EB");
+			BackgroundColor = this.restDark;
+			EllipseColor = this.restLight;
 		} else
 		{
-			BackgroundColor = Color.FromRgba("#75BAAE");
-			EllipseColor = Color.FromRgba("#9FD9BA");
+			BackgroundColor = this.runningDark;
+			EllipseColor = this.runningLight;
 		}
 
 	}
