@@ -2,8 +2,9 @@ namespace GymTracker.View;
 
 public partial class RoutinesPage : ContentPage
 {
-	public RoutinesPage()
+	public RoutinesPage(RoutinesPageViewModel vm)
 	{
 		InitializeComponent();
+		BindingContext = vm;
 	}
 }

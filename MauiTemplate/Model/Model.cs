@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace GymTracker.Model;
+﻿namespace GymTracker.Model;
 
 public class Model
 {

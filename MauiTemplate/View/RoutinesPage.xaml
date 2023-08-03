@@ -5,8 +5,17 @@
 	 x:Class="GymTracker.View.RoutinesPage"
 	 xmlns:model="clr-namespace:GymTracker.Model"
 	 xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
-	 Title="RoutinesPage">
-	
-	<Label>Routines</Label>
-	
+	 x:DataType="viewmodel:RoutinesPageViewModel"
+	 Title="RoutinesPage"
+	 BackgroundColor="#7B8FA1">
+
+	<StackLayout>
+		<CollectionView ItemsSource="{Binding ExerciseList}">
+			<CollectionView.ItemTemplate>
+				<DataTemplate x:DataType="model:Exercise">
+					<Button Text="{Binding Name}" FontSize="32"/>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+		</CollectionView>
+	</StackLayout>
 </ContentPage>
