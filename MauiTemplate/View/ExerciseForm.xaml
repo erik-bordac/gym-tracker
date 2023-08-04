@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymTracker.View.ExerciseForm"
+			 xmlns:model="clr-namespace:GymTracker.Model"
+			 xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
+			 x:DataType="viewmodel:ExerciseFormViewModel"
+             Title="Add New Exercise"
+			 BackgroundColor="#7B8FA1"
+			 Shell.FlyoutBehavior="Disabled">
+	
+	<StackLayout>
+		<Label Text="Name"/>
+		<Entry MaxLength="20" Placeholder="Enter name" TextChanged="NameChanged"/>
+		
+		<Label Text="Notes"/>
+		<Entry MaxLength="300" Placeholder="Type notes" TextChanged="NotesChanged"/>
+
+		<HorizontalStackLayout>
+			<Label Text="Track Reps" VerticalTextAlignment="Center"/>
+			<CheckBox Margin="20,0,0,0" CheckedChanged="TrackRepsChanged"/>
+		</HorizontalStackLayout>
+		<HorizontalStackLayout>
+			<Label Text="Track Weight" VerticalTextAlignment="Center"/>
+			<CheckBox Margin="20,0,0,0" CheckedChanged="TrackWeightChanged"/>
+		</HorizontalStackLayout>
+		<HorizontalStackLayout>
+			<Label Text="Track Time" VerticalTextAlignment="Center"/>
+			<CheckBox Margin="20,0,0,0" CheckedChanged="TrackTimeChanged"/>
+		</HorizontalStackLayout>
+
+		<Button Text="Create" Command="{Binding AddExerciseToDbCommand}"/>
+	</StackLayout>
+
+</ContentPage>

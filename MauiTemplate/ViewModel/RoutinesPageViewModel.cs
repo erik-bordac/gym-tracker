@@ -4,26 +4,26 @@ namespace GymTracker.ViewModel;
 
 public partial class RoutinesPageViewModel : BaseViewModel
 {
-	public ObservableCollection<Exercise> ExerciseList { get; } = new();
 
-	private ExerciseDatabase db;
-	public RoutinesPageViewModel(ExerciseDatabase _db) 
+	private LocalDatabase _db;
+
+	public ObservableCollection<Routine> RoutinesList { get; } = new();
+
+	public RoutinesPageViewModel(LocalDatabase db) 
 	{
-		db = _db;
-		//ExerciseList.Add(new Exercise { DefaultReps = 10, DefaultSets = 20, DefaultWeight = 30, ID = 1, Name = "exercise 1" });
+		_db = db;
 		//ExerciseList.Add(new Exercise { DefaultReps = 10, DefaultSets = 20, DefaultWeight = 30, ID = 2, Name = "exercise 2" });
-		loadExercises();
+		loadRoutines();
 	}
 
-	private async void loadExercises()
+	private async void loadRoutines()
 	{
-		//await db.SaveItemAsync(new Exercise { DefaultReps = 10, DefaultSets = 20, DefaultWeight = 30, Name="exercise 2" });
-		var exercises = await db.GetItemsAsync();
+		var routines = await _db.GetRoutinesAsync();
 
-		if (ExerciseList.Count != 0) ExerciseList.Clear();
-		foreach (var exercise in exercises)
+		if (RoutinesList.Count != 0) RoutinesList.Clear();
+		foreach (var routine in routines)
 		{
-			ExerciseList.Add(exercise);
+			RoutinesList.Add(routine);
 		}
 	}
 }

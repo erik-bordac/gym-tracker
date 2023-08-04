@@ -6,16 +6,32 @@
 	 xmlns:model="clr-namespace:GymTracker.Model"
 	 xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
 	 x:DataType="viewmodel:RoutinesPageViewModel"
-	 Title="RoutinesPage"
+	 Title="Your Routines"
 	 BackgroundColor="#7B8FA1">
 
 	<StackLayout>
-		<CollectionView ItemsSource="{Binding ExerciseList}">
+		<CollectionView ItemsSource="{Binding RoutinesList}">
 			<CollectionView.ItemTemplate>
-				<DataTemplate x:DataType="model:Exercise">
-					<Button Text="{Binding Name}" FontSize="32"/>
+				<DataTemplate x:DataType="model:Routine">
+					<Grid Margin="0,5,0,5" BackgroundColor="#567189">
+						<Grid.RowDefinitions>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="3*"/>
+							<ColumnDefinition Width="1*"/>
+						</Grid.ColumnDefinitions>
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="RoutineTapped" NumberOfTapsRequired="1"/>
+						</Grid.GestureRecognizers>
+
+						<Label Text="{Binding Name}" FontSize="32" Margin="10,5,0,5"/>
+						<Button Grid.Column="1" Text="Delete" HorizontalOptions="End" Margin="2,2,2,2"/>
+					</Grid>
 				</DataTemplate>
 			</CollectionView.ItemTemplate>
 		</CollectionView>
+
+		<Button Text="Add New Routine" FontSize="32" Margin="10,10,10,10"/>
 	</StackLayout>
 </ContentPage>

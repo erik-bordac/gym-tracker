@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymTracker.View.ExerciseDetailsPage"
+			 xmlns:model="clr-namespace:GymTracker.Model"
+			 xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
+			 x:DataType="viewmodel:ExerciseDetailsPageViewModel"
+             Title="Details"
+			 Shell.FlyoutBehavior="Disabled">
+	
+    <VerticalStackLayout>
+		<HorizontalStackLayout>
+			<Label Text="Name:"/>
+			<Label Text="{Binding Exercise.Name}"/>
+		</HorizontalStackLayout>
+		<HorizontalStackLayout>
+			<Label Text="Notes:"/>
+			<Label Text="{Binding Exercise.Notes}"/>
+		</HorizontalStackLayout>
+		<HorizontalStackLayout>
+			<Label Text="Tracking:"/>
+			<VerticalStackLayout>
+				<Label Text="reps" IsVisible="{Binding Exercise.TrackReps}"/>
+				<Label Text="weight" IsVisible="{Binding Exercise.TrackWeight}"/>
+				<Label Text="time" IsVisible="{Binding Exercise.TrackTime}"/>
+			</VerticalStackLayout>
+		</HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

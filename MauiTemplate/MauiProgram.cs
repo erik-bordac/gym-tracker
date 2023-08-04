@@ -10,17 +10,22 @@ public static class MauiProgram
 	{
 		builder.Services.AddSingleton<MainPageViewModel>();
 		builder.Services.AddSingleton<RoutinesPageViewModel>();
+		builder.Services.AddSingleton<ExercisesPageViewModel>();
+		builder.Services.AddTransient<ExerciseFormViewModel>();
+		builder.Services.AddTransient<ExerciseDetailsPageViewModel>();
 	}
 	private static void RegisterViews(MauiAppBuilder builder)
 	{
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<RoutinesPage>();
 		builder.Services.AddSingleton<ExercisesPage>();
+		builder.Services.AddTransient<ExerciseForm>();
+		builder.Services.AddTransient<ExerciseDetailsPage>();
 	}
 	private static void RegisterServices(MauiAppBuilder builder)
 	{
 		builder.Services.AddSingleton<IntervalTimerService>();
-		builder.Services.AddSingleton<ExerciseDatabase>();
+		builder.Services.AddSingleton<LocalDatabase>();
 	}
 
 	public static MauiApp CreateMauiApp()

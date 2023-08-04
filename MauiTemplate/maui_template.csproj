@@ -47,10 +47,23 @@
 	  <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	  <PackageReference Include="Plugin.Maui.Audio" Version="1.0.0" />
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.5" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="View\ExerciseForm.xaml.cs">
+	    <DependentUpon>ExerciseForm.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\ExerciseDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\ExercisesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\ExerciseForm.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\RoutinesPage.xaml">
