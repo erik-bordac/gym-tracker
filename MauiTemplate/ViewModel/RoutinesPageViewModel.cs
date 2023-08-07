@@ -1,4 +1,5 @@
 ﻿using GymTracker.Services;
+using GymTracker.View;
 
 namespace GymTracker.ViewModel;
 
@@ -16,7 +17,7 @@ public partial class RoutinesPageViewModel : BaseViewModel
 		loadRoutines();
 	}
 
-	private async void loadRoutines()
+	private async Task loadRoutines()
 	{
 		var routines = await _db.GetRoutinesAsync();
 
@@ -25,5 +26,18 @@ public partial class RoutinesPageViewModel : BaseViewModel
 		{
 			RoutinesList.Add(routine);
 		}
+	}
+
+	[RelayCommand]
+	private async Task Delete(Routine r)
+	{
+		await _db.DeleteRoutineAsync(r);
+		await loadRoutines();
+	}
+
+	[RelayCommand]
+	async Task GoToNewRoutine()
+	{
+		await Shell.Current.GoToAsync(nameof(NewRoutineView));
 	}
 }

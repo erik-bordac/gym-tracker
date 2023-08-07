@@ -21,6 +21,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<ExercisesPage>();
 		builder.Services.AddTransient<ExerciseForm>();
 		builder.Services.AddTransient<ExerciseDetailsPage>();
+		builder.Services.AddTransient<NewRoutineView>();
 	}
 	private static void RegisterServices(MauiAppBuilder builder)
 	{

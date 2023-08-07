@@ -11,14 +11,6 @@ public class LocalDatabase
 	{
 	}
 
-	public async Task<int> SaveRoutineAsync(Routine item)
-	{
-		await Init();
-		if (item.ID != 0)
-			return await Database.UpdateAsync(item);
-		else
-			return await Database.InsertAsync(item);
-	}
 	public async Task<int> SaveExerciseAsync(Exercise item)
 	{
 		await Init();
@@ -32,16 +24,29 @@ public class LocalDatabase
 		await Init();
 		return await Database.DeleteAsync(item);
 	}
-
-	public async Task<List<Routine>> GetRoutinesAsync()
-	{
-		await Init();
-		return await Database.Table<Routine>().ToListAsync();
-	}
 	public async Task<List<Exercise>> GetExercisesAsync()
 	{
 		await Init();
 		return await Database.Table<Exercise>().ToListAsync();
+	}
+
+	public async Task<int> SaveRoutineAsync(Routine item)
+	{
+		await Init();
+		if (item.ID != 0)
+			return await Database.UpdateAsync(item);
+		else
+			return await Database.InsertAsync(item);
+	}
+	public async Task<int> DeleteRoutineAsync(Routine item)
+	{
+		await Init();
+		return await Database.DeleteAsync(item);
+	}
+	public async Task<List<Routine>> GetRoutinesAsync()
+	{
+		await Init();
+		return await Database.Table<Routine>().ToListAsync();
 	}
 
 	async Task Init()
