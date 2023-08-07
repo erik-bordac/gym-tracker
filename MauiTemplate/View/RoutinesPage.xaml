@@ -35,7 +35,7 @@
 			</CollectionView.ItemTemplate>
 		</CollectionView>
 
-		<Button Text="Create New Routine" FontSize="32" Margin="10,10,10,10" Command="{Binding GoToNewRoutineCommand}"/>
+		<Button Text="Create New Routine"  Margin="10,10,10,10" Command="{Binding GoToNewRoutineCommand}"/>
 
 	</StackLayout>
 </ContentPage>

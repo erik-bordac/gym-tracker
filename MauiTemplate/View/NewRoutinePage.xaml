@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymTracker.View.NewRoutinePage"
+			 xmlns:model="clr-namespace:GymTracker.Model"
+			 xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
+			 x:DataType="viewmodel:NewRoutinePageViewModel"
+			 xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+			 Title="New Routine"
+			 Shell.FlyoutBehavior="Disabled"
+			 BackgroundColor="#7B8FA1">
+
+	<StackLayout>
+		<VerticalStackLayout>
+			<Label Text="Routine Name"/>
+			<Entry MaxLength="20" Placeholder="Enter name"/>
+		</VerticalStackLayout>
+
+		<Label Text="Saved Exercises:"/>
+		<ScrollView VerticalOptions="FillAndExpand">
+			<CollectionView ItemsSource="{Binding ExerciseList}">
+				<CollectionView.ItemTemplate>
+					<DataTemplate x:DataType="model:Exercise">
+						<Grid Margin="0,5,0,5" BackgroundColor="#567189">
+							<Grid.RowDefinitions>
+								<RowDefinition/>
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="3*"/>
+								<ColumnDefinition Width="1*"/>
+							</Grid.ColumnDefinitions>
+							<Grid.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NewRoutinePageViewModel}}, Path=AddExerciseCommand}"
+											  CommandParameter="{Binding .}"
+											  NumberOfTapsRequired="1"
+											  />
+							</Grid.GestureRecognizers>
+
+							<Label Text="{Binding Name}" FontSize="32" Margin="10,5,0,5"/>
+						</Grid>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</ScrollView>
+		
+		<Label Text="Added exercises:"/>
+		<ScrollView VerticalOptions="FillAndExpand">
+			<CollectionView ItemsSource="{Binding AddedExerciseList}">
+				<CollectionView.ItemTemplate>
+					<DataTemplate x:DataType="model:Exercise">
+						<Grid Margin="0,5,0,5" BackgroundColor="#567189">
+							<Grid.RowDefinitions>
+								<RowDefinition/>
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="3*"/>
+								<ColumnDefinition Width="1*"/>
+							</Grid.ColumnDefinitions>
+							
+							<Label Text="{Binding Name}" FontSize="32" Margin="10,5,0,5"/>
+							<HorizontalStackLayout Grid.Column="1">
+								<Entry MaxLength="2" MaximumWidthRequest="64" FontSize="32" Text="1" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+								<Button Text="Delete" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NewRoutinePageViewModel}}, Path=DeleteExerciseCommand}"
+										CommandParameter="{Binding .}"/>
+							</HorizontalStackLayout>
+						</Grid>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</ScrollView>
+
+		<Button Text="Save routine"/>
+	</StackLayout>
+</ContentPage>

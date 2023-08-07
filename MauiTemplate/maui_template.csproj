@@ -54,6 +54,9 @@
 	  <Compile Update="View\ExerciseForm.xaml.cs">
 	    <DependentUpon>ExerciseForm.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="View\NewRoutinePage.xaml.cs">
+	    <DependentUpon>NewRoutinePage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -66,7 +69,7 @@
 	  <MauiXaml Update="View\ExerciseForm.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\NewRoutineView.xaml">
+	  <MauiXaml Update="View\NewRoutinePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\RoutinesPage.xaml">

@@ -38,6 +38,6 @@ public partial class RoutinesPageViewModel : BaseViewModel
 	[RelayCommand]
 	async Task GoToNewRoutine()
 	{
-		await Shell.Current.GoToAsync(nameof(NewRoutineView));
+		await Shell.Current.GoToAsync(nameof(NewRoutinePage));
 	}
 }
