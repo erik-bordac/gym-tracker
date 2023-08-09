@@ -7,23 +7,23 @@
 			 x:DataType="viewmodel:ExerciseDetailsPageViewModel"
              Title="Details"
 			 Shell.FlyoutBehavior="Disabled">
-	
-    <VerticalStackLayout>
+
+	<VerticalStackLayout>
 		<HorizontalStackLayout>
-			<Label Text="Name:"/>
-			<Label Text="{Binding Exercise.Name}"/>
+			<Label Text="Name:" />
+			<Label Text="{Binding Exercise.Name}" />
 		</HorizontalStackLayout>
 		<HorizontalStackLayout>
-			<Label Text="Notes:"/>
-			<Label Text="{Binding Exercise.Notes}"/>
+			<Label Text="Notes:" />
+			<Label Text="{Binding Exercise.Notes}" />
 		</HorizontalStackLayout>
 		<HorizontalStackLayout>
-			<Label Text="Tracking:"/>
+			<Label Text="Tracking:" />
 			<VerticalStackLayout>
-				<Label Text="reps" IsVisible="{Binding Exercise.TrackReps}"/>
-				<Label Text="weight" IsVisible="{Binding Exercise.TrackWeight}"/>
-				<Label Text="time" IsVisible="{Binding Exercise.TrackTime}"/>
+				<Label Text="reps" IsVisible="{Binding Exercise.TrackReps}" />
+				<Label Text="weight" IsVisible="{Binding Exercise.TrackWeight}" />
+				<Label Text="time" IsVisible="{Binding Exercise.TrackTime}" />
 			</VerticalStackLayout>
 		</HorizontalStackLayout>
-    </VerticalStackLayout>
+	</VerticalStackLayout>
 </ContentPage>

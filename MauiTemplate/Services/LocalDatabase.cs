@@ -1,5 +1,5 @@
-﻿using SQLite;
-using GymTracker.Helpers;
+﻿using GymTracker.Helpers;
+using SQLite;
 
 namespace GymTracker.Services;
 
@@ -19,12 +19,14 @@ public class LocalDatabase
 		else
 			return await Database.InsertAsync(item);
 	}
+
 	public async Task<int> DeleteExerciseAsync(Exercise item)
 	{
-		// TODO: Delete all routines containing the exercise 
+		// TODO: Delete all routines containing the exercise
 		await Init();
 		return await Database.DeleteAsync(item);
 	}
+
 	public async Task<List<Exercise>> GetExercisesAsync()
 	{
 		await Init();
@@ -46,22 +48,24 @@ public class LocalDatabase
 		else
 			return await Database.InsertAsync(item);
 	}
+
 	public async Task<int> DeleteRoutineAsync(Routine item)
 	{
 		await Init();
 		return await Database.DeleteAsync(item);
 	}
+
 	public async Task<List<Routine>> GetRoutinesAsync()
 	{
 		await Init();
 		return await Database.Table<Routine>().ToListAsync();
 	}
 
-	async Task Init()
+	private async Task Init()
 	{
 		if (Database is not null)
 			return;
-		
+
 		// DROP ALL TABLES ----- ONLY FOR DEVELOPMENT
 		//Database.DropTableAsync<Routine>();
 		//Database.DropTableAsync<Exercise>();

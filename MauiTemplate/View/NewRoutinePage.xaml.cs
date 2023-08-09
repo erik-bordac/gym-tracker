@@ -2,7 +2,8 @@ namespace GymTracker.View;
 
 public partial class NewRoutinePage : ContentPage
 {
-	NewRoutinePageViewModel _vm;
+	private NewRoutinePageViewModel _vm;
+
 	public NewRoutinePage(NewRoutinePageViewModel vm)
 	{
 		InitializeComponent();
@@ -13,5 +14,5 @@ public partial class NewRoutinePage : ContentPage
 	private void Entry_TextChanged(object sender, TextChangedEventArgs e)
 	{
 		_vm.Name = e.NewTextValue;
-    }
+	}
 }

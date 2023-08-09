@@ -5,12 +5,11 @@ namespace GymTracker.ViewModel;
 
 public partial class RoutinesPageViewModel : BaseViewModel
 {
-
 	private LocalDatabase _db;
 
 	public ObservableCollection<Routine> RoutinesList { get; } = new();
 
-	public RoutinesPageViewModel(LocalDatabase db) 
+	public RoutinesPageViewModel(LocalDatabase db)
 	{
 		_db = db;
 		//ExerciseList.Add(new Exercise { DefaultReps = 10, DefaultSets = 20, DefaultWeight = 30, ID = 2, Name = "exercise 2" });
@@ -36,16 +35,13 @@ public partial class RoutinesPageViewModel : BaseViewModel
 	}
 
 	[RelayCommand]
-	async Task GoToNewRoutine()
+	private async Task GoToNewRoutine()
 	{
 		await Shell.Current.GoToAsync(nameof(NewRoutinePage));
 	}
 
 	[RelayCommand]
-	async Task RoutineTapped()
+	private async Task RoutineTapped()
 	{
-
 	}
-
-
 }

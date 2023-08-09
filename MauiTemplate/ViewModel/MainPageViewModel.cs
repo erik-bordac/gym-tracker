@@ -2,6 +2,7 @@
 using Plugin.Maui.Audio;
 
 namespace GymTracker.ViewModel;
+
 public partial class MainPageViewModel : BaseViewModel
 {
 	private const int Infinite = -1;
@@ -14,7 +15,7 @@ public partial class MainPageViewModel : BaseViewModel
 	private readonly Color restDark = Color.FromRgba("#84BCDC");
 	private readonly Color restLight = Color.FromRgba("#ADD5EB");
 	private readonly Color pausedRunningDark = Color.FromRgba("#6A948C");
-	private readonly Color pausedRunningLight= Color.FromRgba("#7BAD92");
+	private readonly Color pausedRunningLight = Color.FromRgba("#7BAD92");
 	private readonly Color pausedRestDark = Color.FromRgba("#658DA4");
 	private readonly Color pausedRestLight = Color.FromRgba("#81A4B8");
 
@@ -25,12 +26,12 @@ public partial class MainPageViewModel : BaseViewModel
 	private int _holdTickTime = 50;
 	private System.Threading.Timer _intervalRunningTimer;
 
-
-	private enum BtnTypes 
+	private enum BtnTypes
 	{
 		Plus,
 		Minus
 	}
+
 	private BtnTypes _heldBtnType;
 
 	private bool _btnPressed;
@@ -38,11 +39,13 @@ public partial class MainPageViewModel : BaseViewModel
 
 	[ObservableProperty]
 	private int setsCount;
+
 	[ObservableProperty]
 	private int setsCountLeft;
 
 	[ObservableProperty]
 	private int workTime;
+
 	[ObservableProperty]
 	private int workTimeLeft;
 
@@ -55,18 +58,21 @@ public partial class MainPageViewModel : BaseViewModel
 	[ObservableProperty]
 	[NotifyPropertyChangedFor(nameof(IsNotRunningAndIsStarted))]
 	private bool isRunning;
+
 	public bool IsNotRunningAndIsStarted => (!IsRunning && IsStarted);
 
 	[ObservableProperty]
 	[NotifyPropertyChangedFor(nameof(IsNotRestTime))]
 	private bool isRestTime;
+
 	public bool IsNotRestTime => (!IsRestTime);
 
 	[ObservableProperty]
 	[NotifyPropertyChangedFor(nameof(IsNotStarted))]
 	[NotifyPropertyChangedFor(nameof(IsNotRunningAndIsStarted))]
 	private bool isStarted;
-	public bool IsNotStarted=> !IsStarted;
+
+	public bool IsNotStarted => !IsStarted;
 
 	[ObservableProperty]
 	private Color backgroundColor;
@@ -81,7 +87,7 @@ public partial class MainPageViewModel : BaseViewModel
 		ellipseColor = this.defaultLight;
 		UpdateProperties();
 	}
-	
+
 	private async void PlayWhistleSound()
 	{
 		// add dependency injection ?
@@ -90,7 +96,8 @@ public partial class MainPageViewModel : BaseViewModel
 		audioPlayer.Play();
 	}
 
-	private void UpdateProperties() { 
+	private void UpdateProperties()
+	{
 		SetsCount = _intervalTimer.setsCount;
 		SetsCountLeft = _intervalTimer.setsCountLeft;
 		WorkTime = _intervalTimer.workTime;
@@ -114,9 +121,10 @@ public partial class MainPageViewModel : BaseViewModel
 	{
 		if (_btnPressed) return;
 		_heldBtnType = BtnTypes.Plus;
-		
+
 		OnBtnPressed(sender, e);
 	}
+
 	public void OnMinusBtnPressed(object sender, EventArgs e)
 	{
 		if (_btnPressed) return;
@@ -124,6 +132,7 @@ public partial class MainPageViewModel : BaseViewModel
 
 		OnBtnPressed(sender, e);
 	}
+
 	private void OnBtnPressed(object sender, EventArgs e)
 	{
 		_btnPressed = true;
@@ -133,12 +142,13 @@ public partial class MainPageViewModel : BaseViewModel
 		_timeToHoldTimer = new System.Threading.Timer(StartHold, null, _timeToStartHold, Infinite);
 		BtnAction(_heldBtnId);
 	}
+
 	public void OnBtnReleased(object sender, EventArgs e)
 	{
 		var btn = (Button)sender;
 		// Released btn is different from button that is currently held
 		if (btn.ClassId != _heldBtnId) return;
-		
+
 		_btnPressed = false;
 		_heldBtnId = null;
 
@@ -150,14 +160,16 @@ public partial class MainPageViewModel : BaseViewModel
 
 	private void BtnAction(string btnName)
 	{
-		switch(btnName)
+		switch (btnName)
 		{
 			case "sets":
 				(_heldBtnType == BtnTypes.Plus ? (Action)_intervalTimer.IncrementSetsCount : _intervalTimer.DecrementSetsCount)();
 				break;
+
 			case "workTime":
 				(_heldBtnType == BtnTypes.Plus ? (Action)_intervalTimer.IncrementWorkTime : _intervalTimer.DecrementWorkTime)();
 				break;
+
 			case "restTime":
 				(_heldBtnType == BtnTypes.Plus ? (Action)_intervalTimer.IncrementRestTime : _intervalTimer.DecrementRestTime)();
 				break;
@@ -177,6 +189,7 @@ public partial class MainPageViewModel : BaseViewModel
 		IsStarted = true;
 		IsRunning = true;
 	}
+
 	private void OnTick(object state)
 	{
 		if (_intervalTimer.PassSecond())
@@ -186,7 +199,7 @@ public partial class MainPageViewModel : BaseViewModel
 			return;
 		}
 
-		if(_intervalTimer.WorkTimeStateChanged)
+		if (_intervalTimer.WorkTimeStateChanged)
 		{
 			PlayWhistleSound();
 		}
@@ -195,7 +208,8 @@ public partial class MainPageViewModel : BaseViewModel
 		{
 			BackgroundColor = this.restDark;
 			EllipseColor = this.restLight;
-		} else
+		}
+		else
 		{
 			BackgroundColor = this.runningDark;
 			EllipseColor = this.runningLight;
@@ -230,7 +244,8 @@ public partial class MainPageViewModel : BaseViewModel
 		{
 			BackgroundColor = this.pausedRestDark;
 			EllipseColor = this.pausedRestLight;
-		} else
+		}
+		else
 		{
 			BackgroundColor = this.pausedRunningDark;
 			EllipseColor = this.pausedRunningLight;
@@ -247,11 +262,11 @@ public partial class MainPageViewModel : BaseViewModel
 		{
 			BackgroundColor = this.restDark;
 			EllipseColor = this.restLight;
-		} else
+		}
+		else
 		{
 			BackgroundColor = this.runningDark;
 			EllipseColor = this.runningLight;
 		}
-
 	}
 }

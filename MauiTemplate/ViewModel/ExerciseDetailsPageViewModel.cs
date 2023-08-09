@@ -5,9 +5,8 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 {
 	public ExerciseDetailsPageViewModel()
 	{
-		
 	}
 
 	[ObservableProperty]
-	Exercise exercise;
+	private Exercise exercise;
 }

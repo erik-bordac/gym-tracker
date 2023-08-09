@@ -4,7 +4,7 @@ namespace GymTracker.ViewModel;
 
 public partial class NewRoutinePageViewModel : BaseViewModel
 {
-	LocalDatabase _db;
+	private LocalDatabase _db;
 	public ObservableCollection<Exercise> ExerciseList { get; } = new();
 	public ObservableCollection<AddedExerciseWrapper> AddedExerciseList { get; } = new();
 
@@ -51,23 +51,27 @@ public partial class NewRoutinePageViewModel : BaseViewModel
 		AddedExerciseList.Add(ex);
 		AddedExerciseCount[ex.Exercise.ID] = 1;
 	}
+
 	[RelayCommand]
 	private void DeleteExercise(AddedExerciseWrapper exercise)
 	{
 		AddedExerciseList.Remove(exercise);
 		AddedExerciseCount[exercise.Exercise.ID]--;
 	}
+
 	[RelayCommand]
 	private void IncreaseSets(AddedExerciseWrapper ex)
 	{
 		ex.Sets++;
 	}
+
 	[RelayCommand]
 	private void DecreaseSets(AddedExerciseWrapper ex)
 	{
 		if (ex.Sets == 1) return;
 		ex.Sets--;
 	}
+
 	[RelayCommand]
 	private async Task SaveRoutine()
 	{
@@ -87,7 +91,7 @@ public partial class NewRoutinePageViewModel : BaseViewModel
 				Sets = item.Sets
 			});
 		}
-		
+
 		await _db.SaveRoutineExercisesAsync(rexes);
 
 		await Shell.Current.GoToAsync("..");

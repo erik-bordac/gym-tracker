@@ -1,5 +1,6 @@
 ﻿using GymTracker.Services;
 using GymTracker.View;
+
 namespace GymTracker.ViewModel;
 
 public partial class ExercisesPageViewModel : BaseViewModel
@@ -14,13 +15,13 @@ public partial class ExercisesPageViewModel : BaseViewModel
 	}
 
 	[RelayCommand]
-	async Task GoToExerciseForm()
+	private async Task GoToExerciseForm()
 	{
 		await Shell.Current.GoToAsync(nameof(ExerciseForm));
 	}
 
 	[RelayCommand]
-	async Task GoToExerciseDetails(Exercise ex)
+	private async Task GoToExerciseDetails(Exercise ex)
 	{
 		if (ex == null) return;
 

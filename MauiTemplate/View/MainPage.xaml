@@ -7,7 +7,7 @@
     xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
 	x:DataType="viewmodel:MainPageViewModel"
 	BackgroundColor="{Binding BackgroundColor}">
-	
+
 	<!--Main Grid-->
 	<Grid>
 		<Grid.RowDefinitions>
@@ -17,7 +17,7 @@
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="20" />
-			<ColumnDefinition Width="*" x:Name="col"/>
+			<ColumnDefinition Width="*" x:Name="col" />
 			<ColumnDefinition Width="20" />
 		</Grid.ColumnDefinitions>
 
@@ -35,79 +35,78 @@
 					Stroke="#EDEDED"
 					StrokeThickness="5"
 					MaximumWidthRequest="300"
-					MaximumHeightRequest="300"/>
+					MaximumHeightRequest="300" />
 				<Grid>
 					<Grid.RowDefinitions>
-						<RowDefinition Height="*"/>
-						<RowDefinition Height="*"/>
-						<RowDefinition Height="*"/>
+						<RowDefinition Height="*" />
+						<RowDefinition Height="*" />
+						<RowDefinition Height="*" />
 					</Grid.RowDefinitions>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="*" />
 					</Grid.ColumnDefinitions>
 				</Grid>
 				<StackLayout HorizontalOptions="Center" VerticalOptions="Center" IsVisible="True">
-					<Label Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="52" Text="{Binding SetsCountLeft}"/>
+					<Label Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="52" Text="{Binding SetsCountLeft}" />
 					<Label Grid.Row="1" FontSize="76" Text="WORK" IsVisible="{Binding IsNotRestTime}"></Label>
 					<Label Grid.Row="1" FontSize="76" Text="REST" IsVisible="{Binding IsRestTime}"></Label>
-					<Label Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="52" Text="{Binding WorkTimeLeft}" IsVisible="{Binding IsNotRestTime}"/>
-					<Label Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="52" Text="{Binding RestTimeLeft}" IsVisible="{Binding IsRestTime}"/>
+					<Label Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="52" Text="{Binding WorkTimeLeft}" IsVisible="{Binding IsNotRestTime}" />
+					<Label Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="52" Text="{Binding RestTimeLeft}" IsVisible="{Binding IsRestTime}" />
 				</StackLayout>
 			</Grid>
-			
+
 			<!--Settings-->
 			<StackLayout IsVisible="True">
 				<Label HorizontalOptions="Center" FontSize="24" Margin="10, 0, 0, 0">Sets</Label>
 				<HorizontalStackLayout HorizontalOptions="Center">
-					<Button ClassId="sets" 
-							Text="-" 
+					<Button ClassId="sets"
+							Text="-"
 							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnMinusBtnPressed"
-							Released="OnBtnReleased"/>
-					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding SetsCount}"/>
-					<Button ClassId="sets" 
-							Text="+" 
+							Released="OnBtnReleased" />
+					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding SetsCount}" />
+					<Button ClassId="sets"
+							Text="+"
 							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnPlusBtnPressed"
-							Released="OnBtnReleased"/>
+							Released="OnBtnReleased" />
 				</HorizontalStackLayout>
 
 				<Label HorizontalOptions="Center" FontSize="24" Margin="10, 0, 0, 0">Work Time</Label>
 				<HorizontalStackLayout HorizontalOptions="Center">
-					<Button ClassId="workTime" 
-							Text="-" 
+					<Button ClassId="workTime"
+							Text="-"
 							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnMinusBtnPressed"
-							Released="OnBtnReleased"/>
-					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding WorkTime}"/>
-					<Button ClassId="workTime" 
-							Text="+" 
+							Released="OnBtnReleased" />
+					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding WorkTime}" />
+					<Button ClassId="workTime"
+							Text="+"
 							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnPlusBtnPressed"
-							Released="OnBtnReleased"/>
+							Released="OnBtnReleased" />
 				</HorizontalStackLayout>
 
 				<Label HorizontalOptions="Center" FontSize="24" Margin="10, 0, 0, 0">Rest Time</Label>
 				<HorizontalStackLayout HorizontalOptions="Center">
-					<Button ClassId="restTime" 
-							Text="-" 
+					<Button ClassId="restTime"
+							Text="-"
 							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnMinusBtnPressed"
-							Released="OnBtnReleased"/>
-					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding RestTime}"/>
-					<Button ClassId="restTime" 
-							Text="+" 
+							Released="OnBtnReleased" />
+					<Label VerticalOptions="Center" Margin="10, 0" FontSize="24" Text="{Binding RestTime}" />
+					<Button ClassId="restTime"
+							Text="+"
 							IsVisible="{Binding IsNotStarted}"
 							Pressed="OnPlusBtnPressed"
-							Released="OnBtnReleased"/>
+							Released="OnBtnReleased" />
 				</HorizontalStackLayout>
 			</StackLayout>
 
-			<Button Text="Start" Margin="0, 24, 0, 0" Command="{Binding StartIntervalCommand}" IsVisible="{Binding IsNotStarted}"/>
-			<Button Text="Pause" Margin="0, 24, 0, 0" Command="{Binding PauseIntervalCommand}" IsVisible="{Binding IsRunning}"/>
-			<Button Text="Resume" Margin="0, 24, 0, 0" Command="{Binding ResumeIntervalCommand}" IsVisible="{Binding IsNotRunningAndIsStarted}"/>
-			<Button Text="Stop" Margin="0, 24, 0, 0" Command="{Binding StopIntervalCommand}" IsVisible="{Binding IsStarted}"/>
+			<Button Text="Start" Margin="0, 24, 0, 0" Command="{Binding StartIntervalCommand}" IsVisible="{Binding IsNotStarted}" />
+			<Button Text="Pause" Margin="0, 24, 0, 0" Command="{Binding PauseIntervalCommand}" IsVisible="{Binding IsRunning}" />
+			<Button Text="Resume" Margin="0, 24, 0, 0" Command="{Binding ResumeIntervalCommand}" IsVisible="{Binding IsNotRunningAndIsStarted}" />
+			<Button Text="Stop" Margin="0, 24, 0, 0" Command="{Binding StopIntervalCommand}" IsVisible="{Binding IsStarted}" />
 		</StackLayout>
 	</Grid>
-	
 </ContentPage>

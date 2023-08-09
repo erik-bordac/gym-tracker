@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GymTracker.Services;
+﻿namespace GymTracker.Services;
 
 public class IntervalTimerService
 {
@@ -25,7 +19,7 @@ public class IntervalTimerService
 		workTime = Preferences.Default.Get("WorkTime", 30);
 		workTimeLeft = workTime;
 		restTime = Preferences.Default.Get("RestTime", 15);
-		restTimeLeft = restTime+1;
+		restTimeLeft = restTime + 1;
 	}
 
 	public void IncrementSetsCount()
@@ -36,6 +30,7 @@ public class IntervalTimerService
 		Preferences.Default.Set("SetsCount", setsCount);
 		setsCountLeft++;
 	}
+
 	public void DecrementSetsCount()
 	{
 		if (setsCount <= 1)
@@ -47,15 +42,17 @@ public class IntervalTimerService
 		Preferences.Default.Set("SetsCount", setsCount);
 		setsCountLeft--;
 	}
+
 	public void IncrementWorkTime()
 	{
 		workTime++;
 		workTimeLeft++;
 		Preferences.Default.Set("WorkTime", workTime);
 	}
+
 	public void DecrementWorkTime()
 	{
-		if(workTime <= 1)
+		if (workTime <= 1)
 		{
 			return;
 		}
@@ -63,12 +60,14 @@ public class IntervalTimerService
 		workTimeLeft--;
 		Preferences.Default.Set("WorkTime", workTime);
 	}
+
 	public void IncrementRestTime()
 	{
 		restTime++;
 		restTimeLeft++;
 		Preferences.Default.Set("RestTime", restTime);
 	}
+
 	public void DecrementRestTime()
 	{
 		if (restTime <= 1)
@@ -89,16 +88,17 @@ public class IntervalTimerService
 			workTimeLeft--;
 			return false;
 		}
-		
-		if(workTimeLeft == 1 && restTimeLeft == restTime + 1)
+
+		if (workTimeLeft == 1 && restTimeLeft == restTime + 1)
 		{
 			WorkTimeStateChanged = true;
-		} else
+		}
+		else
 		{
 			WorkTimeStateChanged = false;
 		}
-		
-		if(setsCountLeft == 1)
+
+		if (setsCountLeft == 1)
 		{
 			resetTimer();
 			return true;
@@ -112,7 +112,7 @@ public class IntervalTimerService
 		}
 
 		WorkTimeStateChanged = true;
-		
+
 		if (setsCountLeft > 1)
 		{
 			IsRestTime = false;
@@ -125,7 +125,7 @@ public class IntervalTimerService
 		resetTimer();
 		return true;
 	}
-	
+
 	public void resetTimer()
 	{
 		IsRestTime = false;
@@ -135,4 +135,3 @@ public class IntervalTimerService
 		restTimeLeft = restTime + 1;
 	}
 }
-

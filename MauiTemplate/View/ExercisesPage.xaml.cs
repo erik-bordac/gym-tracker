@@ -1,8 +1,9 @@
 namespace GymTracker.View;
 
-public partial class ExercisesPage : ContentPage 
+public partial class ExercisesPage : ContentPage
 {
-	ExercisesPageViewModel _vm;
+	private ExercisesPageViewModel _vm;
+
 	public ExercisesPage(ExercisesPageViewModel vm)
 	{
 		InitializeComponent();

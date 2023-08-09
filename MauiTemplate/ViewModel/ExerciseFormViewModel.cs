@@ -5,7 +5,7 @@ namespace GymTracker.ViewModel;
 public partial class ExerciseFormViewModel : BaseViewModel
 {
 	private LocalDatabase _db;
-	
+
 	public string Name { get; set; }
 	public string Notes { get; set; }
 	public bool TrackReps { get; set; }
