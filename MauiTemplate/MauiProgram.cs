@@ -9,7 +9,7 @@ public static class MauiProgram
 	private static void RegisterViewModels(MauiAppBuilder builder)
 	{
 		builder.Services.AddSingleton<MainPageViewModel>();
-		builder.Services.AddSingleton<RoutinesPageViewModel>();
+		builder.Services.AddTransient<RoutinesPageViewModel>();
 		builder.Services.AddSingleton<ExercisesPageViewModel>();
 		builder.Services.AddTransient<ExerciseFormViewModel>();
 		builder.Services.AddTransient<ExerciseDetailsPageViewModel>();

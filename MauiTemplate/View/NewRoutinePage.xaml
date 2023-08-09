@@ -13,7 +13,7 @@
 	<StackLayout>
 		<VerticalStackLayout>
 			<Label Text="Routine Name"/>
-			<Entry MaxLength="20" Placeholder="Enter name"/>
+			<Entry MaxLength="20" Placeholder="Enter name" TextChanged="Entry_TextChanged"/>
 		</VerticalStackLayout>
 
 		<Label Text="Saved Exercises:"/>
@@ -73,6 +73,6 @@
 			</CollectionView>
 		</ScrollView>
 
-		<Button Text="Save routine"/>
+		<Button Text="Save routine" Command="{Binding SaveRoutineCommand}"/>
 	</StackLayout>
 </ContentPage>

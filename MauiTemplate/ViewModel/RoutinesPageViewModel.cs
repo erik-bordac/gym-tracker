@@ -17,7 +17,7 @@ public partial class RoutinesPageViewModel : BaseViewModel
 		loadRoutines();
 	}
 
-	private async Task loadRoutines()
+	public async Task loadRoutines()
 	{
 		var routines = await _db.GetRoutinesAsync();
 

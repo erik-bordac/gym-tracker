@@ -14,4 +14,11 @@ public partial class RoutinesPage : ContentPage
 	{
 		//_vm.x();
     }
+
+	protected override async void OnAppearing()
+	{
+		await _vm.loadRoutines();
+		base.OnAppearing();
+	}
+
 }

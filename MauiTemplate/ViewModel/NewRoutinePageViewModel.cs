@@ -1,16 +1,22 @@
-﻿namespace GymTracker.ViewModel;
+﻿using GymTracker.Services;
+
+namespace GymTracker.ViewModel;
 
 public partial class NewRoutinePageViewModel : BaseViewModel
 {
+	LocalDatabase _db;
 	public ObservableCollection<Exercise> ExerciseList { get; } = new();
 	public ObservableCollection<AddedExerciseWrapper> AddedExerciseList { get; } = new();
 
 	private Dictionary<int, int> AddedExerciseCount = new();
 
-	public NewRoutinePageViewModel(ExercisesPageViewModel exercises_vm)
+	public string Name { get; set; }
+
+	public NewRoutinePageViewModel(ExercisesPageViewModel exercises_vm, LocalDatabase db)
 	{
 		exercises_vm.loadExercises();
 		ExerciseList = exercises_vm.ExerciseList;
+		_db = db;
 	}
 
 	[RelayCommand]
@@ -61,5 +67,14 @@ public partial class NewRoutinePageViewModel : BaseViewModel
 	{
 		if (ex.Sets == 1) return;
 		ex.Sets--;
+	}
+	[RelayCommand]
+	private async Task SaveRoutine()
+	{
+		var routine = new Routine() { Name = Name };
+		await _db.SaveRoutineAsync(routine);
+
+		// Save exercises
+		int id = await _db.GetLastIDAsync();
 	}
 }

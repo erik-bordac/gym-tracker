@@ -5,7 +5,7 @@ namespace GymTracker.Services;
 
 public class LocalDatabase
 {
-	SQLiteAsyncConnection Database;
+	public SQLiteAsyncConnection Database;
 
 	public LocalDatabase()
 	{
@@ -65,5 +65,10 @@ public class LocalDatabase
 		result = await Database.CreateTableAsync<Exercise>();
 		result = await Database.CreateTableAsync<ExerciseHistory>();
 		result = await Database.CreateTableAsync<RoutineExercises>();
+	}
+
+	public async Task<int> GetLastIDAsync()
+	{
+		return await Database.ExecuteScalarAsync<int>("select last_insert_rowid()");
 	}
 }
