@@ -5,12 +5,7 @@ namespace GymTracker.ViewModel;
 public partial class NewRoutinePageViewModel : BaseViewModel
 {
 	private LocalDatabase _db;
-	public ObservableCollection<Exercise> ExerciseList { get; } = new();
-	public ObservableCollection<AddedExerciseWrapper> AddedExerciseList { get; } = new();
-
 	private Dictionary<int, int> AddedExerciseCount = new();
-
-	public string Name { get; set; }
 
 	public NewRoutinePageViewModel(ExercisesPageViewModel exercises_vm, LocalDatabase db)
 	{
@@ -18,6 +13,10 @@ public partial class NewRoutinePageViewModel : BaseViewModel
 		ExerciseList = exercises_vm.ExerciseList;
 		_db = db;
 	}
+
+	public ObservableCollection<AddedExerciseWrapper> AddedExerciseList { get; } = new();
+	public ObservableCollection<Exercise> ExerciseList { get; } = new();
+	public string Name { get; set; }
 
 	[RelayCommand]
 	private void AddExercise(Exercise exercise)
@@ -53,6 +52,13 @@ public partial class NewRoutinePageViewModel : BaseViewModel
 	}
 
 	[RelayCommand]
+	private void DecreaseSets(AddedExerciseWrapper ex)
+	{
+		if (ex.Sets == 1) return;
+		ex.Sets--;
+	}
+
+	[RelayCommand]
 	private void DeleteExercise(AddedExerciseWrapper exercise)
 	{
 		AddedExerciseList.Remove(exercise);
@@ -63,13 +69,6 @@ public partial class NewRoutinePageViewModel : BaseViewModel
 	private void IncreaseSets(AddedExerciseWrapper ex)
 	{
 		ex.Sets++;
-	}
-
-	[RelayCommand]
-	private void DecreaseSets(AddedExerciseWrapper ex)
-	{
-		if (ex.Sets == 1) return;
-		ex.Sets--;
 	}
 
 	[RelayCommand]

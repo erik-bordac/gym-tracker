@@ -2,15 +2,14 @@
 
 public class IntervalTimerService
 {
+	public bool IsRestTime;
+	public int restTime;
+	public int restTimeLeft;
 	public int setsCount;
 	public int setsCountLeft;
 	public int workTime;
 	public int workTimeLeft;
-	public int restTime;
-	public int restTimeLeft;
-
 	public bool WorkTimeStateChanged;
-	public bool IsRestTime;
 
 	public IntervalTimerService()
 	{
@@ -22,13 +21,15 @@ public class IntervalTimerService
 		restTimeLeft = restTime + 1;
 	}
 
-	public void IncrementSetsCount()
+	public void DecrementRestTime()
 	{
-		if (setsCount >= 30) return;
-
-		setsCount++;
-		Preferences.Default.Set("SetsCount", setsCount);
-		setsCountLeft++;
+		if (restTime <= 1)
+		{
+			return;
+		}
+		restTime--;
+		restTimeLeft--;
+		Preferences.Default.Set("RestTime", restTime);
 	}
 
 	public void DecrementSetsCount()
@@ -41,13 +42,6 @@ public class IntervalTimerService
 		setsCount--;
 		Preferences.Default.Set("SetsCount", setsCount);
 		setsCountLeft--;
-	}
-
-	public void IncrementWorkTime()
-	{
-		workTime++;
-		workTimeLeft++;
-		Preferences.Default.Set("WorkTime", workTime);
 	}
 
 	public void DecrementWorkTime()
@@ -68,15 +62,20 @@ public class IntervalTimerService
 		Preferences.Default.Set("RestTime", restTime);
 	}
 
-	public void DecrementRestTime()
+	public void IncrementSetsCount()
 	{
-		if (restTime <= 1)
-		{
-			return;
-		}
-		restTime--;
-		restTimeLeft--;
-		Preferences.Default.Set("RestTime", restTime);
+		if (setsCount >= 30) return;
+
+		setsCount++;
+		Preferences.Default.Set("SetsCount", setsCount);
+		setsCountLeft++;
+	}
+
+	public void IncrementWorkTime()
+	{
+		workTime++;
+		workTimeLeft++;
+		Preferences.Default.Set("WorkTime", workTime);
 	}
 
 	public bool PassSecond()

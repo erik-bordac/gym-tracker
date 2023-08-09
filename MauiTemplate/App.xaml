@@ -6,15 +6,14 @@
 
 	<Application.Resources>
 		<Style TargetType="ContentPage">
-			<Setter Property="BackgroundColor" Value="#7B8FA1"/>
+			<Setter Property="BackgroundColor" Value="#7B8FA1" />
 		</Style>
 		<Style TargetType="Label">
-			<Setter Property="TextColor" Value="#EDEDED"/>
+			<Setter Property="TextColor" Value="#EDEDED" />
 		</Style>
 		<Style TargetType="Button">
-			<Setter Property="TextColor" Value="#f2e9e4"/>
-			<Setter Property="BackgroundColor" Value="#2D4356"/>
+			<Setter Property="TextColor" Value="#f2e9e4" />
+			<Setter Property="BackgroundColor" Value="#2D4356" />
 		</Style>
-		
 	</Application.Resources>
 </Application>

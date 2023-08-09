@@ -11,18 +11,15 @@ public class LocalDatabase
 	{
 	}
 
-	public async Task<int> SaveExerciseAsync(Exercise item)
-	{
-		await Init();
-		if (item.ID != 0)
-			return await Database.UpdateAsync(item);
-		else
-			return await Database.InsertAsync(item);
-	}
-
 	public async Task<int> DeleteExerciseAsync(Exercise item)
 	{
 		// TODO: Delete all routines containing the exercise
+		await Init();
+		return await Database.DeleteAsync(item);
+	}
+
+	public async Task<int> DeleteRoutineAsync(Routine item)
+	{
 		await Init();
 		return await Database.DeleteAsync(item);
 	}
@@ -33,11 +30,25 @@ public class LocalDatabase
 		return await Database.Table<Exercise>().ToListAsync();
 	}
 
-	public async Task<int> SaveRoutineExercisesAsync(List<RoutineExercise> rexes)
+	public async Task<int> GetLastIDAsync()
+	{
+		// Is this needed ???
+		return await Database.ExecuteScalarAsync<int>("select last_insert_rowid()");
+	}
+
+	public async Task<List<Routine>> GetRoutinesAsync()
 	{
 		await Init();
+		return await Database.Table<Routine>().ToListAsync();
+	}
 
-		return await Database.InsertAllAsync(rexes);
+	public async Task<int> SaveExerciseAsync(Exercise item)
+	{
+		await Init();
+		if (item.ID != 0)
+			return await Database.UpdateAsync(item);
+		else
+			return await Database.InsertAsync(item);
 	}
 
 	public async Task<int> SaveRoutineAsync(Routine item)
@@ -49,16 +60,11 @@ public class LocalDatabase
 			return await Database.InsertAsync(item);
 	}
 
-	public async Task<int> DeleteRoutineAsync(Routine item)
+	public async Task<int> SaveRoutineExercisesAsync(List<RoutineExercise> rexes)
 	{
 		await Init();
-		return await Database.DeleteAsync(item);
-	}
 
-	public async Task<List<Routine>> GetRoutinesAsync()
-	{
-		await Init();
-		return await Database.Table<Routine>().ToListAsync();
+		return await Database.InsertAllAsync(rexes);
 	}
 
 	private async Task Init()
@@ -77,11 +83,5 @@ public class LocalDatabase
 		result = await Database.CreateTableAsync<Exercise>();
 		result = await Database.CreateTableAsync<ExerciseHistory>();
 		result = await Database.CreateTableAsync<RoutineExercise>();
-	}
-
-	public async Task<int> GetLastIDAsync()
-	{
-		// Is this needed ???
-		return await Database.ExecuteScalarAsync<int>("select last_insert_rowid()");
 	}
 }

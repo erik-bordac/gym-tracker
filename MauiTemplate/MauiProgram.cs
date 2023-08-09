@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using GymTracker.Services;
 using GymTracker.View;
-using GymTracker.Services;
+using Microsoft.Extensions.Logging;
 
 namespace GymTracker;
 
@@ -9,12 +9,13 @@ public static class MauiProgram
 	private static void RegisterViewModels(MauiAppBuilder builder)
 	{
 		builder.Services.AddSingleton<MainPageViewModel>();
-		builder.Services.AddTransient<RoutinesPageViewModel>();
 		builder.Services.AddSingleton<ExercisesPageViewModel>();
+		builder.Services.AddTransient<RoutinesPageViewModel>();
 		builder.Services.AddTransient<ExerciseFormViewModel>();
 		builder.Services.AddTransient<ExerciseDetailsPageViewModel>();
 		builder.Services.AddTransient<NewRoutinePageViewModel>();
 	}
+
 	private static void RegisterViews(MauiAppBuilder builder)
 	{
 		builder.Services.AddSingleton<MainPage>();
@@ -24,6 +25,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<ExerciseDetailsPage>();
 		builder.Services.AddTransient<NewRoutinePage>();
 	}
+
 	private static void RegisterServices(MauiAppBuilder builder)
 	{
 		builder.Services.AddSingleton<IntervalTimerService>();
@@ -39,7 +41,6 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			});
-
 
 #if DEBUG
 		builder.Logging.AddDebug();

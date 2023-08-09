@@ -9,7 +9,7 @@
 		 ForegroundColor="#f2e9e4"
 		 TitleColor="#EDEDED">
 	<Shell.Resources>
-    </Shell.Resources>
+	</Shell.Resources>
 
 	<FlyoutItem Title="Home">
 		<ShellContent
@@ -29,5 +29,4 @@
 			ContentTemplate="{DataTemplate view:ExercisesPage}"
 			Route="ExercisesPage" />
 	</FlyoutItem>
-
 </Shell>

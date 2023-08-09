@@ -3,6 +3,4 @@ global using CommunityToolkit.Mvvm.Input;
 global using GymTracker.Model;
 global using GymTracker.ViewModel;
 global using System.Collections.ObjectModel;
-global using System.ComponentModel;
 global using System.Diagnostics;
-global using System.Runtime.CompilerServices;
