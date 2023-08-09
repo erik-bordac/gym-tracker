@@ -47,7 +47,7 @@
 		<ScrollView VerticalOptions="FillAndExpand">
 			<CollectionView ItemsSource="{Binding AddedExerciseList}">
 				<CollectionView.ItemTemplate>
-					<DataTemplate x:DataType="model:Exercise">
+					<DataTemplate x:DataType="model:AddedExerciseWrapper">
 						<Grid Margin="0,5,0,5" BackgroundColor="#567189">
 							<Grid.RowDefinitions>
 								<RowDefinition/>
@@ -57,9 +57,13 @@
 								<ColumnDefinition Width="1*"/>
 							</Grid.ColumnDefinitions>
 							
-							<Label Text="{Binding Name}" FontSize="32" Margin="10,5,0,5"/>
+							<Label Text="{Binding Exercise.Name}" FontSize="32" Margin="10,5,0,5"/>
 							<HorizontalStackLayout Grid.Column="1">
-								<Entry MaxLength="2" MaximumWidthRequest="64" FontSize="32" Text="1" Keyboard="Numeric" HorizontalTextAlignment="Center"/>
+								<Button Text="-" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NewRoutinePageViewModel}}, Path=DecreaseSetsCommand}"
+										CommandParameter="{Binding .}"/>
+								<Label MaximumWidthRequest="64" FontSize="32" Text="{Binding Sets}"/>
+								<Button Text="+" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NewRoutinePageViewModel}}, Path=IncreaseSetsCommand}"
+										CommandParameter="{Binding .}"/>
 								<Button Text="Delete" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NewRoutinePageViewModel}}, Path=DeleteExerciseCommand}"
 										CommandParameter="{Binding .}"/>
 							</HorizontalStackLayout>

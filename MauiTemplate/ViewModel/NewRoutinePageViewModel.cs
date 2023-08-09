@@ -3,7 +3,7 @@
 public partial class NewRoutinePageViewModel : BaseViewModel
 {
 	public ObservableCollection<Exercise> ExerciseList { get; } = new();
-	public ObservableCollection<Exercise> AddedExerciseList { get; } = new();
+	public ObservableCollection<AddedExerciseWrapper> AddedExerciseList { get; } = new();
 
 	private Dictionary<int, int> AddedExerciseCount = new();
 
@@ -19,7 +19,7 @@ public partial class NewRoutinePageViewModel : BaseViewModel
 		if (AddedExerciseCount.ContainsKey(exercise.ID) && AddedExerciseCount[exercise.ID] > 0)
 		{
 			AddedExerciseCount[exercise.ID]++;
-			var ex = new Exercise()
+			var ex_ = new Exercise()
 			{
 				ID = exercise.ID,
 				Name = $"{exercise.Name} #{AddedExerciseCount[exercise.ID]}",
@@ -28,17 +28,38 @@ public partial class NewRoutinePageViewModel : BaseViewModel
 				TrackWeight = exercise.TrackWeight,
 				Notes = exercise.Notes
 			};
-			AddedExerciseList.Add(ex);
+			var ex_2 = new AddedExerciseWrapper()
+			{
+				Sets = 1,
+				Exercise = ex_
+			};
+			AddedExerciseList.Add(ex_2);
 			return;
 		}
 
-		AddedExerciseList.Add(exercise);
-		AddedExerciseCount[exercise.ID] = 1;
+		var ex = new AddedExerciseWrapper()
+		{
+			Sets = 1,
+			Exercise = exercise
+		};
+		AddedExerciseList.Add(ex);
+		AddedExerciseCount[ex.Exercise.ID] = 1;
 	}
 	[RelayCommand]
-	private void DeleteExercise(Exercise exercise)
+	private void DeleteExercise(AddedExerciseWrapper exercise)
 	{
 		AddedExerciseList.Remove(exercise);
-		AddedExerciseCount[exercise.ID]--;
+		AddedExerciseCount[exercise.Exercise.ID]--;
+	}
+	[RelayCommand]
+	private void IncreaseSets(AddedExerciseWrapper ex)
+	{
+		ex.Sets++;
+	}
+	[RelayCommand]
+	private void DecreaseSets(AddedExerciseWrapper ex)
+	{
+		if (ex.Sets == 1) return;
+		ex.Sets--;
 	}
 }
