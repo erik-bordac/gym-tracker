@@ -7,8 +7,8 @@
 	xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
 	Title="Add New Exercise"
 	x:DataType="viewmodel:ExerciseFormViewModel"
-	BackgroundColor="#7B8FA1"
-	Shell.FlyoutBehavior="Disabled">
+	Shell.FlyoutBehavior="Disabled"
+	Style="{StaticResource PageStyle}">
 
 	<StackLayout>
 		<Label Text="Name" />
@@ -36,6 +36,9 @@
 			<CheckBox Margin="20,0,0,0" CheckedChanged="TrackTimeChanged" />
 		</HorizontalStackLayout>
 
-		<Button Command="{Binding AddExerciseToDbCommand}" Text="Create" />
+		<Button
+			Margin="10,10,10,10"
+			Command="{Binding AddExerciseToDbCommand}"
+			Text="Create" />
 	</StackLayout>
 </ContentPage>

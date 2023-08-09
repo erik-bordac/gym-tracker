@@ -7,13 +7,13 @@
 	xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
 	Title="Your Routines"
 	x:DataType="viewmodel:RoutinesPageViewModel"
-	BackgroundColor="#7B8FA1">
+	Style="{StaticResource PageStyle}">
 
 	<StackLayout>
 		<CollectionView ItemsSource="{Binding RoutinesList}">
 			<CollectionView.ItemTemplate>
 				<DataTemplate x:DataType="model:Routine">
-					<Grid Margin="0,5,0,5" BackgroundColor="#567189">
+					<Grid Margin="0,5,0,5" Style="{StaticResource GridStyle}">
 						<Grid.RowDefinitions>
 							<RowDefinition />
 						</Grid.RowDefinitions>
@@ -25,17 +25,12 @@
 							<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RoutinesPageViewModel}}, Path=RoutineTappedCommand}" NumberOfTapsRequired="1" />
 						</Grid.GestureRecognizers>
 
-						<Label
-							Margin="10,5,0,5"
-							FontSize="32"
-							Text="{Binding Name}" />
-						<Button
+						<Label Margin="10,5,0,5" Text="{Binding Name}" />
+						<ImageButton
 							Grid.Column="1"
-							Margin="2,2,2,2"
 							Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:RoutinesPageViewModel}}, Path=DeleteCommand}"
 							CommandParameter="{Binding .}"
-							HorizontalOptions="End"
-							Text="Delete" />
+							Style="{StaticResource DeleteButton}" />
 					</Grid>
 				</DataTemplate>
 			</CollectionView.ItemTemplate>

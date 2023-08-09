@@ -8,8 +8,8 @@
 	xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
 	Title="New Routine"
 	x:DataType="viewmodel:NewRoutinePageViewModel"
-	BackgroundColor="#7B8FA1"
-	Shell.FlyoutBehavior="Disabled">
+	Shell.FlyoutBehavior="Disabled"
+	Style="{StaticResource PageStyle}">
 
 	<StackLayout>
 		<VerticalStackLayout>
@@ -25,7 +25,7 @@
 			<CollectionView ItemsSource="{Binding ExerciseList}">
 				<CollectionView.ItemTemplate>
 					<DataTemplate x:DataType="model:Exercise">
-						<Grid Margin="0,5,0,5" BackgroundColor="#567189">
+						<Grid Margin="0,5,0,5" Style="{StaticResource GridStyle}">
 							<Grid.RowDefinitions>
 								<RowDefinition />
 							</Grid.RowDefinitions>
@@ -40,10 +40,7 @@
 									NumberOfTapsRequired="1" />
 							</Grid.GestureRecognizers>
 
-							<Label
-								Margin="10,5,0,5"
-								FontSize="32"
-								Text="{Binding Name}" />
+							<Label Margin="10,5,0,5" Text="{Binding Name}" />
 						</Grid>
 					</DataTemplate>
 				</CollectionView.ItemTemplate>
@@ -55,36 +52,39 @@
 			<CollectionView ItemsSource="{Binding AddedExerciseList}">
 				<CollectionView.ItemTemplate>
 					<DataTemplate x:DataType="model:AddedExerciseWrapper">
-						<Grid Margin="0,5,0,5" BackgroundColor="#567189">
+						<Grid Margin="0,5,0,5" Style="{StaticResource GridStyle}">
 							<Grid.RowDefinitions>
 								<RowDefinition />
 							</Grid.RowDefinitions>
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="3*" />
-								<ColumnDefinition Width="1*" />
+								<ColumnDefinition Width="2*" />
 							</Grid.ColumnDefinitions>
 
-							<Label
-								Margin="10,5,0,5"
-								FontSize="32"
-								Text="{Binding Exercise.Name}" />
+							<Label Margin="10,5,0,5" Text="{Binding Exercise.Name}" />
 							<HorizontalStackLayout Grid.Column="1">
-								<Button
+								<ImageButton
+									Grid.Column="1"
 									Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NewRoutinePageViewModel}}, Path=DecreaseSetsCommand}"
 									CommandParameter="{Binding .}"
-									Text="-" />
+									Style="{StaticResource MinusButton}" />
 								<Label
-									FontSize="32"
-									MaximumWidthRequest="64"
-									Text="{Binding Sets}" />
-								<Button
+									Margin="10,0,10,0"
+									FontSize="20"
+									MaximumWidthRequest="40"
+									Text="{Binding Sets}"
+									VerticalTextAlignment="Center" />
+								<ImageButton
+									Grid.Column="1"
 									Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NewRoutinePageViewModel}}, Path=IncreaseSetsCommand}"
 									CommandParameter="{Binding .}"
-									Text="+" />
-								<Button
+									Style="{StaticResource PlusButton}" />
+								<ImageButton
+									Grid.Column="1"
+									Margin="10,0,0,0"
 									Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NewRoutinePageViewModel}}, Path=DeleteExerciseCommand}"
 									CommandParameter="{Binding .}"
-									Text="Delete" />
+									Style="{StaticResource DeleteButton}" />
 							</HorizontalStackLayout>
 						</Grid>
 					</DataTemplate>
@@ -92,6 +92,9 @@
 			</CollectionView>
 		</ScrollView>
 
-		<Button Command="{Binding SaveRoutineCommand}" Text="Save routine" />
+		<Button
+			Margin="10,10,10,10"
+			Command="{Binding SaveRoutineCommand}"
+			Text="Save routine" />
 	</StackLayout>
 </ContentPage>

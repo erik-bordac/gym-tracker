@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-		 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-		 x:Class="GymTracker.AppShell"
-		 xmlns:view="clr-namespace:GymTracker.View"
-		 FlyoutBehavior="Flyout"
-	   FlyoutBackground="#677888"
-		 BackgroundColor="#567189"
-		 ForegroundColor="#f2e9e4"
-		 TitleColor="#EDEDED">
-	<Shell.Resources>
-	</Shell.Resources>
+<Shell
+	x:Class="GymTracker.AppShell"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:view="clr-namespace:GymTracker.View"
+	BackgroundColor="#424242"
+	FlyoutBackground="#424242"
+	FlyoutBehavior="Flyout"
+	ForegroundColor="#f2e9e4"
+	TitleColor="#f2e9e4">
+	<Shell.Resources />
 
 	<FlyoutItem Title="Home">
 		<ShellContent

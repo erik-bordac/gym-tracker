@@ -24,12 +24,13 @@
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\Icons\minus.svg" />
+		<MauiIcon Include="Resources\Icons\plus.svg" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\appiconfg.svg" Color="#435B66" />
 
 		<!-- Images -->
-		<MauiImage Include="Resources\Images\*" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -39,7 +40,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Resources\Images\**" />
+	  <Compile Remove="Resources\Images\**" />
+	  <EmbeddedResource Remove="Resources\Images\**" />
+	  <MauiCss Remove="Resources\Images\**" />
+	  <MauiXaml Remove="Resources\Images\**" />
+	  <None Remove="Resources\Images\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Icons\minus.svg" />
+	  <None Remove="Resources\Icons\plus.svg" />
 	  <None Remove="View\appicon.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiIcon Include="Resources\Icons\bin.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -8,16 +8,16 @@ public partial class MainPageViewModel : BaseViewModel
 	private const int Infinite = -1;
 	private const int Second = 1000;
 
-	private readonly Color defaultDark        = Color.FromRgba("#7B8FA1");
-	private readonly Color defaultLight       = Color.FromRgba("#7B8FA1");
-	private readonly Color pausedRestDark     = Color.FromRgba("#658DA4");
-	private readonly Color pausedRestLight    = Color.FromRgba("#81A4B8");
-	private readonly Color pausedRunningDark  = Color.FromRgba("#6A948C");
-	private readonly Color pausedRunningLight = Color.FromRgba("#7BAD92");
-	private readonly Color restDark           = Color.FromRgba("#84BCDC");
-	private readonly Color restLight          = Color.FromRgba("#ADD5EB");
-	private readonly Color runningDark        = Color.FromRgba("#75BAAE");
-	private readonly Color runningLight       = Color.FromRgba("#9FD9BA");
+	private readonly Color defaultDark        = Color.FromRgba("#191919");
+	private readonly Color defaultLight       = Color.FromRgba("#191919");
+	private readonly Color pausedRestDark     = Color.FromRgba("#1d2647");
+	private readonly Color pausedRestLight    = Color.FromRgba("#1d2647");
+	private readonly Color pausedRunningDark  = Color.FromRgba("#072828");
+	private readonly Color pausedRunningLight = Color.FromRgba("#072828");
+	private readonly Color restDark           = Color.FromRgba("#576CBC");
+	private readonly Color restLight          = Color.FromRgba("#576CBC");
+	private readonly Color runningDark        = Color.FromRgba("#116D6E");
+	private readonly Color runningLight       = Color.FromRgba("#116D6E");
 	private bool _btnPressed;
 	private string _heldBtnId;
 	private BtnTypes _heldBtnType;
@@ -198,7 +198,7 @@ public partial class MainPageViewModel : BaseViewModel
 	private async void PlayWhistleSound()
 	{
 		// add dependency injection ?
-		var audioPlayer = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("whistle_sound.mp3"));
+		var audioPlayer = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("Sounds/whistle_sound.mp3"));
 
 		audioPlayer.Play();
 	}

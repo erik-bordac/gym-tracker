@@ -1,19 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:GymTracker"
-             x:Class="GymTracker.App">
+<Application
+	x:Class="GymTracker.App"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:GymTracker">
 
 	<Application.Resources>
-		<Style TargetType="ContentPage">
-			<Setter Property="BackgroundColor" Value="#7B8FA1" />
+		<Style x:Key="PageStyle" TargetType="ContentPage">
+			<Setter Property="BackgroundColor" Value="#191919" />
 		</Style>
 		<Style TargetType="Label">
-			<Setter Property="TextColor" Value="#EDEDED" />
+			<Setter Property="TextColor" Value="#f2e9e4" />
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="VerticalTextAlignment" Value="Center" />
+		</Style>
+		<Style x:Key="GridStyle" TargetType="Grid">
+			<Setter Property="BackgroundColor" Value="#262626" />
+			<Setter Property="VerticalOptions" Value="Center" />
 		</Style>
 		<Style TargetType="Button">
 			<Setter Property="TextColor" Value="#f2e9e4" />
-			<Setter Property="BackgroundColor" Value="#2D4356" />
+			<Setter Property="Margin" Value="2,2,2,2" />
+			<Setter Property="BackgroundColor" Value="#424242" />
+			<Setter Property="FontSize" Value="14" />
+		</Style>
+		<Style x:Key="DeleteButton" TargetType="ImageButton">
+			<Setter Property="BackgroundColor" Value="Transparent" />
+			<Setter Property="Source" Value="bin.ico" />
+			<Setter Property="MaximumHeightRequest" Value="40" />
+			<Setter Property="MaximumWidthRequest" Value="40" />
+		</Style>
+		<Style x:Key="PlusButton" TargetType="ImageButton">
+			<Setter Property="BackgroundColor" Value="Transparent" />
+			<Setter Property="Source" Value="plus.ico" />
+			<Setter Property="MaximumHeightRequest" Value="40" />
+			<Setter Property="MaximumWidthRequest" Value="40" />
+		</Style>
+		<Style x:Key="MinusButton" TargetType="ImageButton">
+			<Setter Property="BackgroundColor" Value="Transparent" />
+			<Setter Property="Source" Value="minus.ico" />
+			<Setter Property="MaximumHeightRequest" Value="40" />
+			<Setter Property="MaximumWidthRequest" Value="40" />
 		</Style>
 	</Application.Resources>
 </Application>
