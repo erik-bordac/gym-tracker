@@ -76,5 +76,20 @@ public partial class NewRoutinePageViewModel : BaseViewModel
 
 		// Save exercises
 		int id = await _db.GetLastIDAsync();
+
+		var rexes = new List<RoutineExercise>();
+		foreach (var item in AddedExerciseList)
+		{
+			rexes.Add(new RoutineExercise()
+			{
+				ExerciseID = item.Exercise.ID,
+				RoutineID = id,
+				Sets = item.Sets
+			});
+		}
+		
+		await _db.SaveRoutineExercisesAsync(rexes);
+
+		await Shell.Current.GoToAsync("..");
 	}
 }

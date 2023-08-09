@@ -40,4 +40,12 @@ public partial class RoutinesPageViewModel : BaseViewModel
 	{
 		await Shell.Current.GoToAsync(nameof(NewRoutinePage));
 	}
+
+	[RelayCommand]
+	async Task RoutineTapped()
+	{
+
+	}
+
+
 }

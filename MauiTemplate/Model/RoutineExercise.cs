@@ -1,7 +1,7 @@
 ﻿using SQLite;
 namespace GymTracker.Model;
 
-public class RoutineExercises
+public class RoutineExercise
 {
 	[PrimaryKey, AutoIncrement]
     public int ID { get; set; }

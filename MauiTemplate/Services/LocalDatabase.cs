@@ -21,6 +21,7 @@ public class LocalDatabase
 	}
 	public async Task<int> DeleteExerciseAsync(Exercise item)
 	{
+		// TODO: Delete all routines containing the exercise 
 		await Init();
 		return await Database.DeleteAsync(item);
 	}
@@ -28,6 +29,13 @@ public class LocalDatabase
 	{
 		await Init();
 		return await Database.Table<Exercise>().ToListAsync();
+	}
+
+	public async Task<int> SaveRoutineExercisesAsync(List<RoutineExercise> rexes)
+	{
+		await Init();
+
+		return await Database.InsertAllAsync(rexes);
 	}
 
 	public async Task<int> SaveRoutineAsync(Routine item)
@@ -64,11 +72,12 @@ public class LocalDatabase
 		var result = await Database.CreateTableAsync<Routine>();
 		result = await Database.CreateTableAsync<Exercise>();
 		result = await Database.CreateTableAsync<ExerciseHistory>();
-		result = await Database.CreateTableAsync<RoutineExercises>();
+		result = await Database.CreateTableAsync<RoutineExercise>();
 	}
 
 	public async Task<int> GetLastIDAsync()
 	{
+		// Is this needed ???
 		return await Database.ExecuteScalarAsync<int>("select last_insert_rowid()");
 	}
 }
