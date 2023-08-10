@@ -11,31 +11,56 @@
 	Style="{StaticResource PageStyle}">
 
 	<StackLayout>
-		<Label Text="Name" />
+		<Label Style="{StaticResource FieldTitle}" Text="Name" />
 		<Entry
 			MaxLength="20"
 			Placeholder="Enter name"
 			TextChanged="NameChanged" />
 
-		<Label Text="Notes" />
+		<Label Style="{StaticResource FieldTitle}" Text="Notes" />
 		<Entry
 			MaxLength="300"
 			Placeholder="Type notes"
 			TextChanged="NotesChanged" />
 
-		<HorizontalStackLayout>
-			<Label Text="Track Reps" VerticalTextAlignment="Center" />
-			<CheckBox Margin="20,0,0,0" CheckedChanged="TrackRepsChanged" />
-		</HorizontalStackLayout>
-		<HorizontalStackLayout>
-			<Label Text="Track Weight" VerticalTextAlignment="Center" />
-			<CheckBox Margin="20,0,0,0" CheckedChanged="TrackWeightChanged" />
-		</HorizontalStackLayout>
-		<HorizontalStackLayout>
-			<Label Text="Track Time" VerticalTextAlignment="Center" />
-			<CheckBox Margin="20,0,0,0" CheckedChanged="TrackTimeChanged" />
-		</HorizontalStackLayout>
-
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="4*" />
+			</Grid.ColumnDefinitions>
+			<Label
+				Style="{StaticResource FieldTitle}"
+				Text="Track Reps:"
+				VerticalTextAlignment="Center" />
+			<CheckBox
+				Grid.Column="1"
+				CheckedChanged="TrackRepsChanged"
+				VerticalOptions="CenterAndExpand" />
+			<Label
+				Grid.Row="1"
+				Style="{StaticResource FieldTitle}"
+				Text="Track Weight:"
+				VerticalTextAlignment="Center" />
+			<CheckBox
+				Grid.Row="1"
+				Grid.Column="1"
+				CheckedChanged="TrackWeightChanged" />
+			<Label
+				Grid.Row="2"
+				Style="{StaticResource FieldTitle}"
+				Text="Track Time:"
+				VerticalTextAlignment="Center" />
+			<CheckBox
+				Grid.Row="2"
+				Grid.Column="1"
+				CheckedChanged="TrackTimeChanged" />
+		</Grid>
 		<Button
 			Margin="10,10,10,10"
 			Command="{Binding AddExerciseToDbCommand}"

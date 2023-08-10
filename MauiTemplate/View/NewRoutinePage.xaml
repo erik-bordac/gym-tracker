@@ -13,14 +13,14 @@
 
 	<StackLayout>
 		<VerticalStackLayout>
-			<Label Text="Routine Name" />
+			<Label Style="{StaticResource FieldTitle}" Text="Routine Name" />
 			<Entry
 				MaxLength="20"
 				Placeholder="Enter name"
 				TextChanged="Entry_TextChanged" />
 		</VerticalStackLayout>
 
-		<Label Text="Saved Exercises:" />
+		<Label Style="{StaticResource FieldTitle}" Text="Saved Exercises:" />
 		<ScrollView VerticalOptions="FillAndExpand">
 			<CollectionView ItemsSource="{Binding ExerciseList}">
 				<CollectionView.ItemTemplate>
@@ -47,7 +47,7 @@
 			</CollectionView>
 		</ScrollView>
 
-		<Label Text="Added exercises:" />
+		<Label Style="{StaticResource FieldTitle}" Text="Added exercises:" />
 		<ScrollView VerticalOptions="FillAndExpand">
 			<CollectionView ItemsSource="{Binding AddedExerciseList}">
 				<CollectionView.ItemTemplate>

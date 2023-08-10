@@ -5,6 +5,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:model="clr-namespace:GymTracker.Model"
 	xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
+	Title="Interval Timer"
 	x:DataType="viewmodel:MainPageViewModel"
 	BackgroundColor="{Binding BackgroundColor}">
 
