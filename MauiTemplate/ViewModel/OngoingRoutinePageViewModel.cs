@@ -1,10 +1,17 @@
-﻿namespace GymTracker.ViewModel;
+﻿using GymTracker.Services;
+
+namespace GymTracker.ViewModel;
 
 public partial class OngoingRoutinePageViewModel : BaseViewModel
 {
-	public OngoingRoutinePageViewModel()
+	private OngoingRoutineService _ors;
+
+	[ObservableProperty]
+	private ObservableCollection<AddedExerciseWrapper> addedExercises;
+	public OngoingRoutinePageViewModel(OngoingRoutineService ors)
 	{
-		
+		_ors = ors;
+		AddedExercises = ors.AddedExercises;
 	}
 
 	[RelayCommand]

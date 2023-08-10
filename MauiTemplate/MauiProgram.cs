@@ -34,6 +34,7 @@ public static class MauiProgram
 	{
 		builder.Services.AddSingleton<IntervalTimerService>();
 		builder.Services.AddSingleton<LocalDatabase>();
+		builder.Services.AddSingleton<OngoingRoutineService>();
 	}
 
 	public static MauiApp CreateMauiApp()

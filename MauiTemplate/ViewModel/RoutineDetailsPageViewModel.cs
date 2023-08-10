@@ -7,6 +7,7 @@ namespace GymTracker.ViewModel;
 public partial class RoutineDetailsPageViewModel : BaseViewModel
 {
 	LocalDatabase _db;
+	OngoingRoutineService _ors;
 
 	[ObservableProperty]
 	private Routine routine;
@@ -14,9 +15,10 @@ public partial class RoutineDetailsPageViewModel : BaseViewModel
 	private ObservableCollection<AddedExerciseWrapper> addedExercises = new();
 
 
-	public RoutineDetailsPageViewModel(LocalDatabase db) 
+	public RoutineDetailsPageViewModel(LocalDatabase db, OngoingRoutineService ors) 
 	{
 		_db = db;
+		_ors = ors;
 	}
 	
 	public async Task LoadExercises()
@@ -47,6 +49,7 @@ public partial class RoutineDetailsPageViewModel : BaseViewModel
 	[RelayCommand]
 	private async Task GoToOngoingRoutine()
 	{
+		_ors.AddedExercises = AddedExercises;
 		await Shell.Current.GoToAsync("OngoingRoutinePage");
 	}
 }
