@@ -41,7 +41,11 @@ public partial class RoutinesPageViewModel : BaseViewModel
 	}
 
 	[RelayCommand]
-	private async Task RoutineTapped()
+	private async Task RoutineTapped(Routine r)
 	{
+		await Shell.Current.GoToAsync(nameof(RoutineDetailsPage), true, new Dictionary<string, object>
+		{
+			{ "Routine", r }
+		});
 	}
 }

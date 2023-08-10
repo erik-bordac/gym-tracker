@@ -32,6 +32,7 @@
 			<Setter Property="TextColor" Value="#f2e9e4" />
 			<Setter Property="Margin" Value="2,2,2,2" />
 			<Setter Property="BackgroundColor" Value="#424242" />
+			<!--<Setter Property="BackgroundColor" Value="#D4ADFC" />-->
 			<Setter Property="FontSize" Value="18" />
 		</Style>
 		<Style x:Key="DeleteButton" TargetType="ImageButton">

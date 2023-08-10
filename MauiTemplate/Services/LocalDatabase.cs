@@ -29,6 +29,12 @@ public class LocalDatabase
 		await Init();
 		return await Database.Table<Exercise>().ToListAsync();
 	}
+	
+	public async Task<List<Exercise>> GetExercisesFromIDArrAsync(int[] idArr)
+	{
+		await Init();
+		return await Database.Table<Exercise>().Where(ex => idArr.Contains(ex.ID)).ToListAsync();
+	}
 
 	public async Task<int> GetLastIDAsync()
 	{
@@ -65,6 +71,13 @@ public class LocalDatabase
 		await Init();
 
 		return await Database.InsertAllAsync(rexes);
+	}
+
+	public async Task<List<RoutineExercise>> GetExercisesInRoutine(int routineID)
+	{
+		await Init();
+
+		return await Database.Table<RoutineExercise>().Where(rex => rex.RoutineID == routineID).ToListAsync();
 	}
 
 	private async Task Init()

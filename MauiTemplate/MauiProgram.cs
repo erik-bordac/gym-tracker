@@ -10,10 +10,12 @@ public static class MauiProgram
 	{
 		builder.Services.AddSingleton<MainPageViewModel>();
 		builder.Services.AddSingleton<ExercisesPageViewModel>();
-		builder.Services.AddTransient<RoutinesPageViewModel>();
+		builder.Services.AddSingleton<RoutinesPageViewModel>();			//
 		builder.Services.AddTransient<ExerciseFormViewModel>();
+		builder.Services.AddTransient<OngoingRoutinePageViewModel>();	//
 		builder.Services.AddTransient<ExerciseDetailsPageViewModel>();
 		builder.Services.AddTransient<NewRoutinePageViewModel>();
+		builder.Services.AddTransient<RoutineDetailsPageViewModel>();
 	}
 
 	private static void RegisterViews(MauiAppBuilder builder)
@@ -22,8 +24,10 @@ public static class MauiProgram
 		builder.Services.AddSingleton<RoutinesPage>();
 		builder.Services.AddSingleton<ExercisesPage>();
 		builder.Services.AddTransient<ExerciseForm>();
+		builder.Services.AddTransient<OngoingRoutinePage>();
 		builder.Services.AddTransient<ExerciseDetailsPage>();
 		builder.Services.AddTransient<NewRoutinePage>();
+		builder.Services.AddTransient<RoutineDetailsPage>();
 	}
 
 	private static void RegisterServices(MauiAppBuilder builder)

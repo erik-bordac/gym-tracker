@@ -12,21 +12,12 @@
 	<Shell.Resources />
 
 	<FlyoutItem Title="Home">
-		<ShellContent
-			Title="GymTracker"
-			ContentTemplate="{DataTemplate view:MainPage}"
-			Route="MainPage" />
+		<ShellContent ContentTemplate="{DataTemplate view:MainPage}" Route="MainPage" />
 	</FlyoutItem>
 	<FlyoutItem Title="Routines">
-		<ShellContent
-			Title="GymTracker"
-			ContentTemplate="{DataTemplate view:RoutinesPage}"
-			Route="RoutinesPage" />
+		<ShellContent ContentTemplate="{DataTemplate view:RoutinesPage}" Route="RoutinesPage" />
 	</FlyoutItem>
 	<FlyoutItem Title="Exercises">
-		<ShellContent
-			Title="GymTracker"
-			ContentTemplate="{DataTemplate view:ExercisesPage}"
-			Route="ExercisesPage" />
+		<ShellContent ContentTemplate="{DataTemplate view:ExercisesPage}" Route="ExercisesPage" />
 	</FlyoutItem>
 </Shell>
