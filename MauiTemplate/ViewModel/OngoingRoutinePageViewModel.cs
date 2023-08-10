@@ -11,6 +11,5 @@ public partial class OngoingRoutinePageViewModel : BaseViewModel
 	private async Task GoBack()
 	{
 		await Shell.Current.Navigation.PopToRootAsync();
-		await Shell.Current.GoToAsync("///MainPage");
 	}
 }

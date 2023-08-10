@@ -9,12 +9,15 @@
 	x:DataType="viewmodel:OngoingRoutinePageViewModel"
 	Shell.FlyoutBehavior="Disabled"
 	Style="{StaticResource PageStyle}">
+
+	<Shell.BackButtonBehavior>
+		<BackButtonBehavior Command="{Binding GoBackCommand}" />
+	</Shell.BackButtonBehavior>
+
 	<VerticalStackLayout>
 		<Label
 			HorizontalOptions="Center"
 			Text="Welcome to .NET MAUI!"
 			VerticalOptions="Center" />
-
-		<Button Command="{Binding GoBackCommand}" Text="click" />
 	</VerticalStackLayout>
 </ContentPage>
