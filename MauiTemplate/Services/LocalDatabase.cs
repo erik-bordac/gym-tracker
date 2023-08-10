@@ -76,7 +76,7 @@ public class LocalDatabase
 		//Database.DropTableAsync<Routine>();
 		//Database.DropTableAsync<Exercise>();
 		//Database.DropTableAsync<ExerciseHistory>();
-		//Database.DropTableAsync<RoutineExercises>();
+		//Database.DropTableAsync<RoutineExercise>();
 
 		Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
 		var result = await Database.CreateTableAsync<Routine>();
