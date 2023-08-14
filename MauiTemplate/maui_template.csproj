@@ -71,6 +71,12 @@
 	  <Compile Update="View\ExerciseForm.xaml.cs">
 	    <DependentUpon>ExerciseForm.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="View\MainPage.xaml.cs">
+	    <DependentUpon>MainPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\IntervalTimerPage.xaml.cs">
+	    <DependentUpon>IntervalTimerPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\NewRoutinePage.xaml.cs">
 	    <DependentUpon>NewRoutinePage.xaml</DependentUpon>
 	  </Compile>
@@ -84,6 +90,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\ExerciseForm.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\NewRoutinePage.xaml">

@@ -3,7 +3,7 @@ using Plugin.Maui.Audio;
 
 namespace GymTracker.ViewModel;
 
-public partial class MainPageViewModel : BaseViewModel
+public partial class IntervalTimerViewModel : BaseViewModel
 {
 	private const int Infinite = -1;
 	private const int Second = 1000;
@@ -65,7 +65,7 @@ public partial class MainPageViewModel : BaseViewModel
 	[ObservableProperty]
 	private int workTimeLeft;
 
-	public MainPageViewModel(IntervalTimerService intervalTimer)
+	public IntervalTimerViewModel(IntervalTimerService intervalTimer)
 	{
 		_intervalTimer = intervalTimer;
 		backgroundColor = this.defaultDark;

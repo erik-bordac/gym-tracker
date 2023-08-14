@@ -7,6 +7,8 @@ public partial class AppShell : Shell
 	public AppShell()
 	{
 		InitializeComponent();
+		Routing.RegisterRoute("MainPage", typeof(MainPage));
+		Routing.RegisterRoute("IntervalTimerPage", typeof(IntervalTimerPage));
 		Routing.RegisterRoute("RoutinesPage", typeof(RoutinesPage));
 		Routing.RegisterRoute("ExercisesPage", typeof(ExercisesPage));
 		Routing.RegisterRoute("ExerciseForm", typeof(ExerciseForm));

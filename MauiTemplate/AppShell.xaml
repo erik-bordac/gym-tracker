@@ -14,6 +14,9 @@
 	<FlyoutItem Title="Home">
 		<ShellContent ContentTemplate="{DataTemplate view:MainPage}" Route="MainPage" />
 	</FlyoutItem>
+	<FlyoutItem Title="Interval Timer">
+		<ShellContent ContentTemplate="{DataTemplate view:IntervalTimerPage}" Route="IntervalTimerPage" />
+	</FlyoutItem>
 	<FlyoutItem Title="Routines">
 		<ShellContent ContentTemplate="{DataTemplate view:RoutinesPage}" Route="RoutinesPage" />
 	</FlyoutItem>
