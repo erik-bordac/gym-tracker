@@ -4,6 +4,13 @@ public partial class OngoingExerciseWrapper: ObservableObject
 {
 	// This class is used for tracking exercises in OngoingRoutine
 	[ObservableProperty]
+	private int repsDone = 0;
+	[ObservableProperty]
+	private int weightDone = 0;
+	[ObservableProperty]
+	private int timeDone = 0;
+
+	[ObservableProperty]
 	private Color frameColor = Color.FromRgba("#424242");
 
 	[ObservableProperty]

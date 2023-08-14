@@ -24,6 +24,13 @@
 			<Setter Property="FontSize" Value="22" />
 			<Setter Property="Margin" Value="5,5,5,5" />
 		</Style>
+		<Style x:Key="OngoingExerciseEntry" TargetType="Entry">
+			<Setter Property="FontSize" Value="22" />
+			<Setter Property="Placeholder" Value="0" />
+			<Setter Property="HorizontalTextAlignment" Value="Center" />
+			<Setter Property="Keyboard" Value="Numeric" />
+			<Setter Property="Margin" Value="5,5,5,5" />
+		</Style>
 		<Style x:Key="GridStyle" TargetType="Grid">
 			<Setter Property="BackgroundColor" Value="#262626" />
 			<Setter Property="VerticalOptions" Value="Center" />

@@ -42,4 +42,38 @@ public partial class OngoingRoutinePageViewModel : BaseViewModel
 		_ors.Clear();
 		await Shell.Current.Navigation.PopToRootAsync();
 	}
+
+	[RelayCommand]
+	private void RepsMinus(OngoingExerciseWrapper ongoing_ex)
+	{
+		if (ongoing_ex.RepsDone <= 0) return;
+		ongoing_ex.RepsDone--;
+	}
+	[RelayCommand]
+	private void RepsPlus(OngoingExerciseWrapper ongoing_ex)
+	{
+		ongoing_ex.RepsDone++;
+	}
+	[RelayCommand]
+	private void TimeMinus(OngoingExerciseWrapper ongoing_ex)
+	{
+		if (ongoing_ex.TimeDone <= 0) return;
+		ongoing_ex.TimeDone--;
+	}
+	[RelayCommand]
+	private void TimePlus(OngoingExerciseWrapper ongoing_ex)
+	{
+		ongoing_ex.TimeDone++;
+	}
+	[RelayCommand]
+	private void WeightMinus(OngoingExerciseWrapper ongoing_ex)
+	{
+		if (ongoing_ex.WeightDone<= 0) return;
+		ongoing_ex.WeightDone--;
+	}
+	[RelayCommand]
+	private void WeightPlus(OngoingExerciseWrapper ongoing_ex)
+	{
+		ongoing_ex.WeightDone++;
+	}
 }

@@ -70,25 +70,43 @@
 									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding Exercise.TrackReps}">
 										<Label HorizontalOptions="Center" Text="Reps" />
 										<HorizontalStackLayout>
-											<Button Text="-" />
-											<Label Text="0" />
-											<Button Text="+" />
+											<Button
+												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=RepsMinusCommand}"
+												CommandParameter="{Binding .}"
+												Text="-" />
+											<Label Text="{Binding RepsDone}" />
+											<Button
+												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=RepsPlusCommand}"
+												CommandParameter="{Binding .}"
+												Text="+" />
 										</HorizontalStackLayout>
 									</VerticalStackLayout>
 									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding Exercise.TrackWeight}">
 										<Label HorizontalOptions="Center" Text="Weight" />
 										<HorizontalStackLayout>
-											<Button Text="-" />
-											<Label Text="0" />
-											<Button Text="+" />
+											<Button
+												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=WeightMinusCommand}"
+												CommandParameter="{Binding .}"
+												Text="-" />
+											<Label Text="{Binding WeightDone}" />
+											<Button
+												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=WeightPlusCommand}"
+												CommandParameter="{Binding .}"
+												Text="+" />
 										</HorizontalStackLayout>
 									</VerticalStackLayout>
 									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding Exercise.TrackTime}">
 										<Label HorizontalOptions="Center" Text="Time" />
 										<HorizontalStackLayout>
-											<Button Text="-" />
-											<Label Text="0" />
-											<Button Text="+" />
+											<Button
+												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=TimeMinusCommand}"
+												CommandParameter="{Binding .}"
+												Text="-" />
+											<Label Text="{Binding TimeDone}" />
+											<Button
+												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=TimePlusCommand}"
+												CommandParameter="{Binding .}"
+												Text="+" />
 										</HorizontalStackLayout>
 									</VerticalStackLayout>
 								</StackLayout>
