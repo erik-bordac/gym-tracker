@@ -7,7 +7,7 @@ public partial class OngoingRoutinePageViewModel : BaseViewModel
 	private OngoingRoutineService _ors;
 
 	[ObservableProperty]
-	private ObservableCollection<Exercise> frames;
+	private ObservableCollection<OngoingExerciseWrapper> frames;
 	public OngoingRoutinePageViewModel(OngoingRoutineService ors)
 	{
 		_ors = ors;

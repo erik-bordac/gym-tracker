@@ -40,7 +40,7 @@
 					SnapPointsType="MandatorySingle" />
 			</CarouselView.ItemsLayout>
 			<CarouselView.ItemTemplate>
-				<DataTemplate x:DataType="model:Exercise">
+				<DataTemplate x:DataType="model:OngoingExerciseWrapper">
 					<Grid>
 						<Grid.RowDefinitions>
 							<RowDefinition />
@@ -66,8 +66,8 @@
 									<Label
 										FontSize="32"
 										HorizontalOptions="Center"
-										Text="{Binding Name}" />
-									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding TrackReps}">
+										Text="{Binding Exercise.Name}" />
+									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding Exercise.TrackReps}">
 										<Label HorizontalOptions="Center" Text="Reps" />
 										<HorizontalStackLayout>
 											<Button Text="-" />
@@ -75,7 +75,7 @@
 											<Button Text="+" />
 										</HorizontalStackLayout>
 									</VerticalStackLayout>
-									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding TrackWeight}">
+									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding Exercise.TrackWeight}">
 										<Label HorizontalOptions="Center" Text="Weight" />
 										<HorizontalStackLayout>
 											<Button Text="-" />
@@ -83,7 +83,7 @@
 											<Button Text="+" />
 										</HorizontalStackLayout>
 									</VerticalStackLayout>
-									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding TrackTime}">
+									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding Exercise.TrackTime}">
 										<Label HorizontalOptions="Center" Text="Time" />
 										<HorizontalStackLayout>
 											<Button Text="-" />

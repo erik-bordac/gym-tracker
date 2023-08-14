@@ -3,7 +3,7 @@
 public class OngoingRoutineService
 {
 	public ObservableCollection<AddedExerciseWrapper> AddedExercises { get; set; }
-	public ObservableCollection<Exercise> Frames { get; set; } = new();
+	public ObservableCollection<OngoingExerciseWrapper> Frames { get; set; } = new();
 	private int currentExerciseIdx = 0;
 
 	public OngoingRoutineService()
@@ -24,11 +24,13 @@ public class OngoingRoutineService
 	public void SetFrames(ObservableCollection<AddedExerciseWrapper> addedExercises)
 	{
 		Frames = new();
+
+		int index = 0;
 		foreach (var item in addedExercises)
 		{
 			for (int i =0; i<item.Sets; i++)
 			{
-				Frames.Add(item.Exercise);
+				Frames.Add(new OngoingExerciseWrapper(index++, item.Exercise));
 			}
 		}
 	}
