@@ -2,9 +2,8 @@
 
 public class OngoingRoutineService
 {
-	public ObservableCollection<AddedExerciseWrapper> AddedExercises { get; set; }
 	public ObservableCollection<OngoingExerciseWrapper> Frames { get; set; } = new();
-	private int currentExerciseIdx = 0;
+	public int currentExerciseIdx = 0;
 
 	public OngoingRoutineService()
 	{ 

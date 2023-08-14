@@ -4,7 +4,11 @@ public partial class OngoingExerciseWrapper: ObservableObject
 {
 	// This class is used for tracking exercises in OngoingRoutine
 
-	public bool IsFinished { get; set; } = false;
+	[ObservableProperty]
+	[NotifyPropertyChangedFor(nameof(IsNotFinished))]
+	private bool isFinished;
+	public bool IsNotFinished => !IsFinished;
+
 	public int Index { get; set; }
 	public Exercise Exercise { get; set; }
 

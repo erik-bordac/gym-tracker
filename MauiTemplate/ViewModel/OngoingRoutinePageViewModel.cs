@@ -19,4 +19,16 @@ public partial class OngoingRoutinePageViewModel : BaseViewModel
 	{
 		await Shell.Current.Navigation.PopToRootAsync();
 	}
+
+	[RelayCommand]
+	private void FinishExercise(OngoingExerciseWrapper ong_ex)
+	{
+		ong_ex.IsFinished = true;
+	}
+
+	[RelayCommand]
+	private void ResumeExercise(OngoingExerciseWrapper ong_ex)
+	{
+		ong_ex.IsFinished = false;
+	}
 }
