@@ -18,5 +18,50 @@
 			</Frame.GestureRecognizers>
 			<Label Text="Ongoing routine: " TextColor="Black" />
 		</Frame>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<StackLayout HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+				<Frame
+					Margin="10"
+					BackgroundColor="#424242"
+					CornerRadius="30"
+					HorizontalOptions="Fill">
+					<StackLayout>
+						<Label FontSize="32" Text="Lorem" />
+						<Label FontSize="24" Text="ipsum" />
+					</StackLayout>
+				</Frame>
+				<Frame
+					Margin="10"
+					BackgroundColor="#424242"
+					CornerRadius="30"
+					HorizontalOptions="Fill">
+					<StackLayout>
+						<Label FontSize="32" Text="Lorem" />
+						<Label FontSize="24" Text="ipsum" />
+					</StackLayout>
+				</Frame>
+			</StackLayout>
+			<StackLayout Grid.Column="1" HorizontalOptions="Fill">
+				<Frame
+					Margin="10"
+					BackgroundColor="#424242"
+					CornerRadius="30"
+					HorizontalOptions="Fill">
+					<StackLayout>
+						<Label FontSize="32" Text="Lorem" />
+						<Label FontSize="24" Text="ipsum" />
+						<Label FontSize="24" Text="ipsum" />
+						<Label FontSize="24" Text="ipsum" />
+					</StackLayout>
+				</Frame>
+			</StackLayout>
+		</Grid>
 	</StackLayout>
 </ContentPage>
