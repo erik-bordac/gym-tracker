@@ -50,6 +50,7 @@ public partial class RoutineDetailsPageViewModel : BaseViewModel
 	private async Task GoToOngoingRoutine()
 	{
 		_ors.AddedExercises = AddedExercises;
+		_ors.SetFrames(AddedExercises);
 		await Shell.Current.GoToAsync("OngoingRoutinePage");
 	}
 }

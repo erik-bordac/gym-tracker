@@ -7,11 +7,11 @@ public partial class OngoingRoutinePageViewModel : BaseViewModel
 	private OngoingRoutineService _ors;
 
 	[ObservableProperty]
-	private ObservableCollection<AddedExerciseWrapper> addedExercises;
+	private ObservableCollection<Exercise> frames;
 	public OngoingRoutinePageViewModel(OngoingRoutineService ors)
 	{
 		_ors = ors;
-		AddedExercises = ors.AddedExercises;
+		Frames = ors.Frames;
 	}
 
 	[RelayCommand]

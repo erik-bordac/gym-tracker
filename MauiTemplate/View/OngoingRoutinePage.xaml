@@ -27,7 +27,7 @@
 			HorizontalOptions="Center"
 			HorizontalScrollBarVisibility="Never"
 			IndicatorView="indicatorView"
-			ItemsSource="{Binding AddedExercises}"
+			ItemsSource="{Binding Frames}"
 			Loop="False"
 			PeekAreaInsets="30"
 			Position="{Binding}"
@@ -40,7 +40,7 @@
 					SnapPointsType="MandatorySingle" />
 			</CarouselView.ItemsLayout>
 			<CarouselView.ItemTemplate>
-				<DataTemplate x:DataType="model:AddedExerciseWrapper">
+				<DataTemplate x:DataType="model:Exercise">
 					<Grid>
 						<Grid.RowDefinitions>
 							<RowDefinition />
@@ -54,36 +54,46 @@
 							HeightRequest="400"
 							HorizontalOptions="CenterAndExpand"
 							WidthRequest="300">
-							<StackLayout>
-								<Label
-									FontSize="32"
-									HorizontalOptions="Center"
-									Text="{Binding Exercise.Name}" />
-								<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding Exercise.TrackReps}">
-									<Label HorizontalOptions="Center" Text="Reps" />
-									<HorizontalStackLayout>
-										<Button Text="-" />
-										<Label Text="0" />
-										<Button Text="+" />
-									</HorizontalStackLayout>
-								</VerticalStackLayout>
-								<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding Exercise.TrackWeight}">
-									<Label HorizontalOptions="Center" Text="Weight" />
-									<HorizontalStackLayout>
-										<Button Text="-" />
-										<Label Text="0" />
-										<Button Text="+" />
-									</HorizontalStackLayout>
-								</VerticalStackLayout>
-								<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding Exercise.TrackTime}">
-									<Label HorizontalOptions="Center" Text="Time" />
-									<HorizontalStackLayout>
-										<Button Text="-" />
-										<Label Text="0" />
-										<Button Text="+" />
-									</HorizontalStackLayout>
-								</VerticalStackLayout>
-							</StackLayout>
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="7*" />
+									<RowDefinition Height="*" />
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+								</Grid.ColumnDefinitions>
+								<StackLayout>
+									<Label
+										FontSize="32"
+										HorizontalOptions="Center"
+										Text="{Binding Name}" />
+									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding TrackReps}">
+										<Label HorizontalOptions="Center" Text="Reps" />
+										<HorizontalStackLayout>
+											<Button Text="-" />
+											<Label Text="0" />
+											<Button Text="+" />
+										</HorizontalStackLayout>
+									</VerticalStackLayout>
+									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding TrackWeight}">
+										<Label HorizontalOptions="Center" Text="Weight" />
+										<HorizontalStackLayout>
+											<Button Text="-" />
+											<Label Text="0" />
+											<Button Text="+" />
+										</HorizontalStackLayout>
+									</VerticalStackLayout>
+									<VerticalStackLayout HorizontalOptions="Center" IsVisible="{Binding TrackTime}">
+										<Label HorizontalOptions="Center" Text="Time" />
+										<HorizontalStackLayout>
+											<Button Text="-" />
+											<Label Text="0" />
+											<Button Text="+" />
+										</HorizontalStackLayout>
+									</VerticalStackLayout>
+								</StackLayout>
+								<Button Grid.Row="1" Text="Finish" />
+							</Grid>
 						</Frame>
 					</Grid>
 				</DataTemplate>
