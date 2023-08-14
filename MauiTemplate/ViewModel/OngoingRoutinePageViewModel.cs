@@ -39,6 +39,9 @@ public partial class OngoingRoutinePageViewModel : BaseViewModel
 	[RelayCommand]
 	private async Task ExitRoutine()
 	{
+		bool res = await Application.Current.MainPage.DisplayAlert("Exit routine", "Do you want to exit routine? All progress will be lost", "Yes", "No");
+		if (!res) return;
+
 		_ors.Clear();
 		await Shell.Current.Navigation.PopToRootAsync();
 	}

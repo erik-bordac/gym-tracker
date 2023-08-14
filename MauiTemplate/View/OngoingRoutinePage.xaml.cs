@@ -7,9 +7,4 @@ public partial class OngoingRoutinePage : ContentPage
 		InitializeComponent();
 		BindingContext = vm;
 	}
-
-	private void CarouselView_ScrollToRequested(object sender, ScrollToRequestEventArgs e)
-	{
-
-	}
 }
