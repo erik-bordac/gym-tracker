@@ -12,6 +12,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<ExercisesPageViewModel>();
 		builder.Services.AddSingleton<RoutinesPageViewModel>();			
 		builder.Services.AddTransient<ExerciseFormViewModel>();
+		builder.Services.AddTransient<MainPageViewModel>();
 		builder.Services.AddTransient<OngoingRoutinePageViewModel>();	
 		builder.Services.AddTransient<ExerciseDetailsPageViewModel>();
 		builder.Services.AddTransient<NewRoutinePageViewModel>();

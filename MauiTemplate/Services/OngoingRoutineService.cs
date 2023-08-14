@@ -4,6 +4,7 @@ public class OngoingRoutineService
 {
 	public ObservableCollection<OngoingExerciseWrapper> Frames { get; set; } = new();
 	public int currentExerciseIdx = 0;
+	public bool OngoingRoutine { get; set; } = false; 
 
 	public OngoingRoutineService()
 	{ 
@@ -32,5 +33,12 @@ public class OngoingRoutineService
 				Frames.Add(new OngoingExerciseWrapper(index++, item.Exercise));
 			}
 		}
+	}
+
+	public void Clear()
+	{
+		Frames.Clear();
+		OngoingRoutine = false;
+		currentExerciseIdx = 0;
 	}
 }

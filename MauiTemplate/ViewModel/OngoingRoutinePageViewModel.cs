@@ -33,4 +33,11 @@ public partial class OngoingRoutinePageViewModel : BaseViewModel
 		ong_ex.IsFinished = false;
 		_ors.Frames[ong_ex.Index].IsFinished = false;
 	}
+
+	[RelayCommand]
+	private async Task ExitRoutine()
+	{
+		_ors.Clear();
+		await Shell.Current.Navigation.PopToRootAsync();
+	}
 }

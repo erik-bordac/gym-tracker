@@ -5,4 +5,18 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:model="clr-namespace:GymTracker.Model"
 	xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
-	Title="MainPage" />
+	Title="MainPage"
+	x:DataType="viewmodel:MainPageViewModel">
+	<StackLayout>
+		<Frame
+			Margin="10"
+			BackgroundColor="#D4ADFC"
+			CornerRadius="24"
+			IsVisible="{Binding OngoingRoutine}">
+			<Frame.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding GoToOngoingRoutineCommand}" NumberOfTapsRequired="1" />
+			</Frame.GestureRecognizers>
+			<Label Text="Ongoing routine: " TextColor="Black" />
+		</Frame>
+	</StackLayout>
+</ContentPage>

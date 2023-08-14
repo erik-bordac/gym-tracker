@@ -49,7 +49,15 @@ public partial class RoutineDetailsPageViewModel : BaseViewModel
 	[RelayCommand]
 	private async Task GoToOngoingRoutine()
 	{
+		if (_ors.OngoingRoutine)
+		{
+			bool res = await Application.Current.MainPage.DisplayAlert("Active routine", "There is an active routine. Want to start new?", "Yes", "No");
+			if (!res) return;
+		}
+
+		_ors.Clear();
 		_ors.SetFrames(AddedExercises);
+		_ors.OngoingRoutine = true;
 		await Shell.Current.GoToAsync("OngoingRoutinePage");
 	}
 }

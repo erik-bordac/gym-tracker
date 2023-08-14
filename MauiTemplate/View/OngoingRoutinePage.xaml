@@ -118,7 +118,10 @@
 				IndicatorColor="LightGray"
 				SelectedIndicatorColor="DarkGray" />
 
-			<Button Text="Exit" VerticalOptions="Center" />
+			<Button
+				Command="{Binding ExitRoutineCommand}"
+				Text="Exit"
+				VerticalOptions="Center" />
 
 		</StackLayout>
 
