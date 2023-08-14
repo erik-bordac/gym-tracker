@@ -23,14 +23,16 @@ public partial class OngoingRoutinePageViewModel : BaseViewModel
 	[RelayCommand]
 	private void FinishExercise(OngoingExerciseWrapper ong_ex)
 	{
-		ong_ex.IsFinished = true;
+		//ong_ex.IsFinished = true;
+		ong_ex.ChangeFinishedState();
 		_ors.Frames[ong_ex.Index].IsFinished = true;
 	}
 
 	[RelayCommand]
 	private void ResumeExercise(OngoingExerciseWrapper ong_ex)
 	{
-		ong_ex.IsFinished = false;
+		//ong_ex.IsFinished = false;
+		ong_ex.ChangeFinishedState();
 		_ors.Frames[ong_ex.Index].IsFinished = false;
 	}
 

@@ -49,7 +49,7 @@
 							<ColumnDefinition />
 						</Grid.ColumnDefinitions>
 						<Frame
-							BackgroundColor="#424242"
+							BackgroundColor="{Binding FrameColor}"
 							CornerRadius="30"
 							HeightRequest="400"
 							HorizontalOptions="CenterAndExpand"
@@ -94,16 +94,20 @@
 								</StackLayout>
 								<Button
 									Grid.Row="1"
+									BackgroundColor="#D4ADFC"
 									Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=FinishExerciseCommand}"
 									CommandParameter="{Binding .}"
 									IsVisible="{Binding IsNotFinished}"
-									Text="Finish" />
+									Text="Finish"
+									TextColor="black" />
 								<Button
 									Grid.Row="1"
+									BackgroundColor="#D4ADFC"
 									Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=ResumeExerciseCommand}"
 									CommandParameter="{Binding .}"
 									IsVisible="{Binding IsFinished}"
-									Text="Resume" />
+									Text="Resume"
+									TextColor="black" />
 							</Grid>
 						</Frame>
 					</Grid>

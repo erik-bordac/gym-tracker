@@ -3,6 +3,8 @@
 public partial class OngoingExerciseWrapper: ObservableObject
 {
 	// This class is used for tracking exercises in OngoingRoutine
+	[ObservableProperty]
+	private Color frameColor = Color.FromRgba("#424242");
 
 	[ObservableProperty]
 	[NotifyPropertyChangedFor(nameof(IsNotFinished))]
@@ -16,5 +18,18 @@ public partial class OngoingExerciseWrapper: ObservableObject
 	{
 		Index = index;
 		Exercise = ex;
+	}
+
+	public void ChangeFinishedState()
+	{
+		if (IsFinished)
+		{
+			IsFinished = false;
+			FrameColor = Color.FromRgba("#424242");
+		} else
+		{
+			IsFinished = true;
+			FrameColor = Color.FromRgba("#116D6E");
+		}
 	}
 }
