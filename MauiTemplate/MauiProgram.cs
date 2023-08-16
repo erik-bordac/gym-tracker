@@ -17,11 +17,13 @@ public static class MauiProgram
 		builder.Services.AddTransient<ExerciseDetailsPageViewModel>();
 		builder.Services.AddTransient<NewRoutinePageViewModel>();
 		builder.Services.AddTransient<RoutineDetailsPageViewModel>();
+		builder.Services.AddTransient<ExerciseHistoryPageViewModel>();
 	}
 
 	private static void RegisterViews(MauiAppBuilder builder)
 	{
 		builder.Services.AddTransient<MainPage>();
+		builder.Services.AddTransient<ExerciseHistoryPage>();
 		builder.Services.AddSingleton<IntervalTimerPage>();
 		builder.Services.AddSingleton<RoutinesPage>();
 		builder.Services.AddSingleton<ExercisesPage>();

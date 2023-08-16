@@ -80,6 +80,9 @@
 	  <Compile Update="View\NewRoutinePage.xaml.cs">
 	    <DependentUpon>NewRoutinePage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="View\ExerciseHistoryPage.xaml.cs">
+	    <DependentUpon>ExerciseHistoryPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -102,6 +105,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\RoutineDetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\ExerciseHistoryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\RoutinesPage.xaml">

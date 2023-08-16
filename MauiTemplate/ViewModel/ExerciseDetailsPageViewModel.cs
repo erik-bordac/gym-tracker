@@ -9,4 +9,13 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 
 	[ObservableProperty]
 	private Exercise exercise;
+
+	[RelayCommand]
+	private async Task GoToHistory(int ID)
+	{
+		await Shell.Current.GoToAsync("ExerciseHistoryPage", new Dictionary<string, object>
+		{
+			{"Id", ID }
+		});
+	}
 }

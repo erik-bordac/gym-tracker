@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="GymTracker.View.ExerciseHistoryPage"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:model="clr-namespace:GymTracker.Model"
+	xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
+	Title="Your Routines"
+	x:DataType="viewmodel:ExerciseHistoryPageViewModel"
+	Shell.FlyoutBehavior="Disabled"
+	Style="{StaticResource PageStyle}">
+	<Shell.BackButtonBehavior>
+		<BackButtonBehavior Command="{Binding GoBackCommand}" />
+	</Shell.BackButtonBehavior>
+
+	<Label Text="{Binding Id}" />
+</ContentPage>
