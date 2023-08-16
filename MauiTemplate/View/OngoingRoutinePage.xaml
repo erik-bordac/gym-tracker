@@ -140,10 +140,17 @@
 				IndicatorColor="LightGray"
 				SelectedIndicatorColor="DarkGray" />
 
-			<Button
-				Command="{Binding ExitRoutineCommand}"
-				Text="Exit"
-				VerticalOptions="Center" />
+			<HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+				<Button
+					Command="{Binding ExitRoutineCommand}"
+					Text="Exit"
+					VerticalOptions="Center" />
+				<Button
+					Command="{Binding SaveCommand}"
+					Text="Save"
+					VerticalOptions="Center" />
+
+			</HorizontalStackLayout>
 
 		</StackLayout>
 

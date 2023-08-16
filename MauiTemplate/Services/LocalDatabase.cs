@@ -1,5 +1,6 @@
 ﻿using GymTracker.Helpers;
 using SQLite;
+using System;
 
 namespace GymTracker.Services;
 
@@ -34,6 +35,12 @@ public class LocalDatabase
 	{
 		await Init();
 		return await Database.Table<Exercise>().Where(ex => idArr.Contains(ex.ID)).ToListAsync();
+	}
+
+	public async Task<int> SaveExerciseHistory(List<ExerciseHistory> ex_history)
+	{
+		await Init();
+		return await Database.InsertAllAsync(ex_history);
 	}
 
 	public async Task<int> GetLastIDAsync()
@@ -91,7 +98,7 @@ public class LocalDatabase
 		//Database.DropTableAsync<ExerciseHistory>();
 		//Database.DropTableAsync<RoutineExercise>();
 
-		Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+		Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags, false);
 		var result = await Database.CreateTableAsync<Routine>();
 		result = await Database.CreateTableAsync<Exercise>();
 		result = await Database.CreateTableAsync<ExerciseHistory>();
