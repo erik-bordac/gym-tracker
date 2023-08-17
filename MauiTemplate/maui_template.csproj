@@ -61,6 +61,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+	  <PackageReference Include="LiveChartsCore.SkiaSharpView.Maui" Version="2.0.0-beta.911" />
 	  <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	  <PackageReference Include="Plugin.Maui.Audio" Version="1.0.0" />
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
