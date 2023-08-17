@@ -22,6 +22,13 @@ public class LocalDatabase
 	{
 		// TODO: Delete all routines containing the exercise
 		await Init();
+		
+		// Delete all exerciseHistories
+		var exerciseHistories = await GetExerciseHistoryListAsync();
+		exerciseHistories = exerciseHistories.Where(x => x.ExerciseID == item.ID).ToList();
+		foreach (var history in exerciseHistories) { await Database.DeleteAsync(history); }
+		
+		// Delete exercise
 		return await Database.DeleteAsync(item);
 	}
 
