@@ -13,5 +13,26 @@
 		<BackButtonBehavior Command="{Binding GoBackCommand}" />
 	</Shell.BackButtonBehavior>
 
-	<Label Text="{Binding Exercise.ID}" />
+	<StackLayout>
+		<ScrollView VerticalOptions="FillAndExpand">
+			<CollectionView ItemsSource="{Binding ExerciseHistory}">
+				<CollectionView.ItemTemplate>
+					<DataTemplate x:DataType="model:ExerciseHistory">
+						<Grid Margin="0,5,0,5" Style="{StaticResource GridStyle}">
+							<Grid.RowDefinitions>
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="3*" />
+								<ColumnDefinition Width="1*" />
+							</Grid.ColumnDefinitions>
+
+							<Label Margin="10,5,0,5" Text="{Binding RepsCount}" />
+							<ImageButton Grid.Column="1" Style="{StaticResource DeleteButton}" />
+						</Grid>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</ScrollView>
+	</StackLayout>
 </ContentPage>

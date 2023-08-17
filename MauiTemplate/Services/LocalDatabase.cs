@@ -12,6 +12,12 @@ public class LocalDatabase
 	{
 	}
 
+	public async Task<List<ExerciseHistory>> GetExerciseHistoryListAsync()
+	{
+		await Init();
+		return await Database.Table<ExerciseHistory>().ToListAsync();
+	}
+
 	public async Task<int> DeleteExerciseAsync(Exercise item)
 	{
 		// TODO: Delete all routines containing the exercise
