@@ -1,12 +1,12 @@
 ﻿namespace GymTracker.ViewModel;
 
-[QueryProperty(nameof(Id), "Id")]
+[QueryProperty(nameof(Exercise), "Exercise")]
 public partial class ExerciseHistoryPageViewModel : BaseViewModel
 {
 	public ExerciseHistoryPageViewModel() { }
 
 	[ObservableProperty]
-	private int id;
+	private Exercise exercise;
 
 	[RelayCommand]
 	private async Task GoBack()

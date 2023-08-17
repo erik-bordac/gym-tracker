@@ -11,11 +11,11 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 	private Exercise exercise;
 
 	[RelayCommand]
-	private async Task GoToHistory(int ID)
+	private async Task GoToHistory(Exercise Exercise)
 	{
 		await Shell.Current.GoToAsync("ExerciseHistoryPage", new Dictionary<string, object>
 		{
-			{"Id", ID }
+			{"Exercise", Exercise }
 		});
 	}
 }

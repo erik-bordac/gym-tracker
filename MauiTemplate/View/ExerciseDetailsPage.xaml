@@ -30,7 +30,7 @@
 
 		<Button
 			Command="{Binding GoToHistoryCommand}"
-			CommandParameter="{Binding Exercise.ID}"
+			CommandParameter="{Binding Exercise}"
 			Text="History" />
 	</VerticalStackLayout>
 </ContentPage>
