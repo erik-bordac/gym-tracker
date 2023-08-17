@@ -35,12 +35,14 @@ public partial class RoutineDetailsPageViewModel : BaseViewModel
 		foreach (var x in routineExercises)
 		{
 			var exercise = await _db.GetExercisesAsync();
-			exercise = exercise.Where(x => exerciseIDs.Contains(x.ID)).ToList();
+			exercise = exercise.Where(x => x.ID == exerciseIDs[i]).ToList();
+			if (exercise.Count == 0) continue;
 			AddedExercises.Add(new AddedExerciseWrapper()
 			{
 				Sets = x.Sets,
 				Exercise = exercise[0]
-			});
+			}) ;
+			i++;
 		}
 
 		return;
