@@ -45,6 +45,9 @@ public partial class ExercisesPageViewModel : BaseViewModel
 	[RelayCommand]
 	private async Task Delete(Exercise ex)
 	{
+		bool res = await Application.Current.MainPage.DisplayAlert("Delete exercise", "Do you want delete this exercise? This is permanent.", "Yes", "No");
+		if (!res) return;
+
 		await _db.DeleteExerciseAsync(ex);
 		await loadExercises();
 	}
