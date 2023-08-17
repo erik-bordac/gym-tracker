@@ -28,7 +28,11 @@
 							</Grid.ColumnDefinitions>
 
 							<Label Margin="10,5,0,5" Text="{Binding RepsCount}" />
-							<ImageButton Grid.Column="1" Style="{StaticResource DeleteButton}" />
+							<ImageButton
+								Grid.Column="1"
+								Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ExerciseHistoryPageViewModel}}, Path=DeleteCommand}"
+								CommandParameter="{Binding .}"
+								Style="{StaticResource DeleteButton}" />
 						</Grid>
 					</DataTemplate>
 				</CollectionView.ItemTemplate>

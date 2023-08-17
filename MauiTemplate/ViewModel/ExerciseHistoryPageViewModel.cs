@@ -30,4 +30,14 @@ public partial class ExerciseHistoryPageViewModel : BaseViewModel
 	{
 		await Shell.Current.Navigation.PopToRootAsync();
 	}
+
+	[RelayCommand]
+	private async Task Delete(ExerciseHistory exerciseHistory)
+	{
+		bool res = await Application.Current.MainPage.DisplayAlert("Delete record", "Do you want delete this record? This is permanent.", "Yes", "No");
+		if (!res) return;
+
+		await _db.DeleteExerciseHistoryAsync(exerciseHistory);
+		LoadHistory();
+	}
 }

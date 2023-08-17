@@ -110,4 +110,10 @@ public class LocalDatabase
 		result = await Database.CreateTableAsync<ExerciseHistory>();
 		result = await Database.CreateTableAsync<RoutineExercise>();
 	}
+
+	public async Task<int> DeleteExerciseHistoryAsync(ExerciseHistory item)
+	{
+		await Init();
+		return await Database.DeleteAsync(item);
+	}
 }
