@@ -31,15 +31,15 @@ public partial class RoutineDetailsPageViewModel : BaseViewModel
 			exerciseIDs[i++] = rex.ExerciseID;
 		}
 
-		var exercises = await _db.GetExercisesFromIDArrAsync(exerciseIDs);
-
 		i = 0;
-		foreach (var ex in exercises)
+		foreach (var x in routineExercises)
 		{
+			var exercise = await _db.GetExercisesAsync();
+			exercise = exercise.Where(x => exerciseIDs.Contains(x.ID)).ToList();
 			AddedExercises.Add(new AddedExerciseWrapper()
 			{
-				Sets = routineExercises[i].Sets,
-				Exercise = ex
+				Sets = x.Sets,
+				Exercise = exercise[0]
 			});
 		}
 
