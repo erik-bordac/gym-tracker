@@ -23,4 +23,16 @@
 	<FlyoutItem Title="Exercises">
 		<ShellContent ContentTemplate="{DataTemplate view:ExercisesPage}" Route="ExercisesPage" />
 	</FlyoutItem>
+
+	<Shell.FlyoutFooter>
+		<ContentView>
+			<StackLayout>
+				<BoxView HeightRequest="1" Color="gray" />
+				<HorizontalStackLayout>
+					<Label Margin="5,5,20,5" Text="Dark mode:" />
+					<Switch IsToggled="True" />
+				</HorizontalStackLayout>
+			</StackLayout>
+		</ContentView>
+	</Shell.FlyoutFooter>
 </Shell>
