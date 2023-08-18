@@ -22,6 +22,8 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 
 	[ObservableProperty]
 	private List<Axis> xAxis;
+	[ObservableProperty]
+	private List<Axis> yAxis;
 
 	[ObservableProperty]
 	private ISeries[] series;
@@ -66,9 +68,17 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 			{
 				MinLimit = 0,
 				MaxLimit = 10,
-				Name = "Reps",
+				Name = "Set n.",
 				MinStep = 1,
 				Labels = descendingLabels
+			}
+		};
+		YAxis = new List<Axis>()
+		{
+			new Axis()
+			{
+				Name = "Reps",
+				MinStep = 1,
 			}
 		};
 	}

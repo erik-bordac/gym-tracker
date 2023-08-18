@@ -44,6 +44,7 @@
 				Margin="10,50,10,50"
 				Series="{Binding Series}"
 				XAxes="{Binding XAxis}"
+				YAxes="{Binding YAxis}"
 				ZoomMode="X" />
 		</ScrollView>
 		<Button
