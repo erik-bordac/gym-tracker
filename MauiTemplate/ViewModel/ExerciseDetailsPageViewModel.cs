@@ -37,7 +37,7 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 	[ObservableProperty]
 	private ISeries[] timeSeries;
 	[ObservableProperty]
-	private List<Axis> timeXAxis;
+	private List<Axis> xAxis;
 	[ObservableProperty]
 	private List<Axis> timeYAxis;
 
@@ -105,19 +105,8 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 		};
 
 		if (labels == null) return;
+		SetXAxis(labels);
 
-		RepsXAxis = new List<Axis>()
-		{
-			new Axis()
-			{
-				MinLimit = 0,
-				MaxLimit = 10,
-				Name = "Set",
-				NamePaint = new SolidColorPaint(SKColors.White),
-				MinStep = 1,
-				Labels = labels
-			}
-		};
 		RepsYAxis = new List<Axis>()
 		{
 			new Axis()
@@ -144,19 +133,8 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 		};
 
 		if (labels == null) return;
+		SetXAxis(labels);
 
-		WeightXAxis = new List<Axis>()
-		{
-			new Axis()
-			{
-				MinLimit = 0,
-				MaxLimit = 10,
-				NamePaint = new SolidColorPaint(SKColors.White),
-				Name = "Set",
-				MinStep = 1,
-				Labels = labels
-			}
-		};
 		WeightYAxis = new List<Axis>()
 		{
 			new Axis()
@@ -182,8 +160,25 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 		};
 
 		if (labels == null) return;
+		SetXAxis(labels);
 
-		TimeXAxis = new List<Axis>()
+
+		TimeYAxis = new List<Axis>()
+		{
+			new Axis()
+			{
+				Name = "Time",
+				NamePaint = new SolidColorPaint(SKColors.White),
+				MinStep = 1,
+			}
+		};
+	}
+
+	private void SetXAxis(string[] labels)
+	{
+		if (XAxis is not null) return;
+
+		XAxis = new List<Axis>()
 		{
 			new Axis()
 			{
@@ -193,15 +188,6 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 				NamePaint = new SolidColorPaint(SKColors.White),
 				MinStep = 1,
 				Labels = labels
-			}
-		};
-		TimeYAxis = new List<Axis>()
-		{
-			new Axis()
-			{
-				Name = "Time",
-				NamePaint = new SolidColorPaint(SKColors.White),
-				MinStep = 1,
 			}
 		};
 	}

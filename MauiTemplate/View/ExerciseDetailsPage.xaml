@@ -47,7 +47,7 @@
 					MaximumWidthRequest="400"
 					Series="{Binding RepsSeries}"
 					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
-					XAxes="{Binding RepsXAxis}"
+					XAxes="{Binding XAxis}"
 					YAxes="{Binding RepsYAxis}"
 					ZoomMode="X" />
 				<lvc:CartesianChart
@@ -58,7 +58,7 @@
 					MaximumWidthRequest="400"
 					Series="{Binding WeightSeries}"
 					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
-					XAxes="{Binding WeightXAxis}"
+					XAxes="{Binding XAxis}"
 					YAxes="{Binding WeightYAxis}"
 					ZoomMode="X" />
 				<lvc:CartesianChart
@@ -69,7 +69,7 @@
 					MaximumWidthRequest="400"
 					Series="{Binding TimeSeries}"
 					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
-					XAxes="{Binding TimeXAxis}"
+					XAxes="{Binding XAxis}"
 					YAxes="{Binding TimeYAxis}"
 					ZoomMode="X" />
 			</StackLayout>
