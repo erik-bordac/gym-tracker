@@ -37,15 +37,42 @@
 
 		</VerticalStackLayout>
 
-
 		<ScrollView Grid.Row="1">
-			<lvc:CartesianChart
-				Grid.Row="1"
-				Margin="10,50,10,50"
-				Series="{Binding Series}"
-				XAxes="{Binding XAxis}"
-				YAxes="{Binding YAxis}"
-				ZoomMode="X" />
+			<StackLayout>
+				<lvc:CartesianChart
+					Margin="0,0,50,0"
+					HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
+					IsVisible="{Binding Exercise.TrackReps}"
+					MaximumHeightRequest="400"
+					MaximumWidthRequest="400"
+					Series="{Binding RepsSeries}"
+					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
+					XAxes="{Binding RepsXAxis}"
+					YAxes="{Binding RepsYAxis}"
+					ZoomMode="X" />
+				<lvc:CartesianChart
+					Margin="0,0,50,0"
+					HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
+					IsVisible="{Binding Exercise.TrackWeight}"
+					MaximumHeightRequest="400"
+					MaximumWidthRequest="400"
+					Series="{Binding WeightSeries}"
+					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
+					XAxes="{Binding WeightXAxis}"
+					YAxes="{Binding WeightYAxis}"
+					ZoomMode="X" />
+				<lvc:CartesianChart
+					Margin="0,0,50,0"
+					HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
+					IsVisible="{Binding Exercise.TrackTime}"
+					MaximumHeightRequest="400"
+					MaximumWidthRequest="400"
+					Series="{Binding TimeSeries}"
+					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
+					XAxes="{Binding TimeXAxis}"
+					YAxes="{Binding TimeYAxis}"
+					ZoomMode="X" />
+			</StackLayout>
 		</ScrollView>
 		<Button
 			Grid.Row="2"
