@@ -41,6 +41,13 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 	[ObservableProperty]
 	private List<Axis> timeYAxis;
 
+	[ObservableProperty]
+	private int repsPR;
+	[ObservableProperty]
+	private int weightPR;
+	[ObservableProperty]
+	private int timePR;
+
 	[RelayCommand]
 	private async Task GoToHistory(Exercise Exercise)
 	{
@@ -65,6 +72,10 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 			values["weight"].Add(item.Weight);
 			values["time"].Add(item.TimeInSeconds);
 		}
+
+		RepsPR = (int)values["reps"].Max();
+		WeightPR = (int)values["weight"].Max();
+		TimePR = (int)values["time"].Max();
 
 		InitializeRepsSeries(values["reps"]);
 		InitializeWeightSeries(values["weight"]);

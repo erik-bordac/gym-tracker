@@ -22,34 +22,22 @@
 				<Label Text="Notes:" />
 				<Label Text="{Binding Exercise.Notes}" />
 			</HorizontalStackLayout>
+
+			<Label Text="PR's" />
 			<Grid Margin="20,0,20,0">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*" />
 					<ColumnDefinition Width="*" />
 					<ColumnDefinition Width="*" />
 				</Grid.ColumnDefinitions>
-				<!--<Label
-					HorizontalTextAlignment="Center"
-					IsVisible="{Binding Exercise.TrackReps}"
-					Text="reps"
-					VerticalTextAlignment="Center" />
-				<Label
-					Grid.Column="1"
-					HorizontalTextAlignment="Center"
-					IsVisible="{Binding Exercise.TrackWeight}"
-					Text="weight"
-					VerticalTextAlignment="Center" />
-				<Label
-					Grid.Column="2"
-					IsVisible="{Binding Exercise.TrackTime}"
-					Text="time" />-->
 				<Frame
 					BackgroundColor="#D4ADFC"
 					CornerRadius="30"
+					HasShadow="True"
 					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding Exercise.TrackReps}"
 					VerticalOptions="CenterAndExpand"
-					WidthRequest="110">
+					WidthRequest="100">
 					<StackLayout>
 						<Label
 							FontSize="16"
@@ -58,9 +46,9 @@
 							TextColor="Black"
 							VerticalTextAlignment="Start" />
 						<Label
-							FontSize="42"
+							FontSize="36"
 							HorizontalTextAlignment="Center"
-							Text="0"
+							Text="{Binding RepsPR}"
 							TextColor="Black"
 							VerticalTextAlignment="Center" />
 					</StackLayout>
@@ -73,7 +61,7 @@
 					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding Exercise.TrackWeight}"
 					VerticalOptions="CenterAndExpand"
-					WidthRequest="110">
+					WidthRequest="100">
 					<StackLayout>
 						<Label
 							FontSize="16"
@@ -81,9 +69,9 @@
 							Text="WEIGHT"
 							VerticalTextAlignment="Start" />
 						<Label
-							FontSize="42"
+							FontSize="36"
 							HorizontalTextAlignment="Center"
-							Text="0"
+							Text="{Binding WeightPR}"
 							VerticalTextAlignment="Center" />
 					</StackLayout>
 				</Frame>
@@ -95,7 +83,7 @@
 					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding Exercise.TrackTime}"
 					VerticalOptions="CenterAndExpand"
-					WidthRequest="110">
+					WidthRequest="100">
 					<StackLayout>
 						<Label
 							FontSize="16"
@@ -103,9 +91,9 @@
 							Text="TIME "
 							VerticalTextAlignment="Start" />
 						<Label
-							FontSize="42"
+							FontSize="36"
 							HorizontalTextAlignment="Center"
-							Text="0"
+							Text="{Binding TimePR}"
 							VerticalTextAlignment="Center" />
 					</StackLayout>
 				</Frame>
