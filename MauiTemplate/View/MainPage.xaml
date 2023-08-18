@@ -6,7 +6,8 @@
 	xmlns:model="clr-namespace:GymTracker.Model"
 	xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
 	Title="MainPage"
-	x:DataType="viewmodel:MainPageViewModel">
+	x:DataType="viewmodel:MainPageViewModel"
+	Style="{StaticResource PageStyle}">
 	<StackLayout>
 		<Frame
 			Margin="10"

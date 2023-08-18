@@ -112,7 +112,7 @@
 					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
 					XAxes="{Binding XAxis}"
 					YAxes="{Binding RepsYAxis}"
-					ZoomMode="X" />
+					ZoomMode="PanX" />
 				<lvc:CartesianChart
 					Margin="30,0,50,0"
 					HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
@@ -123,7 +123,7 @@
 					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
 					XAxes="{Binding XAxis}"
 					YAxes="{Binding WeightYAxis}"
-					ZoomMode="X" />
+					ZoomMode="PanX" />
 				<lvc:CartesianChart
 					Margin="30,0,50,0"
 					HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
@@ -134,7 +134,7 @@
 					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
 					XAxes="{Binding XAxis}"
 					YAxes="{Binding TimeYAxis}"
-					ZoomMode="X" />
+					ZoomMode="PanX" />
 			</StackLayout>
 		</ScrollView>
 		<Button
