@@ -32,69 +32,37 @@
 				</Grid.ColumnDefinitions>
 				<Frame
 					BackgroundColor="#D4ADFC"
-					CornerRadius="30"
-					HasShadow="True"
-					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding Exercise.TrackReps}"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="100">
+					Style="{StaticResource PRFrame}">
 					<StackLayout>
 						<Label
-							FontSize="16"
-							HorizontalTextAlignment="Center"
+							Style="{StaticResource PRFrameHeader}"
 							Text="REPS"
-							TextColor="Black"
-							VerticalTextAlignment="Start" />
+							TextColor="Black" />
 						<Label
-							FontSize="36"
-							HorizontalTextAlignment="Center"
+							Style="{StaticResource PRFrameValue}"
 							Text="{Binding RepsPR}"
-							TextColor="Black"
-							VerticalTextAlignment="Center" />
+							TextColor="Black" />
 					</StackLayout>
 				</Frame>
 				<Frame
 					Grid.Column="1"
-					Margin="10"
 					BackgroundColor="#CE0F0F"
-					CornerRadius="30"
-					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding Exercise.TrackWeight}"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="100">
+					Style="{StaticResource PRFrame}">
 					<StackLayout>
-						<Label
-							FontSize="16"
-							HorizontalTextAlignment="Center"
-							Text="WEIGHT"
-							VerticalTextAlignment="Start" />
-						<Label
-							FontSize="36"
-							HorizontalTextAlignment="Center"
-							Text="{Binding WeightPR}"
-							VerticalTextAlignment="Center" />
+						<Label Style="{StaticResource PRFrameHeader}" Text="WEIGHT" />
+						<Label Style="{StaticResource PRFrameValue}" Text="{Binding WeightPR}" />
 					</StackLayout>
 				</Frame>
 				<Frame
 					Grid.Column="2"
-					Margin="10"
 					BackgroundColor="#3F92D1"
-					CornerRadius="30"
-					HorizontalOptions="CenterAndExpand"
 					IsVisible="{Binding Exercise.TrackTime}"
-					VerticalOptions="CenterAndExpand"
-					WidthRequest="100">
+					Style="{StaticResource PRFrame}">
 					<StackLayout>
-						<Label
-							FontSize="16"
-							HorizontalTextAlignment="Center"
-							Text="TIME "
-							VerticalTextAlignment="Start" />
-						<Label
-							FontSize="36"
-							HorizontalTextAlignment="Center"
-							Text="{Binding TimePR}"
-							VerticalTextAlignment="Center" />
+						<Label Style="{StaticResource PRFrameHeader}" Text="TIME " />
+						<Label Style="{StaticResource PRFrameValue}" Text="{Binding TimePR}" />
 					</StackLayout>
 				</Frame>
 			</Grid>
@@ -103,38 +71,26 @@
 		<ScrollView Grid.Row="1">
 			<StackLayout>
 				<lvc:CartesianChart
-					Margin="30,0,50,0"
 					HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
 					IsVisible="{Binding Exercise.TrackReps}"
-					MaximumHeightRequest="400"
-					MaximumWidthRequest="400"
 					Series="{Binding RepsSeries}"
 					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
 					XAxes="{Binding XAxis}"
-					YAxes="{Binding RepsYAxis}"
-					ZoomMode="PanX" />
+					YAxes="{Binding RepsYAxis}" />
 				<lvc:CartesianChart
-					Margin="30,0,50,0"
 					HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
 					IsVisible="{Binding Exercise.TrackWeight}"
-					MaximumHeightRequest="400"
-					MaximumWidthRequest="400"
 					Series="{Binding WeightSeries}"
 					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
 					XAxes="{Binding XAxis}"
-					YAxes="{Binding WeightYAxis}"
-					ZoomMode="PanX" />
+					YAxes="{Binding WeightYAxis}" />
 				<lvc:CartesianChart
-					Margin="30,0,50,0"
 					HeightRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
 					IsVisible="{Binding Exercise.TrackTime}"
-					MaximumHeightRequest="400"
-					MaximumWidthRequest="400"
 					Series="{Binding TimeSeries}"
 					WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type ScrollView}}, Path=Width}"
 					XAxes="{Binding XAxis}"
-					YAxes="{Binding TimeYAxis}"
-					ZoomMode="PanX" />
+					YAxes="{Binding TimeYAxis}" />
 			</StackLayout>
 		</ScrollView>
 		<Button

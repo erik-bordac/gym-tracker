@@ -41,9 +41,6 @@
 			</CollectionView>
 		</ScrollView>
 
-		<Button
-			Margin="10,10,10,10"
-			Command="{Binding GoToExerciseFormCommand}"
-			Text="Add New Exercise" />
+		<Button Command="{Binding GoToExerciseFormCommand}" Text="Add New Exercise" />
 	</StackLayout>
 </ContentPage>

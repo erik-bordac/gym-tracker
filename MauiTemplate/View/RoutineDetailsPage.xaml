@@ -39,7 +39,6 @@
 			</CollectionView>
 		</ScrollView>
 		<Button
-			Margin="10,10,10,10"
 			BackgroundColor="#D4ADFC"
 			Command="{Binding GoToOngoingRoutineCommand}"
 			Text="Start"

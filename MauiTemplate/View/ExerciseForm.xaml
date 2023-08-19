@@ -61,9 +61,6 @@
 				Grid.Column="1"
 				CheckedChanged="TrackTimeChanged" />
 		</Grid>
-		<Button
-			Margin="10,10,10,10"
-			Command="{Binding AddExerciseToDbCommand}"
-			Text="Create" />
+		<Button Command="{Binding AddExerciseToDbCommand}" Text="Create" />
 	</StackLayout>
 </ContentPage>

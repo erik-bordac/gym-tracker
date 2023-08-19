@@ -92,9 +92,6 @@
 			</CollectionView>
 		</ScrollView>
 
-		<Button
-			Margin="10,10,10,10"
-			Command="{Binding SaveRoutineCommand}"
-			Text="Save routine" />
+		<Button Command="{Binding SaveRoutineCommand}" Text="Save routine" />
 	</StackLayout>
 </ContentPage>

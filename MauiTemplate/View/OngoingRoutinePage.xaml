@@ -112,6 +112,7 @@
 								</StackLayout>
 								<Button
 									Grid.Row="1"
+									Margin="2"
 									BackgroundColor="#D4ADFC"
 									Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=FinishExerciseCommand}"
 									CommandParameter="{Binding .}"
@@ -120,6 +121,7 @@
 									TextColor="black" />
 								<Button
 									Grid.Row="1"
+									Margin="2"
 									BackgroundColor="#D4ADFC"
 									Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=ResumeExerciseCommand}"
 									CommandParameter="{Binding .}"
@@ -151,8 +153,6 @@
 					VerticalOptions="Center" />
 
 			</HorizontalStackLayout>
-
 		</StackLayout>
-
 	</Grid>
 </ContentPage>

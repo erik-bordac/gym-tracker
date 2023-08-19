@@ -3,9 +3,64 @@
 	x:Class="GymTracker.App"
 	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:local="clr-namespace:GymTracker">
+	xmlns:local="clr-namespace:GymTracker"
+	xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui">
 
 	<Application.Resources>
+		<!--  PR Frames  -->
+		<Style x:Key="PRFrame" TargetType="Frame">
+			<Setter Property="CornerRadius" Value="30" />
+			<Setter Property="HasShadow" Value="True" />
+			<Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+			<Setter Property="VerticalOptions" Value="CenterAndExpand" />
+			<Setter Property="WidthRequest" Value="100" />
+		</Style>
+		<Style x:Key="PRFrameHeader" TargetType="Label">
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="HorizontalTextAlignment" Value="Center" />
+			<Setter Property="VerticalTextAlignment" Value="Start" />
+		</Style>
+		<Style x:Key="PRFrameValue" TargetType="Label">
+			<Setter Property="FontSize" Value="36" />
+			<Setter Property="HorizontalTextAlignment" Value="Center" />
+			<Setter Property="VerticalTextAlignment" Value="Center" />
+		</Style>
+
+		<!--  Charts  -->
+		<Style TargetType="lvc:CartesianChart">
+			<Setter Property="Margin" Value="30,0,50,0" />
+			<Setter Property="MaximumHeightRequest" Value="400" />
+			<Setter Property="MaximumWidthRequest" Value="400" />
+			<Setter Property="ZoomMode" Value="PanX" />
+		</Style>
+
+		<!--  Buttons  -->
+		<Style TargetType="Button">
+			<Setter Property="TextColor" Value="#f2e9e4" />
+			<Setter Property="Margin" Value="10,10,10,10" />
+			<Setter Property="BackgroundColor" Value="#424242" />
+			<Setter Property="FontSize" Value="18" />
+		</Style>
+		<Style x:Key="DeleteButton" TargetType="ImageButton">
+			<Setter Property="Source" Value="bin.png" />
+			<Setter Property="MaximumHeightRequest" Value="40" />
+			<Setter Property="MaximumWidthRequest" Value="40" />
+			<Setter Property="HeightRequest" Value="24" />
+		</Style>
+		<Style x:Key="PlusButton" TargetType="ImageButton">
+			<Setter Property="Source" Value="plus.png" />
+			<Setter Property="MaximumHeightRequest" Value="40" />
+			<Setter Property="MaximumWidthRequest" Value="40" />
+			<Setter Property="HeightRequest" Value="24" />
+		</Style>
+		<Style x:Key="MinusButton" TargetType="ImageButton">
+			<Setter Property="Source" Value="minus.png" />
+			<Setter Property="MaximumHeightRequest" Value="40" />
+			<Setter Property="MaximumWidthRequest" Value="40" />
+			<Setter Property="HeightRequest" Value="24" />
+		</Style>
+
+
 		<Style x:Key="PageStyle" TargetType="ContentPage">
 			<Setter Property="BackgroundColor" Value="#191919" />
 		</Style>
@@ -27,31 +82,6 @@
 		<Style x:Key="GridStyle" TargetType="Grid">
 			<Setter Property="BackgroundColor" Value="#262626" />
 			<Setter Property="VerticalOptions" Value="Center" />
-		</Style>
-		<Style TargetType="Button">
-			<Setter Property="TextColor" Value="#f2e9e4" />
-			<Setter Property="Margin" Value="2,2,2,2" />
-			<Setter Property="BackgroundColor" Value="#424242" />
-			<!--<Setter Property="BackgroundColor" Value="#D4ADFC" />-->
-			<Setter Property="FontSize" Value="18" />
-		</Style>
-		<Style x:Key="DeleteButton" TargetType="ImageButton">
-			<Setter Property="Source" Value="bin.png" />
-			<Setter Property="MaximumHeightRequest" Value="40" />
-			<Setter Property="MaximumWidthRequest" Value="40" />
-			<Setter Property="HeightRequest" Value="24" />
-		</Style>
-		<Style x:Key="PlusButton" TargetType="ImageButton">
-			<Setter Property="Source" Value="plus.png" />
-			<Setter Property="MaximumHeightRequest" Value="40" />
-			<Setter Property="MaximumWidthRequest" Value="40" />
-			<Setter Property="HeightRequest" Value="24" />
-		</Style>
-		<Style x:Key="MinusButton" TargetType="ImageButton">
-			<Setter Property="Source" Value="minus.png" />
-			<Setter Property="MaximumHeightRequest" Value="40" />
-			<Setter Property="MaximumWidthRequest" Value="40" />
-			<Setter Property="HeightRequest" Value="24" />
 		</Style>
 		<Style TargetType="CheckBox">
 			<Setter Property="Color" Value="#D4ADFC" />
