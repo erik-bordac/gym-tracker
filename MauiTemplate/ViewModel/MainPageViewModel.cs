@@ -68,6 +68,7 @@ public partial class MainPageViewModel : BaseViewModel
 					series.Name = "Rest";
 					series.Fill = new SolidColorPaint(new SKColor(43, 43, 43));
 				}
+				series.IsHoverable = false;
 			});
 		});
 	}

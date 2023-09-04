@@ -112,6 +112,7 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 				Stroke = new SolidColorPaint(new SKColor(212, 173, 252), 4),
 				GeometrySize = 22,
 				GeometryStroke = new SolidColorPaint(new SKColor(212, 173, 252), 4),
+				IsHoverable = false
 			}
 		};
 
@@ -140,6 +141,7 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 
 				GeometrySize = 22,
 				GeometryStroke = new SolidColorPaint(new SKColor(206, 15, 15), 4),
+				IsHoverable = false
 			}
 		};
 
@@ -167,6 +169,7 @@ public partial class ExerciseDetailsPageViewModel : BaseViewModel
 				Stroke = new SolidColorPaint(new SKColor(63, 146, 209), 4),
 				GeometrySize = 22,
 				GeometryStroke = new SolidColorPaint(new SKColor(63, 146, 209), 4),
+				IsHoverable = false
 			}
 		};
 
