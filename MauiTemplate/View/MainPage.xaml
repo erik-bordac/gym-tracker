@@ -9,7 +9,7 @@
 	Title="MainPage"
 	x:DataType="viewmodel:MainPageViewModel"
 	Style="{StaticResource PageStyle}">
-	<StackLayout>
+	<StackLayout VerticalOptions="FillAndExpand">
 		<Frame
 			Margin="10"
 			BackgroundColor="#D4ADFC"
@@ -73,7 +73,7 @@
 							<RowDefinition />
 						</Grid.RowDefinitions>
 						<Label
-							FontSize="32"
+							FontSize="24"
 							HorizontalTextAlignment="Center"
 							Text="Work/Rest"
 							VerticalOptions="Center" />
