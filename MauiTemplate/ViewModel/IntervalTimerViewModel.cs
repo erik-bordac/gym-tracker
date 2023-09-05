@@ -48,10 +48,10 @@ public partial class IntervalTimerViewModel : BaseViewModel
 	private bool isStarted;
 
 	[ObservableProperty]
-	private int restTime;
+	private string restTime;
 
 	[ObservableProperty]
-	private int restTimeLeft;
+	private string restTimeLeft;
 
 	[ObservableProperty]
 	private int setsCount;
@@ -60,10 +60,10 @@ public partial class IntervalTimerViewModel : BaseViewModel
 	private int setsCountLeft;
 
 	[ObservableProperty]
-	private int workTime;
+	private string workTime;
 
 	[ObservableProperty]
-	private int workTimeLeft;
+	private string workTimeLeft;
 
 	public IntervalTimerViewModel(IntervalTimerService intervalTimer)
 	{
@@ -258,10 +258,22 @@ public partial class IntervalTimerViewModel : BaseViewModel
 	{
 		SetsCount = _intervalTimer.setsCount;
 		SetsCountLeft = _intervalTimer.setsCountLeft;
-		WorkTime = _intervalTimer.workTime;
-		WorkTimeLeft = _intervalTimer.workTimeLeft;
-		RestTime = _intervalTimer.restTime;
-		RestTimeLeft = _intervalTimer.restTimeLeft;
+		WorkTime = GetTimeFromSeconds(_intervalTimer.workTime);
+		WorkTimeLeft = GetTimeFromSeconds(_intervalTimer.workTimeLeft);
+		RestTime = GetTimeFromSeconds(_intervalTimer.restTime);
+		RestTimeLeft = GetTimeFromSeconds(_intervalTimer.restTimeLeft);
 		IsRestTime = _intervalTimer.IsRestTime;
+	}
+	
+	private string GetTimeFromSeconds(int seconds)
+	{
+		var result = TimeSpan.FromSeconds(seconds);
+
+		if (result.Seconds < 10)
+		{
+			return result.Minutes.ToString() + ":0" + result.Seconds.ToString();
+		}
+
+		return result.Minutes.ToString() + ":" + result.Seconds.ToString();
 	}
 }
