@@ -24,9 +24,11 @@ public partial class IntervalTimerViewModel : BaseViewModel
 	private int _holdTickTime = 50;
 	private System.Threading.Timer _holdTimer;
 	private System.Threading.Timer _intervalRunningTimer;
+	private Stopwatch _elapsedTimeStopwatch = new();
 	private IntervalTimerService _intervalTimer;
 	private System.Threading.Timer _timeToHoldTimer;
 	private int _timeToStartHold = 600;
+	private int _remainingTimeToTick = Second;
 
 	[ObservableProperty]
 	private Color backgroundColor;
@@ -151,8 +153,12 @@ public partial class IntervalTimerViewModel : BaseViewModel
 
 	private void OnTick(object state)
 	{
+		_elapsedTimeStopwatch.Restart();
+
 		if (_intervalTimer.PassSecond())
 		{
+			_elapsedTimeStopwatch.Stop();
+			_remainingTimeToTick = Second;
 			StopInterval();
 			PlayWhistleSound();
 			return;
@@ -179,9 +185,11 @@ public partial class IntervalTimerViewModel : BaseViewModel
 	[RelayCommand]
 	private void PauseInterval()
 	{
-		// TODO: remember milliseconds till next tick
 		IsRunning = false;
+		var ms = (int)_elapsedTimeStopwatch.ElapsedMilliseconds;
+		_remainingTimeToTick = Math.Abs(Second - ms);	// Absolute value for occasional ms>1000 (by a small difference)
 		_intervalRunningTimer.Change(Infinite, Infinite);
+		_elapsedTimeStopwatch.Stop();
 
 		if (IsRestTime)
 		{
@@ -207,7 +215,8 @@ public partial class IntervalTimerViewModel : BaseViewModel
 	private void ResumeInterval()
 	{
 		IsRunning = true;
-		_intervalRunningTimer.Change(Second, Second);
+		_intervalRunningTimer.Change(_remainingTimeToTick, Second);
+		_elapsedTimeStopwatch.Start();
 
 		if (_intervalTimer.IsRestTime)
 		{
@@ -232,6 +241,7 @@ public partial class IntervalTimerViewModel : BaseViewModel
 		PlayWhistleSound();
 
 		_intervalRunningTimer = new Timer(OnTick, null, Second, Second);
+		_elapsedTimeStopwatch.Start();
 		BackgroundColor = this.runningDark;
 		EllipseColor = this.runningLight;
 		IsStarted = true;
