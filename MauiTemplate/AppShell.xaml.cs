@@ -17,5 +17,6 @@ public partial class AppShell : Shell
 		Routing.RegisterRoute("RoutineDetailsPage", typeof(RoutineDetailsPage));
 		Routing.RegisterRoute("OngoingRoutinePage", typeof(OngoingRoutinePage));
 		Routing.RegisterRoute("ExerciseHistoryPage", typeof(ExerciseHistoryPage));
+		Routing.RegisterRoute("ImportExportPage", typeof(ImportExportPage));
 	}
 }

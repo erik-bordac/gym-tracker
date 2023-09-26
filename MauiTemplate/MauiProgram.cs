@@ -19,6 +19,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<NewRoutinePageViewModel>();
 		builder.Services.AddTransient<RoutineDetailsPageViewModel>();
 		builder.Services.AddTransient<ExerciseHistoryPageViewModel>();
+		builder.Services.AddTransient<ImportExportPageViewModel>();
 	}
 
 	private static void RegisterViews(MauiAppBuilder builder)
@@ -33,6 +34,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<ExerciseDetailsPage>();
 		builder.Services.AddTransient<NewRoutinePage>();
 		builder.Services.AddTransient<RoutineDetailsPage>();
+		builder.Services.AddTransient<ImportExportPage>();
 	}
 
 	private static void RegisterServices(MauiAppBuilder builder)

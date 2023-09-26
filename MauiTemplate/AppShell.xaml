@@ -23,6 +23,9 @@
 	<FlyoutItem Title="Exercises">
 		<ShellContent ContentTemplate="{DataTemplate view:ExercisesPage}" Route="ExercisesPage" />
 	</FlyoutItem>
+	<FlyoutItem Title="Import/Export">
+		<ShellContent ContentTemplate="{DataTemplate view:ImportExportPage}" Route="ImportExportPage" />
+	</FlyoutItem>
 
 	<Shell.FlyoutFooter>
 		<ContentView>

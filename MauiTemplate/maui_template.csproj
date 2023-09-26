@@ -90,10 +90,10 @@
 	  <MauiXaml Update="View\ExerciseDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\ExercisesPage.xaml">
+	  <MauiXaml Update="View\ExerciseForm.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\ExerciseForm.xaml">
+	  <MauiXaml Update="View\ImportExportPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\MainPage.xaml">
