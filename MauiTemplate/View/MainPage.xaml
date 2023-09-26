@@ -37,8 +37,8 @@
 					CornerRadius="30"
 					HorizontalOptions="Fill">
 					<StackLayout>
-						<Label FontSize="32" Text="Lorem" />
-						<Label FontSize="24" Text="ipsum" />
+						<Label FontSize="24" Text="5-aug" />
+						<Label FontSize="18" Text="3 days since last exercise" />
 					</StackLayout>
 				</Frame>
 				<Frame
@@ -92,5 +92,13 @@
 				</Frame>
 			</Grid>
 		</Grid>
+
+		<Frame
+			Margin="10"
+			Padding="0,20,0,5"
+			BackgroundColor="#424242"
+			CornerRadius="30"
+			HeightRequest="300"
+			HorizontalOptions="Fill" />
 	</StackLayout>
 </ContentPage>
