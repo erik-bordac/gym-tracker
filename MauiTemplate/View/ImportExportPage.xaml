@@ -10,7 +10,7 @@
 	Style="{StaticResource PageStyle}">
 
 	<StackLayout>
-		<Button Text="Import" />
+		<Button Command="{Binding LoadFileCommand}" Text="Import" />
 		<Button Text="Export" />
 	</StackLayout>
 </ContentPage>
