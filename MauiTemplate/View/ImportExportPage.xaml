@@ -10,6 +10,7 @@
 	Style="{StaticResource PageStyle}">
 
 	<StackLayout>
-		<Frame HeightRequest="20" WidthRequest="{Binding Tmp}" />
+		<Button Text="Import" />
+		<Button Text="Export" />
 	</StackLayout>
 </ContentPage>
