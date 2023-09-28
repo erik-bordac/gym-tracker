@@ -11,6 +11,6 @@
 
 	<StackLayout>
 		<Button Command="{Binding LoadFileCommand}" Text="Import" />
-		<Button Text="Export" />
+		<Button Command="{Binding SaveFileCommand}" Text="Export" />
 	</StackLayout>
 </ContentPage>

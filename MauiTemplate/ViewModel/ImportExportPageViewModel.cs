@@ -1,4 +1,6 @@
-﻿using GymTracker.Helpers;
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Storage;
+using GymTracker.Helpers;
 using GymTracker.Services;
 using GymTracker.View;
 using System.IO;
@@ -7,9 +9,10 @@ namespace GymTracker.ViewModel;
 
 public partial class ImportExportPageViewModel : BaseViewModel
 {
-	public ImportExportPageViewModel()
+	LocalDatabase _db;
+	public ImportExportPageViewModel(LocalDatabase db)
 	{
-
+		_db = db;
 	}
 
 	[RelayCommand]
@@ -50,5 +53,21 @@ public partial class ImportExportPageViewModel : BaseViewModel
 		}
 
 		return null;
+	}
+
+	[RelayCommand]
+	async Task SaveFile(CancellationToken cancellationToken)
+	{
+		await _db.Database.CloseAsync();
+		FileStream fStream = new FileStream(Constants.DatabasePath, FileMode.Open);
+		var fileSaverResult = await FileSaver.Default.SaveAsync(Constants.DatabaseFilename, fStream, cancellationToken);
+		if (fileSaverResult.IsSuccessful)
+		{
+			await Toast.Make($"The file was saved successfully to location: {fileSaverResult.FilePath}").Show(cancellationToken);
+		}
+		else
+		{
+			await Toast.Make($"The file was not saved successfully with error: {fileSaverResult.Exception.Message}").Show(cancellationToken);
+		}
 	}
 }
