@@ -64,10 +64,12 @@ public partial class ImportExportPageViewModel : BaseViewModel
 		if (fileSaverResult.IsSuccessful)
 		{
 			await Toast.Make($"The file was saved successfully to location: {fileSaverResult.FilePath}").Show(cancellationToken);
+			fStream.Close();
 		}
 		else
 		{
 			await Toast.Make($"The file was not saved successfully with error: {fileSaverResult.Exception.Message}").Show(cancellationToken);
+			fStream.Close();
 		}
 	}
 }
