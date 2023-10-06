@@ -10,7 +10,7 @@
 	Title="{Binding Exercise.Name}"
 	x:DataType="viewmodel:ExerciseDetailsPageViewModel"
 	Shell.FlyoutBehavior="Disabled"
-	Style="{StaticResource PageStyle}">
+	Style="{DynamicResource PageStyle}">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="auto" />

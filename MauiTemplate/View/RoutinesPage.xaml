@@ -7,7 +7,7 @@
 	xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
 	Title="Your Routines"
 	x:DataType="viewmodel:RoutinesPageViewModel"
-	Style="{StaticResource PageStyle}">
+	Style="{DynamicResource PageStyle}">
 
 	<StackLayout>
 		<CollectionView ItemsSource="{Binding RoutinesList}">

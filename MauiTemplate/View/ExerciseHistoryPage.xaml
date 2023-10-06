@@ -8,7 +8,7 @@
 	Title="{Binding Exercise.Name}"
 	x:DataType="viewmodel:ExerciseHistoryPageViewModel"
 	Shell.FlyoutBehavior="Disabled"
-	Style="{StaticResource PageStyle}">
+	Style="{DynamicResource PageStyle}">
 	<Shell.BackButtonBehavior>
 		<BackButtonBehavior Command="{Binding GoBackCommand}" />
 	</Shell.BackButtonBehavior>

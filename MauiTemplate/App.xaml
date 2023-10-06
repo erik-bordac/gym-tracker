@@ -7,6 +7,23 @@
 	xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui">
 
 	<Application.Resources>
+		<!--  Light Colors  -->
+		<Color x:Key="LightPrimaryColor">#e5e5e5</Color>
+		<Color x:Key="LightSecondaryColor">#c1c1c1</Color>
+		<Color x:Key="LightHighlightColor">#D4ADFC</Color>
+		<Color x:Key="LightTextColor">black</Color>
+
+		<!--  Dark Colors  -->
+		<Color x:Key="DarkPrimaryColor">#191919</Color>
+		<Color x:Key="DarkSecondaryColor">#424242</Color>
+		<Color x:Key="DarkHighlightColor">#D4ADFC</Color>
+		<Color x:Key="DarkTextColor">#f2e9e4</Color>
+
+
+		<Style x:Key="DynamicFrame" TargetType="Frame">
+			<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryColor}, Dark={StaticResource DarkSecondaryColor}}" />
+		</Style>
+
 		<!--  PR Frames  -->
 		<Style x:Key="PRFrame" TargetType="Frame">
 			<Setter Property="CornerRadius" Value="30" />
@@ -36,9 +53,9 @@
 
 		<!--  Buttons  -->
 		<Style TargetType="Button">
-			<Setter Property="TextColor" Value="#f2e9e4" />
+			<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightTextColor}, Dark={StaticResource DarkTextColor}}" />
 			<Setter Property="Margin" Value="10,10,10,10" />
-			<Setter Property="BackgroundColor" Value="#424242" />
+			<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryColor}, Dark={StaticResource DarkSecondaryColor}}" />
 			<Setter Property="FontSize" Value="18" />
 		</Style>
 		<Style x:Key="DeleteButton" TargetType="ImageButton">
@@ -62,15 +79,14 @@
 
 
 		<Style x:Key="PageStyle" TargetType="ContentPage">
-			<Setter Property="BackgroundColor" Value="#191919" />
+			<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryColor}, Dark={StaticResource DarkPrimaryColor}}" />
 		</Style>
 		<Style TargetType="Label">
-			<Setter Property="TextColor" Value="#f2e9e4" />
+			<Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightTextColor}, Dark={StaticResource DarkTextColor}}" />
 			<Setter Property="FontSize" Value="20" />
 			<Setter Property="VerticalTextAlignment" Value="Center" />
 		</Style>
 		<Style x:Key="FieldTitle" TargetType="Label">
-			<Setter Property="TextColor" Value="#f2e9e4" />
 			<Setter Property="FontSize" Value="20" />
 			<Setter Property="VerticalTextAlignment" Value="Center" />
 			<Setter Property="Margin" Value="10,0,10,0" />
@@ -80,11 +96,12 @@
 			<Setter Property="Margin" Value="5,5,5,5" />
 		</Style>
 		<Style x:Key="GridStyle" TargetType="Grid">
-			<Setter Property="BackgroundColor" Value="#262626" />
+			<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryColor}, Dark={StaticResource DarkSecondaryColor}}" />
 			<Setter Property="VerticalOptions" Value="Center" />
 		</Style>
 		<Style TargetType="CheckBox">
-			<Setter Property="Color" Value="#D4ADFC" />
+			<Setter Property="Color" Value="{AppThemeBinding Light={StaticResource LightHighlightColor}, Dark={StaticResource DarkHighlightColor}}" />
 		</Style>
+
 	</Application.Resources>
 </Application>

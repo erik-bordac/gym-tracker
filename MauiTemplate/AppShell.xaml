@@ -4,11 +4,14 @@
 	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:view="clr-namespace:GymTracker.View"
-	BackgroundColor="#424242"
-	FlyoutBackground="#424242"
+	BackgroundColor="{AppThemeBinding Light={StaticResource LightSecondaryColor},
+	                                  Dark={StaticResource DarkSecondaryColor}}"
+	FlyoutBackground="{AppThemeBinding Light={StaticResource LightPrimaryColor},
+	                                   Dark={StaticResource DarkPrimaryColor}}"
 	FlyoutBehavior="Flyout"
 	ForegroundColor="#f2e9e4"
-	TitleColor="#f2e9e4">
+	TitleColor="{AppThemeBinding Light={StaticResource LightTextColor},
+	                             Dark={StaticResource DarkTextColor}}">
 	<Shell.Resources />
 
 	<FlyoutItem Title="Home">
@@ -33,7 +36,7 @@
 				<BoxView HeightRequest="1" Color="gray" />
 				<HorizontalStackLayout>
 					<Label Margin="5,5,20,5" Text="Dark mode:" />
-					<Switch IsToggled="True" />
+					<Switch IsToggled="True" Toggled="SwitchToggled" />
 				</HorizontalStackLayout>
 			</StackLayout>
 		</ContentView>

@@ -8,7 +8,7 @@
 	Title="OngoingRoutinePage"
 	x:DataType="viewmodel:OngoingRoutinePageViewModel"
 	Shell.FlyoutBehavior="Disabled"
-	Style="{StaticResource PageStyle}">
+	Style="{DynamicResource PageStyle}">
 
 	<Shell.BackButtonBehavior>
 		<BackButtonBehavior Command="{Binding GoBackCommand}" />

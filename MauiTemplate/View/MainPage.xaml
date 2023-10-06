@@ -8,7 +8,7 @@
 	xmlns:viewmodel="clr-namespace:GymTracker.ViewModel"
 	Title="MainPage"
 	x:DataType="viewmodel:MainPageViewModel"
-	Style="{StaticResource PageStyle}">
+	Style="{DynamicResource PageStyle}">
 	<StackLayout VerticalOptions="FillAndExpand">
 		<Frame
 			Margin="10"
@@ -33,9 +33,9 @@
 			<StackLayout HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
 				<Frame
 					Margin="10"
-					BackgroundColor="#424242"
 					CornerRadius="30"
-					HorizontalOptions="Fill">
+					HorizontalOptions="Fill"
+					Style="{DynamicResource DynamicFrame}">
 					<StackLayout>
 						<Label FontSize="24" Text="5-aug" />
 						<Label FontSize="18" Text="3 days since last exercise" />
@@ -43,9 +43,9 @@
 				</Frame>
 				<Frame
 					Margin="10"
-					BackgroundColor="#424242"
 					CornerRadius="30"
-					HorizontalOptions="Fill">
+					HorizontalOptions="Fill"
+					Style="{DynamicResource DynamicFrame}">
 					<StackLayout>
 						<Label FontSize="32" Text="Lorem" />
 						<Label FontSize="24" Text="ipsum" />
@@ -63,9 +63,9 @@
 				<Frame
 					Margin="10"
 					Padding="0,20,0,5"
-					BackgroundColor="#424242"
 					CornerRadius="30"
-					HorizontalOptions="Fill">
+					HorizontalOptions="Fill"
+					Style="{DynamicResource DynamicFrame}">
 					<Grid>
 						<Grid.RowDefinitions>
 							<RowDefinition />
@@ -96,9 +96,9 @@
 		<Frame
 			Margin="10"
 			Padding="0,20,0,5"
-			BackgroundColor="#424242"
 			CornerRadius="30"
 			HeightRequest="300"
-			HorizontalOptions="Fill" />
+			HorizontalOptions="Fill"
+			Style="{DynamicResource DynamicFrame}" />
 	</StackLayout>
 </ContentPage>

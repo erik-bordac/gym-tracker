@@ -9,7 +9,7 @@
 	Title="New Routine"
 	x:DataType="viewmodel:NewRoutinePageViewModel"
 	Shell.FlyoutBehavior="Disabled"
-	Style="{StaticResource PageStyle}">
+	Style="{DynamicResource PageStyle}">
 
 	<StackLayout>
 		<VerticalStackLayout>

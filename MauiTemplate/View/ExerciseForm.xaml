@@ -8,7 +8,7 @@
 	Title="Add New Exercise"
 	x:DataType="viewmodel:ExerciseFormViewModel"
 	Shell.FlyoutBehavior="Disabled"
-	Style="{StaticResource PageStyle}">
+	Style="{DynamicResource PageStyle}">
 
 	<StackLayout>
 		<Label Style="{StaticResource FieldTitle}" Text="Name" />
