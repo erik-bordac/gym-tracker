@@ -38,7 +38,7 @@
 					Style="{DynamicResource DynamicFrame}">
 					<StackLayout>
 						<Label FontSize="24" Text="{Binding CurrentDate}" />
-						<Label FontSize="18" Text="3 days since last exercise" />
+						<Label FontSize="18" Text="{Binding DaysSinceLastExercise, StringFormat='{0} days since last exercise'}" />
 					</StackLayout>
 				</Frame>
 				<Frame

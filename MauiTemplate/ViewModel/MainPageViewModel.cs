@@ -17,6 +17,9 @@ public partial class MainPageViewModel : BaseViewModel
 	[ObservableProperty]
 	private DateOnly currentDate = DateOnly.FromDateTime(DateTime.Now);
 
+	[ObservableProperty]
+	private int daysSinceLastExercise;
+
 	private OngoingRoutineService _ors;
 	private LocalDatabase _db;
 
@@ -26,8 +29,19 @@ public partial class MainPageViewModel : BaseViewModel
 		_db = db;
 	}
 
+	private async void GetLastExerciseDate()
+	{
+		var list = await _db.GetExerciseHistoryListAsync();
+		var lastDate = list.Last().DateTime;
+
+		var diff = DateTime.Now - lastDate;
+		DaysSinceLastExercise = diff.Days;
+	}
+
 	public void OnAppearing()
 	{
+		GetLastExerciseDate();
+
 		OngoingRoutine = _ors.OngoingRoutine;
 
 		// Load Work/Rest series
