@@ -14,6 +14,9 @@ public partial class MainPageViewModel : BaseViewModel
 	[ObservableProperty]
 	private bool ongoingRoutine;
 
+	[ObservableProperty]
+	private DateOnly currentDate = DateOnly.FromDateTime(DateTime.Now);
+
 	private OngoingRoutineService _ors;
 	private LocalDatabase _db;
 
