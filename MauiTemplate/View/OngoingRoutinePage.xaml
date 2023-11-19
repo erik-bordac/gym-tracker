@@ -146,7 +146,8 @@
 				x:Name="indicatorView"
 				HorizontalOptions="Center"
 				IndicatorColor="LightGray"
-				SelectedIndicatorColor="DarkGray" />
+				IndicatorSize="20"
+				SelectedIndicatorColor="#D4ADFC" />
 
 			<HorizontalStackLayout HorizontalOptions="CenterAndExpand">
 				<Button
