@@ -95,10 +95,16 @@
 
 		<Frame
 			Margin="10"
-			Padding="0,20,0,5"
 			CornerRadius="30"
-			HeightRequest="300"
 			HorizontalOptions="Fill"
-			Style="{DynamicResource DynamicFrame}" />
+			Style="{DynamicResource DynamicFrame}">
+
+			<Label Text="lorem ipsum" />
+		</Frame>
+
+		<Button
+			HorizontalOptions="End"
+			Text="press"
+			VerticalOptions="End" />
 	</StackLayout>
 </ContentPage>

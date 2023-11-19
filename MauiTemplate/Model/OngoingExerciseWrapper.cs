@@ -27,16 +27,9 @@ public partial class OngoingExerciseWrapper: ObservableObject
 		Exercise = ex;
 	}
 
-	public void ChangeFinishedState()
+	public void ChangeFinishedState(bool finished)
 	{
-		if (IsFinished)
-		{
-			IsFinished = false;
-			FrameColor = Color.FromRgba("#424242");
-		} else
-		{
-			IsFinished = true;
-			FrameColor = Color.FromRgba("#116D6E");
-		}
+		IsFinished = finished;
+		FrameColor = finished ? Color.FromRgba("#61b53d") : Color.FromRgba("#424242");
 	}
 }

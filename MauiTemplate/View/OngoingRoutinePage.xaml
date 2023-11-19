@@ -73,11 +73,13 @@
 											<Button
 												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=RepsMinusCommand}"
 												CommandParameter="{Binding .}"
+												Opacity="{Binding IsNotFinished}"
 												Text="-" />
 											<Label Text="{Binding RepsDone}" />
 											<Button
 												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=RepsPlusCommand}"
 												CommandParameter="{Binding .}"
+												Opacity="{Binding IsNotFinished}"
 												Text="+" />
 										</HorizontalStackLayout>
 									</VerticalStackLayout>
@@ -87,11 +89,13 @@
 											<Button
 												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=WeightMinusCommand}"
 												CommandParameter="{Binding .}"
+												Opacity="{Binding IsNotFinished}"
 												Text="-" />
 											<Label Text="{Binding WeightDone}" />
 											<Button
 												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=WeightPlusCommand}"
 												CommandParameter="{Binding .}"
+												Opacity="{Binding IsNotFinished}"
 												Text="+" />
 										</HorizontalStackLayout>
 									</VerticalStackLayout>
@@ -101,11 +105,13 @@
 											<Button
 												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=TimeMinusCommand}"
 												CommandParameter="{Binding .}"
+												Opacity="{Binding IsNotFinished}"
 												Text="-" />
 											<Label Text="{Binding TimeDone}" />
 											<Button
 												Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=TimePlusCommand}"
 												CommandParameter="{Binding .}"
+												Opacity="{Binding IsNotFinished}"
 												Text="+" />
 										</HorizontalStackLayout>
 									</VerticalStackLayout>
@@ -122,7 +128,7 @@
 								<Button
 									Grid.Row="1"
 									Margin="2"
-									BackgroundColor="#D4ADFC"
+									BackgroundColor="#2a7709"
 									Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OngoingRoutinePageViewModel}}, Path=ResumeExerciseCommand}"
 									CommandParameter="{Binding .}"
 									IsVisible="{Binding IsFinished}"

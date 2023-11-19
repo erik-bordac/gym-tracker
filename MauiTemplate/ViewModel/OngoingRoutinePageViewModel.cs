@@ -26,7 +26,7 @@ public partial class OngoingRoutinePageViewModel : BaseViewModel
 	private void FinishExercise(OngoingExerciseWrapper ong_ex)
 	{
 		//ong_ex.IsFinished = true;
-		ong_ex.ChangeFinishedState();
+		ong_ex.ChangeFinishedState(true);
 		_ors.Frames[ong_ex.Index].IsFinished = true;
 	}
 
@@ -34,7 +34,7 @@ public partial class OngoingRoutinePageViewModel : BaseViewModel
 	private void ResumeExercise(OngoingExerciseWrapper ong_ex)
 	{
 		//ong_ex.IsFinished = false;
-		ong_ex.ChangeFinishedState();
+		ong_ex.ChangeFinishedState(false);
 		_ors.Frames[ong_ex.Index].IsFinished = false;
 	}
 
