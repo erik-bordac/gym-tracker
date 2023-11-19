@@ -9,8 +9,19 @@
 	Title="MainPage"
 	x:DataType="viewmodel:MainPageViewModel"
 	Style="{DynamicResource PageStyle}">
-	<StackLayout VerticalOptions="FillAndExpand">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+
 		<Frame
+			Grid.ColumnSpan="2"
 			Margin="10"
 			BackgroundColor="#D4ADFC"
 			CornerRadius="24"
@@ -20,91 +31,67 @@
 			</Frame.GestureRecognizers>
 			<Label Text="Ongoing routine: " TextColor="Black" />
 		</Frame>
-		<Grid>
-			<Grid.RowDefinitions>
-				<RowDefinition />
-			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition />
-				<ColumnDefinition />
-			</Grid.ColumnDefinitions>
 
-			<!--  ========================= COLUMN 1 =========================  -->
-			<StackLayout HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
-				<Frame
-					Margin="10"
-					CornerRadius="30"
-					HorizontalOptions="Fill"
-					Style="{DynamicResource DynamicFrame}">
-					<StackLayout>
-						<Label FontSize="24" Text="{Binding CurrentDate}" />
-						<Label FontSize="18" Text="{Binding DaysSinceLastExercise, StringFormat='{0} days since last exercise'}" />
-					</StackLayout>
-				</Frame>
-				<Frame
-					Margin="10"
-					CornerRadius="30"
-					HorizontalOptions="Fill"
-					Style="{DynamicResource DynamicFrame}">
-					<StackLayout>
-						<Label FontSize="32" Text="Lorem" />
-						<Label FontSize="24" Text="ipsum" />
-					</StackLayout>
-				</Frame>
-			</StackLayout>
-
-			<!--  ========================= COLUMN 2 =========================  -->
-			<Grid Grid.Column="1">
-				<Grid.RowDefinitions>
-					<RowDefinition />
-				</Grid.RowDefinitions>
-
-				<!--  Rest/Work Ratio  -->
-				<Frame
-					Margin="10"
-					Padding="0,20,0,5"
-					CornerRadius="30"
-					HorizontalOptions="Fill"
-					Style="{DynamicResource DynamicFrame}">
-					<Grid>
-						<Grid.RowDefinitions>
-							<RowDefinition />
-							<RowDefinition Height="7*" />
-							<RowDefinition />
-						</Grid.RowDefinitions>
-						<Label
-							FontSize="24"
-							HorizontalTextAlignment="Center"
-							Text="Work/Rest"
-							VerticalOptions="Center" />
-						<lvc:PieChart
-							Grid.Row="1"
-							Margin="0"
-							Series="{Binding RatioSeries}" />
-						<Label
-							Grid.Row="2"
-							Margin="0,0,20,0"
-							FontSize="16"
-							HorizontalTextAlignment="End"
-							Text="(Last 30 days)"
-							VerticalOptions="Center" />
-					</Grid>
-				</Frame>
-			</Grid>
-		</Grid>
-
+		<!--  ========================= COLUMN 1 =========================  -->
 		<Frame
+			Grid.Row="1"
+			Grid.Column="1"
 			Margin="10"
 			CornerRadius="30"
 			HorizontalOptions="Fill"
 			Style="{DynamicResource DynamicFrame}">
-
-			<Label Text="lorem ipsum" />
+			<StackLayout>
+				<Label FontSize="24" Text="{Binding CurrentDate}" />
+				<Label FontSize="18" Text="{Binding DaysSinceLastExercise, StringFormat='{0} days since last exercise'}" />
+			</StackLayout>
+		</Frame>
+		<Frame
+			Grid.Row="1"
+			Margin="10"
+			BackgroundColor="#D4ADFC"
+			CornerRadius="30"
+			HorizontalOptions="Fill"
+			Style="{DynamicResource DynamicFrame}">
+			<StackLayout>
+				<Label
+					FontSize="24"
+					Text="Improvised exercise"
+					TextColor="black" />
+			</StackLayout>
 		</Frame>
 
-		<Button
-			HorizontalOptions="End"
-			Text="press"
-			VerticalOptions="End" />
-	</StackLayout>
+		<Frame
+			Grid.Row="2"
+			Grid.ColumnSpan="2"
+			Margin="10"
+			Padding="0,20,0,5"
+			CornerRadius="30"
+			HorizontalOptions="Fill"
+			MinimumHeightRequest="300"
+			Style="{DynamicResource DynamicFrame}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition Height="7*" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Label
+					FontSize="24"
+					HorizontalTextAlignment="Center"
+					Text="Work/Rest"
+					VerticalOptions="Center" />
+				<lvc:PieChart
+					Grid.Row="1"
+					Margin="0"
+					Series="{Binding RatioSeries}" />
+				<Label
+					Grid.Row="2"
+					Margin="0,0,20,0"
+					FontSize="16"
+					HorizontalTextAlignment="End"
+					Text="(Last 30 days)"
+					VerticalOptions="Center" />
+			</Grid>
+		</Frame>
+	</Grid>
 </ContentPage>
