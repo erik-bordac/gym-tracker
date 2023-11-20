@@ -24,6 +24,13 @@
 			<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryColor}, Dark={StaticResource DarkSecondaryColor}}" />
 		</Style>
 
+		<Style x:Key="DynamicFrameCollectionItem" TargetType="Frame">
+			<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryColor}, Dark={StaticResource DarkSecondaryColor}}" />
+			<Setter Property="Margin" Value="10,10,10,0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="CornerRadius" Value="15" />
+		</Style>
+
 		<!--  PR Frames  -->
 		<Style x:Key="PRFrame" TargetType="Frame">
 			<Setter Property="CornerRadius" Value="30" />

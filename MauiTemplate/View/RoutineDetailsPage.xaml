@@ -14,26 +14,28 @@
 			<CollectionView ItemsSource="{Binding AddedExercises}">
 				<CollectionView.ItemTemplate>
 					<DataTemplate x:DataType="model:AddedExerciseWrapper">
-						<Grid Margin="0,5,0,5" Style="{StaticResource GridStyle}">
-							<Grid.RowDefinitions>
-								<RowDefinition />
-							</Grid.RowDefinitions>
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="3*" />
-								<ColumnDefinition Width="2*" />
-							</Grid.ColumnDefinitions>
+						<Frame Style="{DynamicResource DynamicFrameCollectionItem}">
+							<Grid Style="{StaticResource GridStyle}">
+								<Grid.RowDefinitions>
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="3*" />
+									<ColumnDefinition Width="2*" />
+								</Grid.ColumnDefinitions>
 
-							<Label Margin="10,5,0,5" Text="{Binding Exercise.Name}" />
-							<HorizontalStackLayout Grid.Column="1">
-								<Label
-									Margin="10,0,10,0"
-									FontSize="20"
-									MaximumWidthRequest="40"
-									Text="{Binding Sets}"
-									VerticalTextAlignment="Center" />
-								<Label Text="Sets" />
-							</HorizontalStackLayout>
-						</Grid>
+								<Label Margin="10,5,0,5" Text="{Binding Exercise.Name}" />
+								<HorizontalStackLayout Grid.Column="1">
+									<Label
+										Margin="10,0,10,0"
+										FontSize="20"
+										MaximumWidthRequest="40"
+										Text="{Binding Sets}"
+										VerticalTextAlignment="Center" />
+									<Label Text="Sets" />
+								</HorizontalStackLayout>
+							</Grid>
+						</Frame>
 					</DataTemplate>
 				</CollectionView.ItemTemplate>
 			</CollectionView>
