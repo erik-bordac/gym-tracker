@@ -48,6 +48,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Icons\bin.png" />
+	  <None Remove="Resources\Icons\crossfit.png" />
 	  <None Remove="Resources\Icons\minus.png" />
 	  <None Remove="Resources\Icons\plus.png" />
 	  <None Remove="View\appicon.svg" />
@@ -55,6 +56,7 @@
 
 	<ItemGroup>
 	  <MauiImage Include="Resources\Icons\bin.png" />
+	  <MauiImage Include="Resources\Icons\crossfit.png" />
 	  <MauiImage Include="Resources\Icons\minus.png" />
 	  <MauiImage Include="Resources\Icons\plus.png" />
 	</ItemGroup>

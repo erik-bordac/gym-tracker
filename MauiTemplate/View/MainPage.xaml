@@ -52,12 +52,11 @@
 			CornerRadius="30"
 			HorizontalOptions="Fill"
 			Style="{DynamicResource DynamicFrame}">
-			<StackLayout>
-				<Label
-					FontSize="24"
-					Text="Improvised exercise"
-					TextColor="black" />
-			</StackLayout>
+			<Image
+				HorizontalOptions="Center"
+				MaximumHeightRequest="100"
+				Source="crossfit.png"
+				VerticalOptions="Center" />
 		</Frame>
 
 		<Frame
